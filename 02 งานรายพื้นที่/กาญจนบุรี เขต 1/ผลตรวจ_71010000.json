@@ -62,23 +62,23 @@
   "outputs": {
     "image": {
       "filename": "แผนที่ผลการจับคู่_กาญจนบุรี เขต 1.png",
-      "bytes": 2163755,
-      "sha256": "8490D693959290AD6B09522E0DA8450436E2B0CF55FBB521EC013478B46C5322"
+      "bytes": 2157388,
+      "sha256": "745335DCE8D812ABFA05931AE71C38DD4FCC79260D08560FC036A51782431768"
     },
     "pdf": {
       "filename": "สรุปผลการจับคู่_กาญจนบุรี เขต 1.pdf",
-      "bytes": 3914312,
-      "sha256": "FE469C04C42204E74540C0D1E22386915E9B6466431F5BAE0BA9817BB36061A6"
+      "bytes": 4035733,
+      "sha256": "6F589A3AE413736CA172E8CA68ACED49CBA28364A03D907EF403E37505CF8FE8"
     },
     "size_image": {
       "filename": "แผนที่ขนาดโรงเรียน_กาญจนบุรี เขต 1.png",
-      "bytes": 2289700,
-      "sha256": "42BF304E99FD0AFCF32C8E3C30FFAC725D021718C73D4D221F95D4D6B3725690"
+      "bytes": 2283364,
+      "sha256": "3CCC9AB214AEC560A111B1A0477B2EDC02E22F261EF4969B7C36E145125DAB34"
     }
   },
   "presentation": {
-    "refreshed_at": "2026-10-12T22:37:29+07:00",
-    "renderer_version": "1.10.0",
+    "refreshed_at": "2026-10-13T00:38:54+07:00",
+    "renderer_version": "1.11.0",
     "mode": "accepted-results-render-only",
     "image_width": 2400,
     "image_height": 4126,
@@ -136,7 +136,8 @@
       "tambon_count": 36
     },
     "consolidation_version": 1,
-    "thai_text_shaping": 1,
+    "thai_text_shaping": 2,
+    "output_labels_version": 2,
     "analysis_unchanged": true
   },
   "school_size": {

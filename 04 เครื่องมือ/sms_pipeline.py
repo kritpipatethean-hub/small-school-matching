@@ -36,7 +36,7 @@ from typing import Any, Iterable
 import area_layout as layout
 
 
-VERSION = "1.10.0"
+VERSION = "1.11.0"
 SCRIPT_DIR = Path(__file__).resolve().parent
 WORKSPACE = SCRIPT_DIR.parent
 DATA_DIR = WORKSPACE / "01 ข้อมูลกลาง"
@@ -94,10 +94,13 @@ SIZE_SUMMARY_PAGE_VERSION = 1
 TAMBON_LINE_COLOR = "#8A97A6"
 # ภาพจำลองหลังจับคู่ (consolidation): รุ่นของบล็อกใน QC/catalog; verify แบบเข้มบังคับให้ตรงค่านี้
 CONSOLIDATION_VERSION = 1
-# จัดรูปอักษรไทยในภาพแผนที่ (1.10.0): matplotlib ใน QGIS ไม่ทำ shaping วรรณยุกต์ที่อยู่เหนือสระบนจึงหาย ("ที่" เป็น "ที")
-# ข้อความไทยจัดรูปด้วย Qt (HarfBuzz กับไฟล์ฟอนต์เดียวกัน) แล้ววาดเป็นเส้นขอบ; รุ่นบันทึกใน presentation.thai_text_shaping
-# และ verify แบบเข้มบังคับให้ตรง (PDF ที่สร้างด้วย reportlab ยังไม่จัดรูป — Project Tor.md หัวข้อ 15)
-THAI_SHAPING_VERSION = 1
+# จัดรูปอักษรไทย: matplotlib และ ReportLab ใน QGIS ไม่ทำ shaping วรรณยุกต์ที่อยู่เหนือสระบนจึงหาย ("ที่" เป็น "ที")
+# ข้อความไทยจัดรูปด้วย Qt (HarfBuzz กับไฟล์ฟอนต์เดียวกัน) แล้ววาดเป็นเส้นขอบ — รุ่น 1 ภาพแผนที่ (1.10.0) รุ่น 2 เพิ่มหน้าข้อความ
+# ของ PDF (1.11.0); รุ่นบันทึกใน presentation.thai_text_shaping และ verify แบบเข้มบังคับให้ตรง
+THAI_SHAPING_VERSION = 2
+# ข้อความกำกับที่พิมพ์ท้ายภาพแผนที่และหัว PDF: รุ่น 2 เลิกพิมพ์ "ฉบับนำร่องเพื่อการตรวจสอบ" (ผู้ใช้ตัดสิน 13 ต.ค. 2569; 1.11.0)
+# รุ่นบันทึกใน presentation.output_labels_version และ verify แบบเข้มบังคับให้ตรง
+OUTPUT_LABELS_VERSION = 2
 # ชื่อแผนที่ผู้อ่านเห็น (ผู้ใช้ตัดสิน 12 ต.ค. 2569 เลิกเรียก "แผน 1.2" ในรายงานและเว็บ; 1.9.0) ใช้ร่วมกันที่หัวแผนที่
 # ท้าย PDF ข้อความภาพจำลอง และป้ายวิธีใน QC/catalog — เอกสารภายใน (Tor ฯลฯ) ยังเรียกแผน 1.2 ได้
 PLAN_NAME = "แผนใช้โรงเรียนคุณภาพชุมชนเป็นศูนย์กลางการควบรวม"
@@ -2399,16 +2402,18 @@ def _install_thai_text_shaping(font_name: str) -> None:
 
 
 def _thai_shaping_gate() -> dict[str, int]:
-    """วรรณยุกต์ต้องถูกยกเหนือสระบนจริง: หมึกของ "ที่" "น้ำ" "เชื่อม" ต้องสูงกว่า "ที" "นำ" "เชือม" อย่างน้อย 2 px"""
-    import matplotlib.pyplot as plt
+    """วรรณยุกต์ต้องถูกยกเหนือสระบนจริง: หมึกของ "ที่" "น้ำ" "เชื่อม" ต้องสูงกว่า "ที" "นำ" "เชือม" อย่างน้อย 2 px
+    (วาดด้วย Agg โดยตรงไม่ผ่าน pyplot: backend เริ่มต้นของ QGIS คือ qtagg ซึ่งทำให้โปรเซสล่มเมื่อไม่มีหน้าจอ)"""
     import numpy as np
+    from matplotlib.backends.backend_agg import FigureCanvasAgg
+    from matplotlib.figure import Figure
 
     def top_row(value: str) -> int:
-        fig = plt.figure(figsize=(1.6, 0.9), dpi=200)
+        fig = Figure(figsize=(1.6, 0.9), dpi=200)
+        canvas = FigureCanvasAgg(fig)
         fig.text(0.12, 0.3, value, fontsize=24, color="black", fontfamily=_THAI_SHAPING["font"])
-        fig.canvas.draw()
-        ink = (255.0 - np.asarray(fig.canvas.buffer_rgba())[..., :3].astype(float).mean(axis=2)) > 96
-        plt.close(fig)
+        canvas.draw()
+        ink = (255.0 - np.asarray(canvas.buffer_rgba())[..., :3].astype(float).mean(axis=2)) > 96
         rows = np.where(ink.any(axis=1))[0]
         if not rows.size:
             raise QualityError(f"ทดสอบวาด '{value}' แล้วไม่มีหมึก")
@@ -3113,6 +3118,7 @@ def fresh_presentation(tambon_meta: dict[str, Any] | None) -> dict[str, Any]:
         "size_summary_page_version": SIZE_SUMMARY_PAGE_VERSION,
         "consolidation_version": CONSOLIDATION_VERSION,
         "thai_text_shaping": THAI_SHAPING_VERSION,
+        "output_labels_version": OUTPUT_LABELS_VERSION,
         "tambon_lines": tambon_meta,
     }
 
@@ -3137,7 +3143,7 @@ def map_source_footer(tambon_lines: Any) -> str:
     parts = ["ที่มาถนน: © OpenStreetMap contributors"]
     if tambon_lines is not None and len(tambon_lines):
         parts.append("แนวเขตตำบล: ชั้นข้อมูลขอบเขตการปกครอง tha_admin3")
-    parts += ["ชุดข้อมูล DMC682", "ฉบับนำร่องเพื่อการตรวจสอบ"]
+    parts.append("ชุดข้อมูล DMC682")  # ไม่พิมพ์ "ฉบับนำร่องเพื่อการตรวจสอบ" แล้ว (ผู้ใช้ตัดสิน 13 ต.ค. 2569)
     return "  |  ".join(parts)
 
 
@@ -3490,6 +3496,298 @@ def _reportlab_fonts() -> tuple[str, str]:
     return "Helvetica", "Helvetica-Bold"
 
 
+_THAI_PDF_UNITS = 2048  # หน่วยรูปอักษรที่ขอจาก Qt (= unitsPerEm ของ Tahoma) ไม่ปัดตาม hinting
+_THAI_PDF_FONTS = {"SMS-Thai": False, "SMS-Thai-Bold": True}  # ฟอนต์ ReportLab → Tahoma ตัวหนาหรือไม่
+_THAI_PDF_WORDS = re.compile("[^ \xa0]+")  # ช่วงระหว่างช่องว่าง (ช่องว่างรับ word spacing ของ PDF)
+
+
+def _pdf_number(value: float, digits: int = 3) -> str:
+    text = f"{value:.{digits}f}".rstrip("0").rstrip(".")
+    return "0" if text in ("", "-0") else text
+
+
+def _thai_pdf_glyphs(text: str, bold: bool) -> tuple[list[tuple[str | None, float, float]], float]:
+    """Qt (HarfBuzz) จัดรูปข้อความหนึ่งช่วงด้วย Tahoma: คืน (ชื่อฟอร์มรูปอักษร, x, y) หน่วยรูปอักษร y ชี้ขึ้น
+    กับความกว้างรวม; เส้นขอบแต่ละรูปอักษรเก็บครั้งเดียวใน _THAI_SHAPING["pdf_shapes"] เพื่อใช้ซ้ำทั้งเอกสาร"""
+    runs = _THAI_SHAPING.setdefault("pdf_runs", {})
+    if (text, bold) in runs:
+        return runs[(text, bold)]
+    from qgis.PyQt.QtGui import QFont, QPainterPath, QTextLayout, QTextOption
+
+    font = QFont("Tahoma")
+    font.setPixelSize(_THAI_PDF_UNITS)
+    font.setBold(bold)
+    font.setKerning(False)  # ReportLab ไม่ใช้ kerning ระยะตัวอักษรจึงตรงกับข้อความจริงที่ซ้อนอยู่
+    font.setHintingPreference(QFont.PreferNoHinting)
+    layout = QTextLayout(text, font)
+    option = QTextOption()
+    option.setWrapMode(QTextOption.NoWrap)
+    layout.setTextOption(option)
+    layout.beginLayout()
+    line = layout.createLine()
+    line.setLineWidth(1.0e7)
+    layout.endLayout()
+    baseline = line.y() + line.ascent()
+    shapes = _THAI_SHAPING.setdefault("pdf_shapes", {})
+    style = "Bold" if bold else "Regular"
+    glyphs: list[tuple[str | None, float, float]] = []
+    for run in layout.glyphRuns():
+        raw = run.rawFont()
+        if raw.familyName() != "Tahoma" or raw.styleName() != style or raw.pixelSize() != _THAI_PDF_UNITS:
+            raise QualityError(f"Qt จัดรูป '{text}' ด้วยฟอนต์ {raw.familyName()} {raw.styleName()} ไม่ใช่ Tahoma {style}")
+        for index, position in zip(run.glyphIndexes(), run.positions()):
+            name = f"smsT{int(bold)}g{index}"
+            if name not in shapes:
+                outline = raw.pathForGlyph(index)
+                ops: list[str] = []
+                item, count = 0, outline.elementCount()
+                while item < count:
+                    element = outline.elementAt(item)
+                    if element.type == QPainterPath.MoveToElement:
+                        ops.append(f"{_pdf_number(element.x, 1)} {_pdf_number(-element.y, 1)} m")
+                        item += 1
+                    elif element.type == QPainterPath.LineToElement:
+                        ops.append(f"{_pdf_number(element.x, 1)} {_pdf_number(-element.y, 1)} l")
+                        item += 1
+                    elif element.type == QPainterPath.CurveToElement:
+                        points = [element, outline.elementAt(item + 1), outline.elementAt(item + 2)]
+                        ops.append(" ".join(f"{_pdf_number(p.x, 1)} {_pdf_number(-p.y, 1)}" for p in points) + " c")
+                        item += 3
+                    else:
+                        item += 1
+                box = outline.boundingRect()
+                shapes[name] = (" ".join(ops) + " f", (
+                    math.floor(box.left()) - 2, math.floor(-box.bottom()) - 2,
+                    math.ceil(box.right()) + 2, math.ceil(-box.top()) + 2,
+                )) if ops else None
+            glyphs.append((name if shapes[name] else None, position.x(), baseline - position.y()))
+    runs[(text, bold)] = (glyphs, line.naturalTextWidth())
+    return runs[(text, bold)]
+
+
+def _thai_pdf_gate() -> dict[str, float]:
+    """วรรณยุกต์ใน PDF ต้องถูกยกเหนือสระบนจริง: ยอดของ "ที่" "น้ำ" "เชื่อม" ต้องสูงกว่า "ที" "นำ" "เชือม" อย่างน้อย 0.1 em"""
+    def top(value: str, bold: bool) -> float:
+        glyphs, _ = _thai_pdf_glyphs(value, bold)
+        tops = [y + _THAI_SHAPING["pdf_shapes"][name][1][3] for name, _, y in glyphs if name]
+        if not tops:
+            raise QualityError(f"จัดรูป '{value}' สำหรับ PDF แล้วไม่มีรูปอักษร")
+        return max(tops)
+
+    rises: dict[str, float] = {}
+    for bold in (False, True):
+        for marked, bare in (("ที่", "ที"), ("น้ำ", "นำ"), ("เชื่อม", "เชือม")):
+            rise = (top(marked, bold) - top(bare, bold)) / _THAI_PDF_UNITS
+            if rise < 0.1:
+                raise QualityError(f"วรรณยุกต์ของ '{marked}' ใน PDF ไม่ถูกยกเหนือสระบน — หยุดก่อนสร้าง PDF ที่สะกดผิด")
+            rises[marked + (" (หนา)" if bold else "")] = round(rise, 3)
+    return rises
+
+
+def _thai_pdf_canvas(output_path: Path, pagesize: tuple[float, float]) -> Any:
+    """Canvas ของ ReportLab ที่วาดข้อความซึ่งมีอักษรไทยเป็นรูปทรงที่ Qt จัดรูปแล้ว (วรรณยุกต์ไม่จมในสระบน) ตำแหน่ง
+    และขนาดตัวอักษรเท่าเดิมทุกตัว ข้อความจริงยังอยู่ที่เดิมแบบล่องหน (Tr 3) จึงค้นหาและคัดลอกได้เหมือนเดิม;
+    ข้อความที่ไม่มีอักษรไทย (เช่น ตัวเลขในการ์ด) วาดแบบเดิม"""
+    _prepare_plot_font()  # QGuiApplication + ด่านวรรณยุกต์ของภาพแผนที่
+    if "pdf_canvas" not in _THAI_SHAPING:
+        from qgis.PyQt.QtGui import QFont, QFontDatabase, QFontInfo
+        from reportlab.lib.rl_accel import fp_str
+        from reportlab.pdfbase import pdfmetrics
+        from reportlab.pdfgen import canvas as rl_canvas
+        from reportlab.pdfgen import textobject as rl_text
+
+        font_root = Path(os.environ.get("WINDIR", r"C:\Windows")) / "Fonts"
+        for name, bold in (("tahoma.ttf", False), ("tahomabd.ttf", True)):
+            if QFontDatabase.addApplicationFont(str(font_root / name)) < 0:
+                raise QualityError(f"Qt โหลดฟอนต์ไม่ได้: {font_root / name}")
+            probe = QFont("Tahoma")
+            probe.setBold(bold)
+            if QFontInfo(probe).family() != "Tahoma" or QFontInfo(probe).bold() != bold:
+                raise QualityError(f"Qt ไม่ได้ใช้ฟอนต์ Tahoma {'ตัวหนา' if bold else 'ตัวปกติ'} สำหรับ PDF")
+
+        class ShapedText(rl_text.PDFTextObject):
+            # ติดตามสถานะข้อความของ PDF เอง (Tm/Td/T*/TL/Tc/Tw/Tz/Ts) เพราะตำแหน่งที่ ReportLab เก็บไม่นับ T* ของย่อหน้า
+            def __init__(self, canv: Any, x: float = 0, y: float = 0, direction: Any = None) -> None:
+                if not canv.bottomup:
+                    raise QualityError("PDF ต้องใช้พิกัดแบบ bottom-up")
+                self._sms_cs = self._sms_ws = self._sms_rise = 0.0
+                self._sms_hz = 100.0
+                self._sms_tl_stale = False
+                self._sms_depth = 0
+                self._sms_fill: list[str] | None = None  # คำสั่งสี/ความโปร่งใสที่ข้อความนี้ตั้งเอง (None = สีขณะเริ่มข้อความ)
+                self._sms_draws: list[tuple[list[str] | None, str, list[str]]] = []
+                super().__init__(canv, x, y, direction=direction)
+                self._sms_tl = self._leading
+                # ไม่พึ่งค่าค้างจากข้อความก่อนหน้า: ตั้งสถานะให้ตรงกับที่ ReportLab สมมติไว้ (ภาพที่วาดไม่เปลี่ยน)
+                self._code.append(f"0 Tc 0 Tw 100 Tz 0 Ts {fp_str(self._leading)} TL 0 Tr")
+
+            def setTextOrigin(self, x: float, y: float) -> None:
+                super().setTextOrigin(x, y)
+                self._sms_line, self._sms_x, self._sms_plain = [float(x), float(y)], float(x), True
+
+            def setTextTransform(self, a: float, b: float, c: float, d: float, e: float, f: float) -> None:
+                super().setTextTransform(a, b, c, d, e, f)
+                self._sms_line, self._sms_x = [float(e), float(f)], float(e)
+                self._sms_plain = (a, b, c, d) == (1, 0, 0, 1)
+
+            def moveCursor(self, dx: float, dy: float) -> None:
+                super().moveCursor(dx, dy)  # Td ที่ ReportLab รวมกับ Td ก่อนหน้าให้ผลรวมเท่ากัน
+                self._sms_line[0] += dx
+                self._sms_line[1] -= dy
+                self._sms_x = self._sms_line[0]
+
+            def setFont(self, psfontname: str, size: float, leading: float | None = None) -> None:
+                super().setFont(psfontname, size, leading)
+                if pdfmetrics.getFont(psfontname)._dynamicFont:
+                    self._sms_tl_stale = self._leading != self._sms_tl  # TL จะถูกเขียนตอนข้อความถัดไป
+                else:
+                    self._sms_tl, self._sms_tl_stale = self._leading, False
+
+            def setLeading(self, leading: float) -> None:
+                super().setLeading(leading)
+                self._sms_tl, self._sms_tl_stale = leading, False
+
+            def setCharSpace(self, charSpace: float) -> None:
+                super().setCharSpace(charSpace)
+                self._sms_cs = charSpace
+
+            def setWordSpace(self, wordSpace: float) -> None:
+                super().setWordSpace(wordSpace)
+                self._sms_ws = wordSpace
+
+            def setHorizScale(self, horizScale: float) -> None:
+                super().setHorizScale(horizScale)
+                self._sms_hz = horizScale
+
+            def setRise(self, rise: float) -> None:
+                super().setRise(rise)
+                self._sms_rise = rise
+
+            def _sms_fill_call(self, method: str, *args: Any, **kwargs: Any) -> None:
+                # เก็บคำสั่งสีเติม/ความโปร่งใส (gs) ตามลำดับเพื่อเล่นซ้ำตอนวาดรูปทรง; เก็บเฉพาะการเรียกชั้นนอกสุด
+                start = len(self._code)
+                self._sms_depth += 1
+                try:
+                    getattr(super(), method)(*args, **kwargs)
+                finally:
+                    self._sms_depth -= 1
+                if self._sms_depth == 0 and len(self._code) > start:
+                    self._sms_fill = [*(self._sms_fill or []), *self._code[start:]]
+
+            def setFillColor(self, aColor: Any, alpha: Any = None) -> None:
+                self._sms_fill_call("setFillColor", aColor, alpha=alpha)
+
+            def setFillColorRGB(self, r: float, g: float, b: float, alpha: Any = None) -> None:
+                self._sms_fill_call("setFillColorRGB", r, g, b, alpha=alpha)
+
+            def setFillColorCMYK(self, c: float, m: float, y: float, k: float, alpha: Any = None) -> None:
+                self._sms_fill_call("setFillColorCMYK", c, m, y, k, alpha=alpha)
+
+            def setFillGray(self, gray: float, alpha: Any = None) -> None:
+                self._sms_fill_call("setFillGray", gray, alpha=alpha)
+
+            def setFillAlpha(self, a: float) -> None:
+                self._sms_fill_call("setFillAlpha", a)
+
+            def setFillOverprint(self, a: Any) -> None:
+                self._sms_fill_call("setFillOverprint", a)
+
+            def _sms_newline(self) -> None:
+                self._sms_line[1] -= self._sms_tl  # T* ใช้ TL ที่เขียนลง PDF แล้ว (_sms_tl) แม้ leading ใหม่ยังไม่ถูกเขียน
+                self._sms_x = self._sms_line[0]
+
+            def _textOut(self, text: str, TStar: int = 0) -> None:
+                super()._textOut(text, TStar)
+                if TStar:
+                    self._sms_newline()
+
+            def textLine(self, text: str = "") -> None:
+                super().textLine(text)
+                self._sms_newline()
+
+            def _sms_plain_text(self, text: str) -> str:
+                code = super()._formatText(text)
+                if text:
+                    width = self._canvas.stringWidth(text, self._fontname, self._fontsize)
+                    spaces = text.count(" ") + text.count("\xa0")
+                    self._sms_x += (width + self._sms_cs * len(text) + self._sms_ws * spaces) * self._sms_hz / 100.0
+                    if self._sms_tl_stale:  # ข้อความแรกหลังเปลี่ยนฟอนต์เขียน Tf/TL ด้วย leading ปัจจุบันเสมอ
+                        self._sms_tl, self._sms_tl_stale = self._leading, False
+                return code
+
+            def _formatText(self, text: str) -> str:
+                if not _THAI_TEXT.search(text):
+                    return self._sms_plain_text(text)
+                bold = _THAI_PDF_FONTS.get(self._fontname)
+                if bold is None:
+                    raise QualityError(f"ข้อความไทยใน PDF ต้องใช้ฟอนต์ SMS-Thai (ได้ {self._fontname})")
+                if rl_text.log2vis and self.direction in ("LTR", "RTL"):
+                    raise QualityError("PDF ไม่รองรับการกลับทิศข้อความร่วมกับอักษรไทย")
+                if not (self._sms_plain and self._textRenderMode == 0 and self._sms_cs == 0 and self._sms_hz == 100):
+                    raise QualityError(f"ตำแหน่งหรือรูปแบบข้อความไทยใน PDF ไม่รองรับ: '{text}'")
+                size = float(self._fontsize)
+                unit = _THAI_PDF_UNITS / size  # pt → หน่วยรูปอักษร
+                ops = [f"{_pdf_number(1 / unit, 9)} 0 0 {_pdf_number(1 / unit, 9)} "
+                       f"{_pdf_number(self._sms_x)} {_pdf_number(self._sms_line[1] + self._sms_rise)} cm"]
+                names: list[str] = []
+                at_x = at_y = 0.0
+                for word in _THAI_PDF_WORDS.finditer(text):
+                    prefix = text[:word.start()]
+                    start = (self._canvas.stringWidth(prefix, self._fontname, size)
+                             + self._sms_ws * (prefix.count(" ") + prefix.count("\xa0"))) * unit
+                    glyphs, natural = _thai_pdf_glyphs(word.group(), bold)
+                    target = self._canvas.stringWidth(word.group(), self._fontname, size) * unit
+                    # Qt กับ ReportLab ใช้ความกว้างตัวอักษรชุดเดียวกัน ต่างได้เฉพาะรูปทดแทนบางตัว (เช่น ฐ/ญ มีสระล่าง)
+                    if natural <= 0 or abs(natural - target) > 30 + 0.005 * target:
+                        raise QualityError(f"ความกว้างข้อความไทยจาก Qt ไม่ตรงกับ PDF: '{word.group()}'")
+                    for name, gx, gy in glyphs:
+                        if name is None:
+                            continue
+                        dx = round(start + gx * target / natural - at_x, 1)
+                        dy = round(gy - at_y, 1)
+                        at_x, at_y = at_x + dx, at_y + dy
+                        ops.append(f"1 0 0 1 {_pdf_number(dx, 1)} {_pdf_number(dy, 1)} cm "
+                                   f"/{self._canvas._doc.getXObjectName(name)} Do")
+                        names.append(name)
+                self._sms_draws.append((self._sms_fill, " ".join(ops), names))
+                return f"3 Tr {self._sms_plain_text(text)} 0 Tr"  # ข้อความจริงตำแหน่งเดิม แบบล่องหน
+
+        class ShapedCanvas(rl_canvas.Canvas):
+            def __init__(self, *args: Any, **kwargs: Any) -> None:
+                self._sms_forms: set[str] = set()
+                super().__init__(*args, **kwargs)
+
+            def beginText(self, x: float = 0, y: float = 0, direction: Any = None) -> Any:
+                return ShapedText(self, x, y, direction=direction)
+
+            def drawText(self, aTextObject: Any) -> None:
+                # วาดรูปทรงก่อน BT ของข้อความจริง (ล่องหน): สถานะกราฟิกตรงนี้คือสถานะตอนเริ่มข้อความพอดี
+                # ช่วงหลังจากที่ข้อความตั้งสีเองเล่นคำสั่งสีเหล่านั้นซ้ำ; clip จาก Tr 4–7 ใน ET จึงไม่ตัดรูปทรง
+                for fill, ops, names in getattr(aTextObject, "_sms_draws", ()):
+                    self._code.append(" ".join(["q", *(fill or []), ops, "Q"]))
+                    for name in names:
+                        if name not in self._formsinuse:
+                            self._formsinuse.append(name)
+                        self._sms_forms.add(name)
+                super().drawText(aTextObject)
+
+            def save(self) -> None:
+                if len(self._code):
+                    self.showPage()
+                for name in sorted(self._sms_forms):  # นิยามรูปอักษรที่ใช้หลังหน้าสุดท้าย (ReportLab อนุญาต)
+                    ops, box = _THAI_SHAPING["pdf_shapes"][name]
+                    self.beginForm(name, *box)
+                    self._preamble = ""  # รูปอักษรต้องไม่รับสีเติม/ฟอนต์จาก preamble ของหน้า (สีมาจากจุดที่วาด)
+                    self._code.append(ops)
+                    self.endForm()
+                super().save()
+
+        _THAI_SHAPING["pdf_canvas"] = ShapedCanvas
+    if "pdf_gate" not in _THAI_SHAPING:
+        _THAI_SHAPING["pdf_gate"] = _thai_pdf_gate()
+    return _THAI_SHAPING["pdf_canvas"](str(output_path), pagesize=pagesize)
+
+
 def render_summary_pdf(
     area: dict[str, Any],
     summary: dict[str, Any],
@@ -3505,7 +3803,6 @@ def render_summary_pdf(
         from reportlab.lib.pagesizes import A4, landscape
         from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
         from reportlab.lib.utils import ImageReader
-        from reportlab.pdfgen import canvas
         from reportlab.platypus import Paragraph, Table, TableStyle
         from reportlab.lib.enums import TA_RIGHT
         from xml.sax.saxutils import escape as xml_escape
@@ -3516,7 +3813,7 @@ def render_summary_pdf(
     regular, bold = _reportlab_fonts()
     page_width, page_height = A4
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    pdf = canvas.Canvas(str(output_path), pagesize=A4)
+    pdf = _thai_pdf_canvas(output_path, A4)  # อักษรไทยจัดรูปด้วย Qt (THAI_SHAPING_VERSION 2)
     pdf.setTitle(f"สรุปผลการจับคู่ {area['name']}")
     pdf.setAuthor("โครงการวิเคราะห์การจับคู่โรงเรียนขนาดเล็ก")
     # Give the map its own page; squeezing it between metrics and prose made
@@ -3540,7 +3837,7 @@ def render_summary_pdf(
     pdf.drawString(margin, page_height - 48, f"สรุปผลการจับคู่ — {area['name']}")
     pdf.setFont(regular, 8.5)
     pdf.setFillColor(colors.HexColor("#4B5563"))
-    pdf.drawString(margin, page_height - 65, "ฉบับนำร่องเพื่อการตรวจสอบ | ชุดข้อมูล DMC682")
+    pdf.drawString(margin, page_height - 65, "ชุดข้อมูล DMC682")
     pdf.drawRightString(page_width - margin, page_height - 65, f"รหัสพื้นที่ {area['areacode']}")
 
     metrics = [
@@ -3720,7 +4017,7 @@ def render_summary_pdf(
         pdf.drawString(margin, page_height - 48, f"สภาพโรงเรียนขนาดเล็กในพื้นที่ — {area['name']}")
         pdf.setFont(regular, 8.5)
         pdf.setFillColor(colors.HexColor("#4B5563"))
-        pdf.drawString(margin, page_height - 65, "ฉบับนำร่องเพื่อการตรวจสอบ | ชุดข้อมูล DMC682 | คำอธิบายประกอบแผนที่ขนาดโรงเรียนหน้าก่อนหน้า")
+        pdf.drawString(margin, page_height - 65, "ชุดข้อมูล DMC682 | คำอธิบายประกอบแผนที่ขนาดโรงเรียนหน้าก่อนหน้า")
         pdf.drawRightString(page_width - margin, page_height - 65, f"รหัสพื้นที่ {area['areacode']}")
         size_total = int(size_profile["total"])
         size_counts = {str(item["label"]): int(item["count"]) for item in size_profile["bins"]}
@@ -4328,13 +4625,15 @@ def verify_area_assets(area: dict[str, Any], require_size_map: bool = True) -> d
                     or presentation.get("size_summary_page_version") != SIZE_SUMMARY_PAGE_VERSION
                     or not isinstance(presentation.get("tambon_lines"), dict)
                     or presentation.get("consolidation_version") != CONSOLIDATION_VERSION
-                    or presentation.get("thai_text_shaping") != THAI_SHAPING_VERSION):
+                    or presentation.get("thai_text_shaping") != THAI_SHAPING_VERSION
+                    or presentation.get("output_labels_version") != OUTPUT_LABELS_VERSION):
                 raise QualityError(
                     f"QC {area['name']} สร้างด้วยกติกาต่างจากรุ่นปัจจุบัน "
                     f"(แผนที่ขนาดไม่เกิน {SIZE_MAP_MAX_STUDENTS} คน + ป้ายชื่อทุกโรงเรียนที่วาด รุ่น {SIZE_MAP_LABELS_VERSION} "
                     f"+ หน้าคำอธิบายขนาดใน PDF รุ่น {SIZE_SUMMARY_PAGE_VERSION} "
                     f"+ แนวเขตตำบล + ภาพจำลองหลังจับคู่ รุ่น {CONSOLIDATION_VERSION} "
-                    f"+ จัดรูปอักษรไทยในภาพแผนที่ รุ่น {THAI_SHAPING_VERSION}); "
+                    f"+ จัดรูปอักษรไทยในภาพแผนที่และ PDF รุ่น {THAI_SHAPING_VERSION} "
+                    f"+ ข้อความกำกับท้ายแผนที่และหัว PDF รุ่น {OUTPUT_LABELS_VERSION}); "
                     "ต้องรัน refresh-assets"
                 )
             verify_consolidation(area, qc)
@@ -4542,7 +4841,8 @@ def refresh_assets(
                     "size_map_labels_version": SIZE_MAP_LABELS_VERSION,
                     "size_summary_page_version": SIZE_SUMMARY_PAGE_VERSION,
                     "tambon_lines": tambon_meta, "consolidation_version": CONSOLIDATION_VERSION,
-                    "thai_text_shaping": THAI_SHAPING_VERSION, "analysis_unchanged": True,
+                    "thai_text_shaping": THAI_SHAPING_VERSION, "output_labels_version": OUTPUT_LABELS_VERSION,
+                    "analysis_unchanged": True,
                 }
                 refreshed["school_size"] = size_profile
                 refreshed["consolidation"] = consolidation
