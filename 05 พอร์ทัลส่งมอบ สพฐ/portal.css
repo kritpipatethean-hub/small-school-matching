@@ -145,7 +145,7 @@ h3 {
   color: #fff;
 }
 
-/* โลโก้มหาวิทยาลัยธรรมศาสตร์และ สพฐ. บนแผ่นสีขาว ให้โลโก้ที่มีพื้นขาว (JPEG ต้นฉบับ) กลืนกับพื้น */
+/* โลโก้ กสศ. มหาวิทยาลัยธรรมศาสตร์ และ สพฐ. บนแผ่นสีขาว ให้โลโก้ที่มีพื้นขาว (JPEG ต้นฉบับ) กลืนกับพื้น */
 .brand-logos {
   display: flex;
   align-items: center;
@@ -167,16 +167,21 @@ h3 {
   color: #d8eaf5;
 }
 
-.pilot-badge {
-  max-width: 13rem;
-  padding: 0.55rem 0.8rem;
+.version-badge {
+  display: grid;
+  margin: 0;
+  padding: 0.5rem 0.9rem;
   border: 1px solid #f4d37b;
-  border-radius: 999px;
+  border-radius: 0.8rem;
   background: #fff3ca;
   color: #503900;
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-size: 0.82rem;
+  line-height: 1.5;
   text-align: center;
+}
+
+.version-badge strong {
+  font-size: 0.95rem;
 }
 
 .eyebrow {
@@ -978,7 +983,12 @@ select {
   color: #fff;
 }
 
+.footer-keep {
+  white-space: nowrap;
+}
+
 .footer-note {
+  grid-column: -2 / -1;
   justify-self: end;
   text-align: right;
 }
@@ -1052,8 +1062,10 @@ select {
     width: min(100% - 1rem, 90rem);
   }
 
+  /* จอแคบ: โลโก้ ชื่อ และป้ายเวอร์ชันเรียงลงทีละแถว ให้ชื่อโครงการและชื่อหน้าใช้ความกว้างเต็มแถว */
   .header-inner {
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
   }
 
   .brand-logo {
@@ -1061,14 +1073,14 @@ select {
   }
 
   .brand-logos {
+    justify-self: start;
     gap: 0.5rem;
     padding: 0.35rem 0.5rem;
   }
 
-  .pilot-badge {
-    grid-column: 1 / -1;
-    max-width: none;
+  .version-badge {
     justify-self: start;
+    text-align: left;
   }
 
   .search-panel,
