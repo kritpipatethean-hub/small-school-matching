@@ -36,7 +36,7 @@ from typing import Any, Iterable
 import area_layout as layout
 
 
-VERSION = "1.9.0"
+VERSION = "1.10.0"
 SCRIPT_DIR = Path(__file__).resolve().parent
 WORKSPACE = SCRIPT_DIR.parent
 DATA_DIR = WORKSPACE / "01 ข้อมูลกลาง"
@@ -94,6 +94,10 @@ SIZE_SUMMARY_PAGE_VERSION = 1
 TAMBON_LINE_COLOR = "#8A97A6"
 # ภาพจำลองหลังจับคู่ (consolidation): รุ่นของบล็อกใน QC/catalog; verify แบบเข้มบังคับให้ตรงค่านี้
 CONSOLIDATION_VERSION = 1
+# จัดรูปอักษรไทยในภาพแผนที่ (1.10.0): matplotlib ใน QGIS ไม่ทำ shaping วรรณยุกต์ที่อยู่เหนือสระบนจึงหาย ("ที่" เป็น "ที")
+# ข้อความไทยจัดรูปด้วย Qt (HarfBuzz กับไฟล์ฟอนต์เดียวกัน) แล้ววาดเป็นเส้นขอบ; รุ่นบันทึกใน presentation.thai_text_shaping
+# และ verify แบบเข้มบังคับให้ตรง (PDF ที่สร้างด้วย reportlab ยังไม่จัดรูป — Project Tor.md หัวข้อ 15)
+THAI_SHAPING_VERSION = 1
 # ชื่อแผนที่ผู้อ่านเห็น (ผู้ใช้ตัดสิน 12 ต.ค. 2569 เลิกเรียก "แผน 1.2" ในรายงานและเว็บ; 1.9.0) ใช้ร่วมกันที่หัวแผนที่
 # ท้าย PDF ข้อความภาพจำลอง และป้ายวิธีใน QC/catalog — เอกสารภายใน (Tor ฯลฯ) ยังเรียกแผน 1.2 ได้
 PLAN_NAME = "แผนใช้โรงเรียนคุณภาพชุมชนเป็นศูนย์กลางการควบรวม"
@@ -2304,6 +2308,129 @@ def _plot_font_name() -> str:
     return "DejaVu Sans"
 
 
+_THAI_TEXT = re.compile("[\u0e00-\u0e7f]")
+_BOLD_WEIGHTS = frozenset({"bold", "heavy", "extra bold", "ultrabold", "black", "semibold", "demibold", "demi"})
+_THAI_SHAPING: dict[str, Any] = {}
+
+
+def _install_thai_text_shaping(font_name: str) -> None:
+    """ให้ข้อความที่มีอักษรไทยใน RendererAgg จัดรูปด้วย Qt (HarfBuzz) แล้ววาดเป็นเส้นขอบ ตำแหน่ง ขนาด และกรอบป้ายของ
+    matplotlib ไม่เปลี่ยน (วิธีเดียวกับ prototype_close_small.py ที่ทดสอบแล้ว; ติดตั้งครั้งเดียวต่อโปรเซส)"""
+    if _THAI_SHAPING.get("font") == font_name:
+        return
+    if _THAI_SHAPING:
+        raise QualityError("ติดตั้งการจัดรูปอักษรไทยซ้ำด้วยฟอนต์ต่างกัน")
+    os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+    import numpy as np
+    from matplotlib import font_manager
+    from matplotlib.backends.backend_agg import RendererAgg
+    from matplotlib.path import Path as MPath
+    from matplotlib.transforms import Affine2D
+    from qgis.PyQt.QtGui import QFont, QFontDatabase, QFontInfo, QGuiApplication, QPainterPath
+
+    app = QGuiApplication.instance() or QGuiApplication(["sms-pipeline"])
+    files: list[str] = []
+    for weight in ("normal", "bold"):
+        file = font_manager.findfont(font_manager.FontProperties(family=font_name, weight=weight), fallback_to_default=False)
+        if file not in files:
+            files.append(file)
+            if QFontDatabase.addApplicationFont(file) < 0:
+                raise QualityError(f"Qt โหลดฟอนต์ไม่ได้: {file}")
+    for bold in (False, True):
+        probe = QFont(font_name)
+        probe.setBold(bold)
+        if QFontInfo(probe).family() != font_name:
+            raise QualityError(f"Qt ไม่ได้ใช้ฟอนต์ {font_name} (ได้ {QFontInfo(probe).family()})")
+    ref_px = 2048
+    cache: dict[tuple[str, bool, bool], Any] = {}
+
+    def shaped_path(value: str, bold: bool, italic: bool) -> Any:
+        key = (value, bold, italic)
+        if key not in cache:
+            font = QFont(font_name)
+            font.setPixelSize(ref_px)
+            font.setBold(bold)
+            font.setItalic(italic)
+            font.setHintingPreference(QFont.PreferNoHinting)
+            outline = QPainterPath()
+            outline.addText(0.0, 0.0, font, value)  # Qt จัดรูปทั้งข้อความ จุดเริ่มอยู่บนเส้นฐาน
+            verts: list[tuple[float, float]] = []
+            codes: list[int] = []
+            index, count = 0, outline.elementCount()
+            while index < count:
+                element = outline.elementAt(index)
+                if element.type == QPainterPath.MoveToElement:
+                    verts.append((element.x, -element.y))
+                    codes.append(MPath.MOVETO)
+                    index += 1
+                elif element.type == QPainterPath.LineToElement:
+                    verts.append((element.x, -element.y))
+                    codes.append(MPath.LINETO)
+                    index += 1
+                elif element.type == QPainterPath.CurveToElement:
+                    control, end = outline.elementAt(index + 1), outline.elementAt(index + 2)
+                    verts += [(element.x, -element.y), (control.x, -control.y), (end.x, -end.y)]
+                    codes += [MPath.CURVE4] * 3
+                    index += 3
+                else:
+                    index += 1
+            cache[key] = MPath(np.array(verts, float), codes) if verts else None
+        return cache[key]
+
+    original = RendererAgg.draw_text
+
+    def draw_text(self: Any, gc: Any, x: float, y: float, s: str, prop: Any, angle: float,
+                  ismath: Any = False, mtext: Any = None) -> Any:
+        if ismath or not _THAI_TEXT.search(s):
+            return original(self, gc, x, y, s, prop, angle, ismath=ismath, mtext=mtext)
+        weight = prop.get_weight()
+        bold = weight >= 600 if isinstance(weight, (int, float)) else str(weight) in _BOLD_WEIGHTS
+        path = shaped_path(s, bold, prop.get_style() != "normal")
+        if path is None:
+            return None
+        scale = prop.get_size_in_points() * self.dpi / 72.0 / ref_px
+        gc.set_linewidth(0)  # เติมสีอย่างเดียว
+        # (x, y) คือจุดเริ่มเส้นฐานโดยวัด y จากขอบบน — แปลงเป็นพิกัดจากขอบล่างของ draw_path
+        self.draw_path(gc, path, Affine2D().scale(scale).rotate_deg(angle).translate(x, self.height - y), gc.get_rgb())
+        return None
+
+    RendererAgg.draw_text = draw_text
+    _THAI_SHAPING.update({"font": font_name, "app": app})
+
+
+def _thai_shaping_gate() -> dict[str, int]:
+    """วรรณยุกต์ต้องถูกยกเหนือสระบนจริง: หมึกของ "ที่" "น้ำ" "เชื่อม" ต้องสูงกว่า "ที" "นำ" "เชือม" อย่างน้อย 2 px"""
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    def top_row(value: str) -> int:
+        fig = plt.figure(figsize=(1.6, 0.9), dpi=200)
+        fig.text(0.12, 0.3, value, fontsize=24, color="black", fontfamily=_THAI_SHAPING["font"])
+        fig.canvas.draw()
+        ink = (255.0 - np.asarray(fig.canvas.buffer_rgba())[..., :3].astype(float).mean(axis=2)) > 96
+        plt.close(fig)
+        rows = np.where(ink.any(axis=1))[0]
+        if not rows.size:
+            raise QualityError(f"ทดสอบวาด '{value}' แล้วไม่มีหมึก")
+        return int(rows.min())
+
+    rises: dict[str, int] = {}
+    for marked, bare in (("ที่", "ที"), ("น้ำ", "นำ"), ("เชื่อม", "เชือม")):
+        rises[marked] = top_row(bare) - top_row(marked)
+        if rises[marked] < 2:
+            raise QualityError(f"วรรณยุกต์ของ '{marked}' ไม่ถูกยกเหนือสระบน — หยุดก่อนวาดภาพที่สะกดผิด")
+    return rises
+
+
+def _prepare_plot_font() -> str:
+    """ฟอนต์ภาพแผนที่ + จัดรูปอักษรไทย + ตรวจครั้งแรกว่าวรรณยุกต์ถูกยกจริง (ไม่ผ่านจะหยุดก่อนเขียนผล)"""
+    font_name = _plot_font_name()
+    _install_thai_text_shaping(font_name)
+    if "gate" not in _THAI_SHAPING:
+        _THAI_SHAPING["gate"] = _thai_shaping_gate()
+    return font_name
+
+
 def _nice_scale_length(width_metres: float) -> float:
     target = max(1000.0, width_metres * 0.18)
     choices = [1000, 2000, 5000, 10000, 20000, 50000, 100000, 200000]
@@ -2332,7 +2459,7 @@ def render_map_frames(
     except ImportError as exc:
         raise PipelineError("ไม่พบ matplotlib สำหรับสร้างแผนที่") from exc
 
-    font_name = _plot_font_name()
+    font_name = _prepare_plot_font()
     plt.rcParams.update({"font.family": font_name, "axes.unicode_minus": False})
     for frame, label in (
         (boundary, "ขอบเขต"),
@@ -2985,6 +3112,7 @@ def fresh_presentation(tambon_meta: dict[str, Any] | None) -> dict[str, Any]:
         "size_map_labels_version": SIZE_MAP_LABELS_VERSION,
         "size_summary_page_version": SIZE_SUMMARY_PAGE_VERSION,
         "consolidation_version": CONSOLIDATION_VERSION,
+        "thai_text_shaping": THAI_SHAPING_VERSION,
         "tambon_lines": tambon_meta,
     }
 
@@ -3147,7 +3275,7 @@ def render_size_map_frames(
     except ImportError as exc:
         raise PipelineError("ไม่พบ matplotlib/GeoPandas สำหรับสร้างแผนที่") from exc
 
-    font_name = _plot_font_name()
+    font_name = _prepare_plot_font()
     plt.rcParams.update({"font.family": font_name, "axes.unicode_minus": False})
     if boundary is None or getattr(boundary, "crs", None) is None:
         raise QualityError("ชั้นขอบเขตไม่มี CRS")
@@ -4199,12 +4327,14 @@ def verify_area_assets(area: dict[str, Any], require_size_map: bool = True) -> d
                     or presentation.get("size_map_labels_version") != SIZE_MAP_LABELS_VERSION
                     or presentation.get("size_summary_page_version") != SIZE_SUMMARY_PAGE_VERSION
                     or not isinstance(presentation.get("tambon_lines"), dict)
-                    or presentation.get("consolidation_version") != CONSOLIDATION_VERSION):
+                    or presentation.get("consolidation_version") != CONSOLIDATION_VERSION
+                    or presentation.get("thai_text_shaping") != THAI_SHAPING_VERSION):
                 raise QualityError(
                     f"QC {area['name']} สร้างด้วยกติกาต่างจากรุ่นปัจจุบัน "
                     f"(แผนที่ขนาดไม่เกิน {SIZE_MAP_MAX_STUDENTS} คน + ป้ายชื่อทุกโรงเรียนที่วาด รุ่น {SIZE_MAP_LABELS_VERSION} "
                     f"+ หน้าคำอธิบายขนาดใน PDF รุ่น {SIZE_SUMMARY_PAGE_VERSION} "
-                    f"+ แนวเขตตำบล + ภาพจำลองหลังจับคู่ รุ่น {CONSOLIDATION_VERSION}); "
+                    f"+ แนวเขตตำบล + ภาพจำลองหลังจับคู่ รุ่น {CONSOLIDATION_VERSION} "
+                    f"+ จัดรูปอักษรไทยในภาพแผนที่ รุ่น {THAI_SHAPING_VERSION}); "
                     "ต้องรัน refresh-assets"
                 )
             verify_consolidation(area, qc)
@@ -4412,7 +4542,7 @@ def refresh_assets(
                     "size_map_labels_version": SIZE_MAP_LABELS_VERSION,
                     "size_summary_page_version": SIZE_SUMMARY_PAGE_VERSION,
                     "tambon_lines": tambon_meta, "consolidation_version": CONSOLIDATION_VERSION,
-                    "analysis_unchanged": True,
+                    "thai_text_shaping": THAI_SHAPING_VERSION, "analysis_unchanged": True,
                 }
                 refreshed["school_size"] = size_profile
                 refreshed["consolidation"] = consolidation
@@ -5224,6 +5354,10 @@ def qgis_check_project(machine: dict[str, Any], qgz: Path, area_dir: Path) -> li
     except ImportError as exc:
         raise PipelineError("ไม่พบ PyQGIS; ต้องรันด้วย python-qgis-ltr.bat") from exc
     if _QGIS_APP is None:
+        from qgis.PyQt.QtCore import QCoreApplication
+
+        if QCoreApplication.instance() is not None:
+            raise SafetyError("โปรเซสนี้สร้างแอป Qt ไว้แล้ว (เช่น ตอนจัดรูปอักษรไทยในแผนที่); ให้รันคำสั่งนี้แยกโปรเซส")
         QgsApplication.setPrefixPath(str(machine["qgis"]["prefix_path"]), True)
         _QGIS_APP = QgsApplication([], False)
         _QGIS_APP.initQgis()

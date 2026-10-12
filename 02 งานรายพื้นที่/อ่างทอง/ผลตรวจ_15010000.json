@@ -62,23 +62,23 @@
   "outputs": {
     "image": {
       "filename": "แผนที่ผลการจับคู่_อ่างทอง.png",
-      "bytes": 2809491,
-      "sha256": "A1A2FA14E3B558D5CE99D3C60EF7AA0634E2A2EF6950B67803C92945A5E7BAB9"
+      "bytes": 2836958,
+      "sha256": "15A1A15B768D206DCC0BC6F6BC9AA5E713D77E030D2DE8798CEA352F2582E666"
     },
     "pdf": {
       "filename": "สรุปผลการจับคู่_อ่างทอง.pdf",
-      "bytes": 4980621,
-      "sha256": "DB74473128B2FAC6AFA8EDC85E8B984F1FD817719489C0CADA181D415CB0A1AF"
+      "bytes": 5056819,
+      "sha256": "FF77DC8E76D7177A930BF2760784238DD726912CF9A6438A573E0E45981B5235"
     },
     "size_image": {
       "filename": "แผนที่ขนาดโรงเรียน_อ่างทอง.png",
-      "bytes": 2828678,
-      "sha256": "A58C860FF813558A32069299809AA674D8C9DB49375A230F52E1DB0BF994BFDC"
+      "bytes": 2908364,
+      "sha256": "921E8E03A2D241327418C43343EC00741E99B22D416B1FDE16FF5437CB1128C0"
     }
   },
   "presentation": {
-    "refreshed_at": "2026-10-12T21:08:48+07:00",
-    "renderer_version": "1.9.0",
+    "refreshed_at": "2026-10-12T22:36:25+07:00",
+    "renderer_version": "1.10.0",
     "mode": "accepted-results-render-only",
     "image_width": 2400,
     "image_height": 3151,
@@ -136,6 +136,7 @@
       "tambon_count": 73
     },
     "consolidation_version": 1,
+    "thai_text_shaping": 1,
     "analysis_unchanged": true
   },
   "school_size": {

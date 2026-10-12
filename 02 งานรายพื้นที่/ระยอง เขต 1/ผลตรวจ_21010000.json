@@ -186,18 +186,18 @@
     },
     "image": {
       "filename": "แผนที่ผลการจับคู่_ระยอง เขต 1.png",
-      "bytes": 2759744,
-      "sha256": "E7EBE3CDF805F000C0CA081619F7790BB96B729D44627141EFF9CDB7684147EA"
+      "bytes": 2789052,
+      "sha256": "C9AD4985AAB1B6AF2D663194AD23737D295AC8A948F483FB7FC994D2EB1ABBE9"
     },
     "pdf": {
       "filename": "สรุปผลการจับคู่_ระยอง เขต 1.pdf",
-      "bytes": 4812391,
-      "sha256": "7F4835CE346549BF131B0EBA4C30E5D4FAC7F12880E007147E36763301EF76D8"
+      "bytes": 4871970,
+      "sha256": "20163219E650DA7EBBBB99B1DC95347654E579EB9F006D234D8F2CA2F2FF8282"
     },
     "size_image": {
       "filename": "แผนที่ขนาดโรงเรียน_ระยอง เขต 1.png",
-      "bytes": 2818448,
-      "sha256": "D43B63C0EA0583E4222B30E0CE0B121E4D15DF93180F42BA2C826D08101DA698"
+      "bytes": 2878570,
+      "sha256": "A4C7A1122310284A6907C1B6C89157A9909076D3903E7A13F84AFFECA1E9418E"
     }
   },
   "school_size": {
@@ -260,8 +260,8 @@
     "map_max_students": 60
   },
   "presentation": {
-    "refreshed_at": "2026-10-12T21:08:57+07:00",
-    "renderer_version": "1.9.0",
+    "refreshed_at": "2026-10-12T22:36:42+07:00",
+    "renderer_version": "1.10.0",
     "mode": "accepted-results-render-only",
     "image_width": 2400,
     "image_height": 2910,
@@ -319,6 +319,7 @@
       "tambon_count": 35
     },
     "consolidation_version": 1,
+    "thai_text_shaping": 1,
     "analysis_unchanged": true
   },
   "consolidation": {

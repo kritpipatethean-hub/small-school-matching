@@ -279,18 +279,18 @@
     },
     "image": {
       "filename": "แผนที่ผลการจับคู่_หนองคาย เขต 1.png",
-      "bytes": 1242397,
-      "sha256": "8F9AAF07B36015CAB6B5D62EC9DC1ADF3B1C8FCE2134387CAA7A287310C2C170"
+      "bytes": 1273009,
+      "sha256": "1B4A596B1A6B56684EB7BC81436BA3B88406C6E4171AF701041DD1634F2A3696"
     },
     "pdf": {
       "filename": "สรุปผลการจับคู่_หนองคาย เขต 1.pdf",
-      "bytes": 2375640,
-      "sha256": "6FCD2FF77485393302C5AAE410F1832A96829F788EDE742CC375B951F7FF9399"
+      "bytes": 2456293,
+      "sha256": "6F414080E93B5B19F134D6C40D12FE714EBF8E812FFC00413C777F3725F40DB6"
     },
     "size_image": {
       "filename": "แผนที่ขนาดโรงเรียน_หนองคาย เขต 1.png",
-      "bytes": 1375029,
-      "sha256": "43DF030588C03844571F2FF22EC94C5339CEF22EDE161CEE6ACA98FDE8AC290D"
+      "bytes": 1453021,
+      "sha256": "778AC22FD2433FA9E87ACED4E2DF56EC83312F72DB7F59D302505951375B690A"
     }
   },
   "school_size": {
@@ -353,8 +353,8 @@
     "map_max_students": 60
   },
   "presentation": {
-    "refreshed_at": "2026-10-12T21:09:08+07:00",
-    "renderer_version": "1.9.0",
+    "refreshed_at": "2026-10-12T22:37:04+07:00",
+    "renderer_version": "1.10.0",
     "mode": "accepted-results-render-only",
     "image_width": 2400,
     "image_height": 1984,
@@ -412,6 +412,7 @@
       "tambon_count": 41
     },
     "consolidation_version": 1,
+    "thai_text_shaping": 1,
     "analysis_unchanged": true
   },
   "consolidation": {

@@ -280,18 +280,18 @@
     },
     "image": {
       "filename": "แผนที่ผลการจับคู่_เชียงราย เขต 1.png",
-      "bytes": 1529593,
-      "sha256": "4DF5C045E776C237D610469212915137AAB5D1566D141BE778D0A633B99C767D"
+      "bytes": 1557115,
+      "sha256": "F12E24F4E5B5E3B17C957148DBEF2692403A3F4B47CB4D6B060397A4B58BE935"
     },
     "pdf": {
       "filename": "สรุปผลการจับคู่_เชียงราย เขต 1.pdf",
-      "bytes": 2819714,
-      "sha256": "8F11ECBFD0CA566A6F4F25DB17AB2C5CCC96FBEB3AF95EF79F815BA201FC4444"
+      "bytes": 2889659,
+      "sha256": "94EB2E2C25ED16759F522F194221BCBC9E809FE05D318785DA2FAE8FAFA2C072"
     },
     "size_image": {
       "filename": "แผนที่ขนาดโรงเรียน_เชียงราย เขต 1.png",
-      "bytes": 1651729,
-      "sha256": "676F8EB7BB057478CD20F95FC554DEAD370F53F68DB5D89EB24BEEB1C1596DF7"
+      "bytes": 1719062,
+      "sha256": "FE46B7D375A994D3982F46D150C435B2DDB13D972AAB4DF4261ABFA90BED3B4F"
     }
   },
   "school_size": {
@@ -354,8 +354,8 @@
     "map_max_students": 60
   },
   "presentation": {
-    "refreshed_at": "2026-10-12T21:09:14+07:00",
-    "renderer_version": "1.9.0",
+    "refreshed_at": "2026-10-12T22:37:16+07:00",
+    "renderer_version": "1.10.0",
     "mode": "accepted-results-render-only",
     "image_width": 2400,
     "image_height": 2114,
@@ -413,6 +413,7 @@
       "tambon_count": 24
     },
     "consolidation_version": 1,
+    "thai_text_shaping": 1,
     "analysis_unchanged": true
   },
   "consolidation": {
