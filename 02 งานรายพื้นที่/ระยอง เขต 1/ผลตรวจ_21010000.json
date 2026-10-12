@@ -186,13 +186,13 @@
     },
     "image": {
       "filename": "แผนที่ผลการจับคู่_ระยอง เขต 1.png",
-      "bytes": 2750001,
-      "sha256": "53146F61A46C5E4EC3A96285215CE430B6A54F2961D36EEEC3AEA382D677EFD1"
+      "bytes": 2759744,
+      "sha256": "E7EBE3CDF805F000C0CA081619F7790BB96B729D44627141EFF9CDB7684147EA"
     },
     "pdf": {
       "filename": "สรุปผลการจับคู่_ระยอง เขต 1.pdf",
-      "bytes": 4803695,
-      "sha256": "9B21A9324F604554C3FF9E11B202D30DC2806BF4AC0A9E3F89057C5E8C77333B"
+      "bytes": 4812391,
+      "sha256": "7F4835CE346549BF131B0EBA4C30E5D4FAC7F12880E007147E36763301EF76D8"
     },
     "size_image": {
       "filename": "แผนที่ขนาดโรงเรียน_ระยอง เขต 1.png",
@@ -260,13 +260,17 @@
     "map_max_students": 60
   },
   "presentation": {
-    "renderer_version": "1.8.0",
-    "mode": "fresh-render",
+    "refreshed_at": "2026-10-12T21:08:57+07:00",
+    "renderer_version": "1.9.0",
+    "mode": "accepted-results-render-only",
+    "image_width": 2400,
+    "image_height": 2910,
+    "size_image_width": 2400,
+    "size_image_height": 2990,
     "school_size_map": true,
     "size_map_max_students": 60,
     "size_map_labels_version": 1,
     "size_summary_page_version": 1,
-    "consolidation_version": 1,
     "tambon_lines": {
       "source": "admin3",
       "layer": "tha_admin3.shp",
@@ -313,11 +317,13 @@
         ]
       },
       "tambon_count": 35
-    }
+    },
+    "consolidation_version": 1,
+    "analysis_unchanged": true
   },
   "consolidation": {
     "version": 1,
-    "basis": "ภาพจำลองผลคัดกรองตามแผน 1.2: สมมติว่าโรงเรียนขนาดเล็กทุกแห่งที่จับคู่ได้ภายใน 10 กิโลเมตรไปรวมกับโรงเรียนคุณภาพชุมชนปลายทางตามผล นับนักเรียนตามทะเบียน DMC682 ทั้งหมด (นักเรียนรวมเชิงสมมติ) มิใช่แผนควบรวม ข้อเสนอย้ายนักเรียน หรือการคาดการณ์จำนวนนักเรียนจริง",
+    "basis": "ภาพจำลองผลคัดกรองตามแผนใช้โรงเรียนคุณภาพชุมชนเป็นศูนย์กลางการควบรวม: สมมติว่าโรงเรียนขนาดเล็กทุกแห่งที่จับคู่ได้ภายใน 10 กิโลเมตรไปรวมกับโรงเรียนคุณภาพชุมชนปลายทางตามผล นับนักเรียนตามทะเบียน DMC682 ทั้งหมด (นักเรียนรวมเชิงสมมติ) มิใช่แผนควบรวม ข้อเสนอย้ายนักเรียน หรือการคาดการณ์จำนวนนักเรียนจริง",
     "distance_field": "total_cost",
     "aggregate": {
       "schools_before": 114,

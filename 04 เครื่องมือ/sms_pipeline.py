@@ -36,7 +36,7 @@ from typing import Any, Iterable
 import area_layout as layout
 
 
-VERSION = "1.8.2"
+VERSION = "1.9.0"
 SCRIPT_DIR = Path(__file__).resolve().parent
 WORKSPACE = SCRIPT_DIR.parent
 DATA_DIR = WORKSPACE / "01 ข้อมูลกลาง"
@@ -94,7 +94,11 @@ SIZE_SUMMARY_PAGE_VERSION = 1
 TAMBON_LINE_COLOR = "#8A97A6"
 # ภาพจำลองหลังจับคู่ (consolidation): รุ่นของบล็อกใน QC/catalog; verify แบบเข้มบังคับให้ตรงค่านี้
 CONSOLIDATION_VERSION = 1
-# เกณฑ์ระยะทางแผน 1.2 (เมตร) สำหรับตรวจคู่ OD ที่ตรวจรับแล้วในภาพจำลอง
+# ชื่อแผนที่ผู้อ่านเห็น (ผู้ใช้ตัดสิน 12 ต.ค. 2569 เลิกเรียก "แผน 1.2" ในรายงานและเว็บ; 1.9.0) ใช้ร่วมกันที่หัวแผนที่
+# ท้าย PDF ข้อความภาพจำลอง และป้ายวิธีใน QC/catalog — เอกสารภายใน (Tor ฯลฯ) ยังเรียกแผน 1.2 ได้
+PLAN_NAME = "แผนใช้โรงเรียนคุณภาพชุมชนเป็นศูนย์กลางการควบรวม"
+METHOD_LABEL = f"{PLAN_NAME}ในระยะ 10 กิโลเมตร (ระยะทางตามโครงข่ายถนน)"
+# เกณฑ์ระยะทางของแผน (เมตร) สำหรับตรวจคู่ OD ที่ตรวจรับแล้วในภาพจำลอง
 MAX_DISTANCE_METRES = 10_000.0
 # เกณฑ์ 7 ขนาดของ สพฐ. ตามคอลัมน์ "เกณฑ์7ขนาด" ใน DMC682 (รหัสตรงตามไฟล์ เพื่อให้ verify เทียบซ้ำได้)
 SIZE7_BOUNDS: tuple[tuple[int, int | None, str], ...] = (
@@ -2132,7 +2136,7 @@ def build_qc_payload(
         "status": "PASSED",
         "publication_label": "ฉบับนำร่องเพื่อการตรวจสอบ",
         "dataset": "ชุดข้อมูล DMC682",
-        "method": "แผน 1.2 — ระยะทางตามโครงข่ายถนนไม่เกิน 10 กิโลเมตร",
+        "method": METHOD_LABEL,
         "area": {
             "id": area["id"],
             "areacode": area["areacode"],
@@ -2406,7 +2410,7 @@ def render_map_frames(
              f"แผนที่ผลการจับคู่โรงเรียนขนาดเล็ก — {area['name']}",
              fontsize=17, color="#17365D", weight="bold", va="top")
     fig.text(side_margin / figure_width, 1 - 0.53 / figure_height,
-             "แผน 1.2 — ระยะทางตามโครงข่ายถนนไม่เกิน 10 กิโลเมตร",
+             METHOD_LABEL,
              fontsize=11, color="#4B5563", va="top")
 
     ax.annotate(
@@ -2837,7 +2841,7 @@ def consolidation_profile(
     return {
         "version": CONSOLIDATION_VERSION,
         "basis": (
-            "ภาพจำลองผลคัดกรองตามแผน 1.2: สมมติว่าโรงเรียนขนาดเล็กทุกแห่งที่จับคู่ได้ภายใน 10 กิโลเมตรไปรวมกับ"
+            f"ภาพจำลองผลคัดกรองตาม{PLAN_NAME}: สมมติว่าโรงเรียนขนาดเล็กทุกแห่งที่จับคู่ได้ภายใน 10 กิโลเมตรไปรวมกับ"
             "โรงเรียนคุณภาพชุมชนปลายทางตามผล นับนักเรียนตามทะเบียน DMC682 ทั้งหมด (นักเรียนรวมเชิงสมมติ) "
             "มิใช่แผนควบรวม ข้อเสนอย้ายนักเรียน หรือการคาดการณ์จำนวนนักเรียนจริง"
         ),
@@ -2867,7 +2871,7 @@ def public_consolidation_note(profile: dict[str, Any]) -> str:
         f" (ในจำนวนนี้ {excluded} แห่งเป็นโรงเรียนขนาดเล็กตามทะเบียนที่มีบทบาทโรงเรียนคุณภาพชุมชนด้วย)" if excluded else ""
     )
     return (
-        f"ภาพจำลองนี้คำนวณจากผลคัดกรองตามแผน 1.2 โดยสมมติว่าโรงเรียนขนาดเล็กทุกแห่งที่จับคู่ได้ภายใน 10 กิโลเมตร "
+        f"ภาพจำลองนี้คำนวณจากผลคัดกรองตาม{PLAN_NAME} โดยสมมติว่าโรงเรียนขนาดเล็กทุกแห่งที่จับคู่ได้ภายใน 10 กิโลเมตร "
         f"จำนวน {agg['small_matched']:,} แห่ง ไปรวมกับโรงเรียนคุณภาพชุมชนปลายทางตามผล และนับนักเรียนตามทะเบียน DMC682 ทั้งหมด "
         f"โรงเรียน สพป. ในเขตจะลดจาก {agg['schools_before']:,} เหลือ {agg['schools_after']:,} แห่ง "
         f"โรงเรียนคุณภาพชุมชน {agg['magnets_receiving']} จาก {agg['magnets_total']} แห่งรับนักเรียนเพิ่มรวม {agg['students_moved']:,} คน "
@@ -3470,8 +3474,13 @@ def render_summary_pdf(
         pdf.line(margin, 28, page_width - margin, 28)
         pdf.setFont(regular, 6.8)
         pdf.setFillColor(colors.HexColor("#5F6B76"))
-        pdf.drawString(margin, 17, "วิธี: แผน 1.2 — ระยะทางตามโครงข่ายถนนไม่เกิน 10 กิโลเมตร")
-        pdf.drawRightString(page_width - margin, 17, "ที่มาถนน: © OpenStreetMap contributors")
+        left_text = f"วิธี: {METHOD_LABEL}"
+        right_text = "ที่มาถนน: © OpenStreetMap contributors"
+        if (pdf.stringWidth(left_text, regular, 6.8) + pdf.stringWidth(right_text, regular, 6.8) + 12
+                > page_width - 2 * margin):
+            raise QualityError("ข้อความท้าย PDF ยาวเกินความกว้างหน้า; หยุดก่อนเผยแพร่")
+        pdf.drawString(margin, 17, left_text)
+        pdf.drawRightString(page_width - margin, 17, right_text)
 
     if consolidation is not None:
         # ส่วนภาพจำลองหลังจับคู่: ข้อความสรุป (ส่วน A) และตารางรายโรงเรียนคุณภาพชุมชน (ส่วน B) ตัวเลขชุดเดียวกับเว็บ
@@ -4034,7 +4043,7 @@ def pilot_qc_payload(
         "status": "PASSED",
         "publication_label": "ฉบับนำร่องเพื่อการตรวจสอบ",
         "dataset": "ชุดข้อมูล DMC682",
-        "method": "แผน 1.2 — ระยะทางตามโครงข่ายถนนไม่เกิน 10 กิโลเมตร",
+        "method": METHOD_LABEL,
         "area": {
             "id": area["id"],
             "areacode": area["areacode"],
@@ -4599,7 +4608,7 @@ def build_portal_catalog_payload(
             "title": "พอร์ทัลผลการจับคู่โรงเรียนขนาดเล็ก",
             "releaseLabel": "ฉบับนำร่องเพื่อการตรวจสอบ",
             "dataset": "DMC682",
-            "method": "แผน 1.2 — ระยะทางตามโครงข่ายถนนไม่เกิน 10 กิโลเมตร",
+            "method": METHOD_LABEL,
             "thresholdMeters": 10000,
             # Derive this from accepted QC so verification remains stable on
             # future dates.  Using today's date made an unchanged valid portal
