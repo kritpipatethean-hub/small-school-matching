@@ -36,7 +36,7 @@ from typing import Any, Iterable
 import area_layout as layout
 
 
-VERSION = "1.8.1"
+VERSION = "1.8.2"
 SCRIPT_DIR = Path(__file__).resolve().parent
 WORKSPACE = SCRIPT_DIR.parent
 DATA_DIR = WORKSPACE / "01 ข้อมูลกลาง"
@@ -3315,7 +3315,9 @@ def read_vector_frame(path: Path) -> Any:
 
 
 def public_analysis(area: dict[str, Any], summary: dict[str, Any]) -> str:
-    if area["areacode"] == "43010000":
+    # ข้อความผล legacy ใช้เฉพาะเมื่อพื้นที่ยังผูกกับ adapter legacy; หนองคาย เขต 1 คำนวณใหม่ด้วยวิธีมาตรฐาน
+    # แล้ว (12 ต.ค. 2569) จึงใช้ข้อความที่สร้างจากตัวเลขเหมือนพื้นที่อื่น (1.8.2)
+    if area.get("pilot", {}).get("adapter") == "legacy_nong_khai_1":
         return (
             "จากโรงเรียนขนาดเล็กตามทะเบียน 99 แห่ง มีผลชั้นเส้นทางเดิม 96 แห่ง "
             "พบ 46 แห่งจับคู่ได้ภายในเกณฑ์ 10 กิโลเมตร 50 แห่งอยู่นอกเกณฑ์ตามผลที่ตรวจรับ "

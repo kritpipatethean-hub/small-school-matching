@@ -10,7 +10,7 @@ window.SMS_CATALOG = {
     "dataset": "DMC682",
     "method": "แผน 1.2 — ระยะทางตามโครงข่ายถนนไม่เกิน 10 กิโลเมตร",
     "thresholdMeters": 10000,
-    "updated": "2026-09-23",
+    "updated": "2026-10-12",
     "provinceCount": 77,
     "areaCount": 183,
     "statusCounts": {
@@ -2669,10 +2669,10 @@ window.SMS_CATALOG = {
       "status": "ready",
       "summary": {
         "registered": 99,
-        "origins": 96,
+        "origins": 99,
         "magnets": 6,
-        "matched": 46,
-        "over10km": 50,
+        "matched": 40,
+        "over10km": 56,
         "unreachable": 0,
         "excluded": 0,
         "coordExceptions": 3
@@ -2741,28 +2741,17 @@ window.SMS_CATALOG = {
       "sizeAnalysis": "โรงเรียนขนาดเล็กตามทะเบียนในพื้นที่ 99 แห่ง มีนักเรียนตั้งแต่ 3 ถึง 120 คนต่อโรงเรียน (มัธยฐาน 60 คน) แผนที่แสดงเฉพาะโรงเรียนที่มีนักเรียนไม่เกิน 60 คน จำนวน 50 แห่ง (ร้อยละ 50.5) ในจำนวนนี้มีนักเรียนไม่เกิน 20 คน จำนวน 6 แห่ง ส่วนโรงเรียนที่มีนักเรียน 61–120 คนอีก 49 แห่ง (ร้อยละ 49.5) นับรวมในตารางแต่ไม่แสดงบนแผนที่ ข้อมูลนี้แสดงสภาพขนาดโรงเรียนตามทะเบียน มิใช่เกณฑ์ตัดสินการควบรวมหรือย้ายนักเรียน",
       "consolidation": {
         "schoolsBefore": 152,
-        "schoolsAfter": 106,
+        "schoolsAfter": 112,
         "smallRegistered": 99,
-        "smallMatched": 46,
-        "smallRemaining": 53,
-        "studentsMoved": 2660,
+        "smallMatched": 40,
+        "smallRemaining": 59,
+        "studentsMoved": 2345,
         "qualityReceiving": 6,
         "qualityTotal": 6,
-        "distanceMeanKm": 6.83,
-        "distanceMaxKm": 10.0,
-        "note": "ภาพจำลองนี้คำนวณจากผลคัดกรองตามแผน 1.2 โดยสมมติว่าโรงเรียนขนาดเล็กทุกแห่งที่จับคู่ได้ภายใน 10 กิโลเมตร จำนวน 46 แห่ง ไปรวมกับโรงเรียนคุณภาพชุมชนปลายทางตามผล และนับนักเรียนตามทะเบียน DMC682 ทั้งหมด โรงเรียน สพป. ในเขตจะลดจาก 152 เหลือ 106 แห่ง โรงเรียนคุณภาพชุมชน 6 จาก 6 แห่งรับนักเรียนเพิ่มรวม 2,660 คน ส่วนโรงเรียนขนาดเล็กอีก 53 แห่งยังคงอยู่ตามผลคัดกรอง ตัวเลขทั้งหมดเป็นภาพจำลองเพื่อประกอบการพิจารณา มิใช่แผนควบรวม ข้อเสนอย้ายนักเรียน หรือการคาดการณ์จำนวนนักเรียนจริง",
+        "distanceMeanKm": 6.89,
+        "distanceMaxKm": 9.98,
+        "note": "ภาพจำลองนี้คำนวณจากผลคัดกรองตามแผน 1.2 โดยสมมติว่าโรงเรียนขนาดเล็กทุกแห่งที่จับคู่ได้ภายใน 10 กิโลเมตร จำนวน 40 แห่ง ไปรวมกับโรงเรียนคุณภาพชุมชนปลายทางตามผล และนับนักเรียนตามทะเบียน DMC682 ทั้งหมด โรงเรียน สพป. ในเขตจะลดจาก 152 เหลือ 112 แห่ง โรงเรียนคุณภาพชุมชน 6 จาก 6 แห่งรับนักเรียนเพิ่มรวม 2,345 คน ส่วนโรงเรียนขนาดเล็กอีก 59 แห่งยังคงอยู่ตามผลคัดกรอง ตัวเลขทั้งหมดเป็นภาพจำลองเพื่อประกอบการพิจารณา มิใช่แผนควบรวม ข้อเสนอย้ายนักเรียน หรือการคาดการณ์จำนวนนักเรียนจริง",
         "schools": [
-          {
-            "name": "บ้านหนองบัวเงิน",
-            "studentsBefore": 335,
-            "feeders": 9,
-            "studentsReceived": 698,
-            "studentsAfter": 1033,
-            "sizeBefore": "4 (301–499)",
-            "sizeAfter": "5 (500–1,499)",
-            "farthestKm": 8.9,
-            "isSmallSchool": false
-          },
           {
             "name": "โกมลวิทยาคาร",
             "studentsBefore": 291,
@@ -2771,18 +2760,29 @@ window.SMS_CATALOG = {
             "studentsAfter": 839,
             "sizeBefore": "3 (201–300)",
             "sizeAfter": "5 (500–1,499)",
-            "farthestKm": 9.52,
+            "farthestKm": 9.8,
+            "isSmallSchool": false
+          },
+          {
+            "name": "บ้านหนองบัวเงิน",
+            "studentsBefore": 335,
+            "feeders": 5,
+            "studentsReceived": 450,
+            "studentsAfter": 785,
+            "sizeBefore": "4 (301–499)",
+            "sizeAfter": "5 (500–1,499)",
+            "farthestKm": 9.98,
             "isSmallSchool": false
           },
           {
             "name": "บ้านเมืองบาง",
             "studentsBefore": 353,
-            "feeders": 7,
-            "studentsReceived": 374,
-            "studentsAfter": 727,
+            "feeders": 6,
+            "studentsReceived": 347,
+            "studentsAfter": 700,
             "sizeBefore": "4 (301–499)",
             "sizeAfter": "5 (500–1,499)",
-            "farthestKm": 10.0,
+            "farthestKm": 9.61,
             "isSmallSchool": false
           },
           {
@@ -2793,18 +2793,18 @@ window.SMS_CATALOG = {
             "studentsAfter": 599,
             "sizeBefore": "2 (121–200)",
             "sizeAfter": "5 (500–1,499)",
-            "farthestKm": 9.55,
+            "farthestKm": 9.57,
             "isSmallSchool": false
           },
           {
             "name": "อนุบาลสังคม",
             "studentsBefore": 260,
-            "feeders": 5,
-            "studentsReceived": 300,
-            "studentsAfter": 560,
+            "feeders": 4,
+            "studentsReceived": 260,
+            "studentsAfter": 520,
             "sizeBefore": "3 (201–300)",
             "sizeAfter": "5 (500–1,499)",
-            "farthestKm": 9.73,
+            "farthestKm": 8.73,
             "isSmallSchool": false
           },
           {
@@ -2815,13 +2815,13 @@ window.SMS_CATALOG = {
             "studentsAfter": 470,
             "sizeBefore": "2 (121–200)",
             "sizeAfter": "4 (301–499)",
-            "farthestKm": 9.69,
+            "farthestKm": 9.8,
             "isSmallSchool": false
           }
         ]
       },
-      "analysis": "จากโรงเรียนขนาดเล็กตามทะเบียน 99 แห่ง มีผลชั้นเส้นทางเดิม 96 แห่ง พบ 46 แห่งจับคู่ได้ภายในเกณฑ์ 10 กิโลเมตร 50 แห่งอยู่นอกเกณฑ์ตามผลที่ตรวจรับ และมีกรณีพิกัด–ขอบเขตไม่สอดคล้อง 3 แห่ง ผลพื้นที่นี้นำเข้าจาก Excel ที่ตรวจรับแล้ว และมี NetworkX fallback บางรายการ จึงไม่ควรอธิบายว่าทั้ง 99 แห่งมาจาก QNEAT3 ชุดเดียวกัน",
-      "updated": "2026-09-02"
+      "analysis": "จากโรงเรียนต้นทางที่วิเคราะห์ 99 แห่ง พบ 40 แห่งจับคู่ได้ภายในเกณฑ์ 10 กิโลเมตร และ 56 แห่งอยู่นอกเกณฑ์ โดยมีกรณีที่ต้องตรวจข้อมูลหรือการเชื่อมต่อโครงข่าย 3 แห่ง ผลนี้เป็นเครื่องมือคัดกรองเบื้องต้น มิใช่ข้อเสนอควบรวมหรือย้ายนักเรียน",
+      "updated": "2026-10-12"
     },
     {
       "id": "spap-43020000",

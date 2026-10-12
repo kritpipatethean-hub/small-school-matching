@@ -1271,29 +1271,24 @@
         "magnets": 6,
         "excluded_is_magnet": 0
       },
-      "pilot": {
-        "adapter": "legacy_nong_khai_1",
-        "never_rerun": true,
-        "expected": {
-          "registered": 99,
-          "origins": 96,
-          "magnets": 6,
-          "matched": 46,
-          "over10km": 50,
-          "unreachable": 0,
-          "excluded": 0,
-          "coordExceptions": 3
-        },
-        "files": {
-          "small": "small_NK1_onroad_snap10m.gpkg",
-          "magnets": "magnet_NK1_onroad_snap10m.gpkg",
-          "roads": "roads_NK1_snap10m_fix.gpkg",
-          "od": "od_NK1_nearest_10km.gpkg",
-          "full_od": "od_NK1_full_matrix_snap10m.gpkg",
-          "time_od": "od_NK1_time_networkx.gpkg",
-          "excel": "SMS ผลการจับคู่หนองคาย สพป เขต.1.xlsx"
-        },
-        "analysis": "นำเข้าหมวดหมู่จากผล legacy/Excel ที่ตรวจรับแล้ว; มี NetworkX fallback และกรณีพิกัด–ขอบเขต 3 แห่ง"
+      "expected": {
+        "registered": 99,
+        "origins": 99,
+        "magnets": 6,
+        "matched": 40,
+        "over10km": 56,
+        "unreachable": 0,
+        "excluded": 0,
+        "coordExceptions": 3
+      },
+      "accepted_result": {
+        "full_od_rows": 594,
+        "full_od_valid_rows": 594,
+        "expected_full_od_rows": 594,
+        "nearest_rows": 99,
+        "sensitivity_9_5_to_10_5_km": 10,
+        "tie_count": 0,
+        "matched_pair_digest": "7394D146289D69473DF670F3D369BB56112026AE5453AC3379846D740437744E"
       }
     },
     {
