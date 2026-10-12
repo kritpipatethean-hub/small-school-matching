@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "status": "PASSED",
+  "publication_label": "ฉบับนำร่องเพื่อการตรวจสอบ",
+  "dataset": "ชุดข้อมูล DMC682",
+  "method": "แผน 1.2 — ระยะทางตามโครงข่ายถนนไม่เกิน 10 กิโลเมตร",
+  "area": {
+    "id": "spap-43010000",
+    "areacode": "43010000",
+    "name": "สพป.หนองคาย เขต 1",
+    "province": "หนองคาย"
+  },
+  "generated_at": "2026-09-02T13:32:37+07:00",
+  "pipeline_version": "1.0.0",
+  "analysis": {
+    "adapter": "legacy_nong_khai_1",
+    "summary": {
+      "registered": 99,
+      "origins": 96,
+      "magnets": 6,
+      "matched": 46,
+      "over10km": 50,
+      "unreachable": 0,
+      "excluded": 0,
+      "coordExceptions": 3
+    },
+    "analysis_note": "นำเข้าหมวดหมู่จากผล legacy/Excel ที่ตรวจรับแล้ว; มี NetworkX fallback และกรณีพิกัด–ขอบเขต 3 แห่ง"
+  },
+  "source_fingerprints": {
+    "roads": {
+      "filename": "roads_NK1_snap10m_fix.gpkg",
+      "bytes": 7712768,
+      "sha256": "96FCA3C7EBDE59897E235C423B2E3F1EA917168A2E7ED316AD8119616F5D42D1"
+    },
+    "od": {
+      "filename": "od_NK1_nearest_10km.gpkg",
+      "bytes": 106496,
+      "sha256": "30A64FBCD91C8C74C8115954454CA95C8611747566CB2E83D0F0715DCB2E57BB"
+    },
+    "small_legacy": {
+      "filename": "small_NK1_onroad_snap10m.gpkg",
+      "bytes": 172032,
+      "sha256": "302BD9B925E5D807F83B10AC5B35D1B421843C11180625068C3A9CAD8629A415"
+    },
+    "excel": {
+      "filename": "SMS ผลการจับคู่หนองคาย สพป เขต.1.xlsx",
+      "bytes": 58834,
+      "sha256": "5ED332BD80A78AA96CD4E228CF6BF498FB8B6BBF93C1649A4C454D16074DA5F9"
+    },
+    "education_boundaries": {
+      "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..shp",
+      "algorithm": "combined-exact-sidecar-sampled-v1",
+      "digest": "FF9EC10E4AEFB3F26606987A311FCC3CE4EEA967B262D56EA0DC8C085DEEF2A2",
+      "components": [
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..shp",
+          "size": 55435308,
+          "mtime_ns": 1770925966934826100,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "05F0BDC6EB621D292715C47A5340A6631F1F12AD750F2ADCD053A238B42C4B50"
+        },
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..shx",
+          "size": 1564,
+          "mtime_ns": 1770925966934826100,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "DF885D7261D6236488287E7CFF6AFBDE0EB3B5070B1C19B8F8042B5CA05146D6"
+        },
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..dbf",
+          "size": 390354,
+          "mtime_ns": 1770925966934826100,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "756A36D72557E5611A1575CA5EBE667F6D9F1268C8C9ABB4BA2CDB1D80305212"
+        },
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..prj",
+          "size": 145,
+          "mtime_ns": 1770925966673867600,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "E83922E54341CF0B96FD4F7488D150088A41119E417B6AE469A865946F709453"
+        },
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..cpg",
+          "size": 5,
+          "mtime_ns": 1770925966671815900,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "DDB71B5A47E380FDEFB1064FD700C81345BDC00ADE285892201E11E2A73FBD20"
+        }
+      ]
+    },
+    "lineage_note": "หมวดหมู่มาจาก Excel ที่ตรวจรับแล้ว; ไม่รัน QNEAT3 ซ้ำและมี NetworkX fallback ในผลเดิม"
+  },
+  "outputs": {
+    "image": {
+      "filename": "แผนที่ผลการจับคู่_หนองคาย เขต 1.png",
+      "bytes": 1445424,
+      "sha256": "7824D49A4303F006C6D928BBC3A8BB8793A0FFE4EAF59204985450E6E6610B9B"
+    },
+    "pdf": {
+      "filename": "สรุปผลการจับคู่_หนองคาย เขต 1.pdf",
+      "bytes": 2700574,
+      "sha256": "2D36900B0E7C66AD8B143F9BD97F11008EFF364B56BCAD4A177BB5296DD0D3B2"
+    },
+    "size_image": {
+      "filename": "แผนที่ขนาดโรงเรียน_หนองคาย เขต 1.png",
+      "bytes": 1573418,
+      "sha256": "89E71D9C37E23D9201216427086DDB0545CF1CAE1D680B7C55DEFA28121E717A"
+    }
+  },
+  "presentation": {
+    "refreshed_at": "2026-09-14T16:08:30+07:00",
+    "renderer_version": "1.8.0",
+    "mode": "accepted-results-render-only",
+    "image_width": 2400,
+    "image_height": 1984,
+    "size_image_width": 2400,
+    "size_image_height": 2064,
+    "school_size_map": true,
+    "size_map_max_students": 60,
+    "size_map_labels_version": 1,
+    "size_summary_page_version": 1,
+    "tambon_lines": {
+      "source": "admin3",
+      "layer": "tha_admin3.shp",
+      "fingerprint": {
+        "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.shp",
+        "algorithm": "combined-exact-sidecar-sampled-v1",
+        "digest": "1DE5755847C1C9719CE8C46C09240727A8BF9E4AC35419C02C1F82ECA46E8D49",
+        "components": [
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.shp",
+            "size": 253123512,
+            "mtime_ns": 1769099601023714800,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "2E60FBD36CD75CEC9A8499A60B0A2CBE1BD910C323830515CD979CB29889780B"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.shx",
+            "size": 59500,
+            "mtime_ns": 1769099601130448300,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "D5DF92F451559D02C028F9BCA8075B9C0B05D37AA94A75B56B4B107202F0C010"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.dbf",
+            "size": 16105851,
+            "mtime_ns": 1769099601119611200,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "257FAFE181E5C61F0BF5522E0C7E9018B8E0B81484B22340F6257189203FF672"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.prj",
+            "size": 145,
+            "mtime_ns": 1769099601125447700,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "E83922E54341CF0B96FD4F7488D150088A41119E417B6AE469A865946F709453"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.cpg",
+            "size": 5,
+            "mtime_ns": 1769099601029793200,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "DDB71B5A47E380FDEFB1064FD700C81345BDC00ADE285892201E11E2A73FBD20"
+          }
+        ]
+      },
+      "tambon_count": 41
+    },
+    "consolidation_version": 1,
+    "analysis_unchanged": true
+  },
+  "school_size": {
+    "basis": "จำนวนนักเรียนรวมตามทะเบียน DMC682 ของโรงเรียนขนาดเล็ก (ไม่เกิน 120 คน)",
+    "bins": [
+      {
+        "label": "0-10",
+        "min": 0,
+        "max": 10,
+        "count": 5
+      },
+      {
+        "label": "11-20",
+        "min": 11,
+        "max": 20,
+        "count": 1
+      },
+      {
+        "label": "21-30",
+        "min": 21,
+        "max": 30,
+        "count": 10
+      },
+      {
+        "label": "31-40",
+        "min": 31,
+        "max": 40,
+        "count": 8
+      },
+      {
+        "label": "41-50",
+        "min": 41,
+        "max": 50,
+        "count": 10
+      },
+      {
+        "label": "51-60",
+        "min": 51,
+        "max": 60,
+        "count": 16
+      },
+      {
+        "label": "61-100",
+        "min": 61,
+        "max": 100,
+        "count": 34
+      },
+      {
+        "label": "101-120",
+        "min": 101,
+        "max": 120,
+        "count": 15
+      }
+    ],
+    "total": 99,
+    "students_min": 3,
+    "students_max": 120,
+    "students_median": 60.0,
+    "students_total": 6280,
+    "map_max_students": 60
+  },
+  "consolidation": {
+    "version": 1,
+    "basis": "ภาพจำลองผลคัดกรองตามแผน 1.2: สมมติว่าโรงเรียนขนาดเล็กทุกแห่งที่จับคู่ได้ภายใน 10 กิโลเมตรไปรวมกับโรงเรียนคุณภาพชุมชนปลายทางตามผล นับนักเรียนตามทะเบียน DMC682 ทั้งหมด (นักเรียนรวมเชิงสมมติ) มิใช่แผนควบรวม ข้อเสนอย้ายนักเรียน หรือการคาดการณ์จำนวนนักเรียนจริง",
+    "distance_field": "distance_m",
+    "aggregate": {
+      "schools_before": 152,
+      "schools_after": 106,
+      "small_registered": 99,
+      "small_matched": 46,
+      "small_remaining": 53,
+      "small_remaining_by_status": {
+        "over10km": 50,
+        "unreachable": 0,
+        "excluded": 0,
+        "coordExceptions": 3
+      },
+      "students_small_total": 6280,
+      "students_moved": 2660,
+      "magnets_total": 6,
+      "magnets_receiving": 6,
+      "magnets_students_before": 1568,
+      "magnets_students_after": 4228,
+      "distance_mean_km": 6.83,
+      "distance_max_km": 10.0
+    },
+    "magnets": [
+      {
+        "school_id": "1043660423",
+        "school_name": "บ้านหนองบัวเงิน",
+        "students_before": 335,
+        "size_code_before": "4_(301-499)",
+        "feeders": 9,
+        "students_received": 698,
+        "students_after": 1033,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 8.9,
+        "is_small_school": false
+      },
+      {
+        "school_id": "1043660154",
+        "school_name": "โกมลวิทยาคาร",
+        "students_before": 291,
+        "size_code_before": "3_(201-300)",
+        "feeders": 11,
+        "students_received": 548,
+        "students_after": 839,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 9.52,
+        "is_small_school": false
+      },
+      {
+        "school_id": "1043660020",
+        "school_name": "บ้านเมืองบาง",
+        "students_before": 353,
+        "size_code_before": "4_(301-499)",
+        "feeders": 7,
+        "students_received": 374,
+        "students_after": 727,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 10.0,
+        "is_small_school": false
+      },
+      {
+        "school_id": "1043660487",
+        "school_name": "อนุบาลดอนไผ่",
+        "students_before": 133,
+        "size_code_before": "2_(121-200)",
+        "feeders": 7,
+        "students_received": 466,
+        "students_after": 599,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 9.55,
+        "is_small_school": false
+      },
+      {
+        "school_id": "1043660317",
+        "school_name": "อนุบาลสังคม",
+        "students_before": 260,
+        "size_code_before": "3_(201-300)",
+        "feeders": 5,
+        "students_received": 300,
+        "students_after": 560,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 9.73,
+        "is_small_school": false
+      },
+      {
+        "school_id": "1043660311",
+        "school_name": "พระพุทธบาทเทสรังสีวิทยา",
+        "students_before": 196,
+        "size_code_before": "2_(121-200)",
+        "feeders": 7,
+        "students_received": 274,
+        "students_after": 470,
+        "size_code_after": "4_(301-499)",
+        "farthest_km": 9.69,
+        "is_small_school": false
+      }
+    ],
+    "inputs": {
+      "dmc_master_sha256": "3812AF51F8DB2B01DD67D6A82AF805D16BB013009876A5AAD88A434360482E00",
+      "od": {
+        "filename": "od_NK1_nearest_10km.gpkg",
+        "bytes": 106496,
+        "sha256": "30A64FBCD91C8C74C8115954454CA95C8611747566CB2E83D0F0715DCB2E57BB"
+      }
+    }
+  }
+}

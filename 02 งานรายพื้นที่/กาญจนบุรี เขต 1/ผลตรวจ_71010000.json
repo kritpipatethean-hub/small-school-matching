@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "status": "PASSED",
+  "publication_label": "ฉบับนำร่องเพื่อการตรวจสอบ",
+  "dataset": "ชุดข้อมูล DMC682",
+  "method": "แผน 1.2 — ระยะทางตามโครงข่ายถนนไม่เกิน 10 กิโลเมตร",
+  "area": {
+    "id": "spap-71010000",
+    "areacode": "71010000",
+    "name": "สพป.กาญจนบุรี เขต 1",
+    "province": "กาญจนบุรี"
+  },
+  "generated_at": "2026-09-02T13:28:38+07:00",
+  "pipeline_version": "1.0.0",
+  "analysis": {
+    "adapter": "qneat3_pilot",
+    "summary": {
+      "registered": 65,
+      "origins": 65,
+      "magnets": 4,
+      "matched": 23,
+      "over10km": 42,
+      "unreachable": 0,
+      "excluded": 0,
+      "coordExceptions": 0
+    },
+    "analysis_note": "ผลนำร่อง QNEAT3 ที่ตรวจรับแล้วและตรงกับงานทำมือ"
+  },
+  "source_fingerprints": {
+    "boundary": {
+      "filename": "ขอบเขต_สพป.กาญจนบุรี_เขต1_UTM47N.gpkg",
+      "bytes": 335872,
+      "sha256": "7E78A59D118A822A4B9819C2DF9439F17A13C773911725301418A7978D9CBCDF"
+    },
+    "small": {
+      "filename": "โรงเรียนขนาดเล็ก_กาญจนบุรี_เขต1_65แห่ง.gpkg",
+      "bytes": 159744,
+      "sha256": "9440D8A99E783A82D06BF98BFEAF53BA4EB10C70978A7D23FE8BCF03AD273089"
+    },
+    "magnets": {
+      "filename": "โรงเรียนแม่เหล็ก_กาญจนบุรี_เขต1_4แห่ง.gpkg",
+      "bytes": 114688,
+      "sha256": "FE439A1C88232A348139DEC41C02CE8047FCDF2A2C4344AF028E11BF78EABC68"
+    },
+    "roads": {
+      "filename": "ถนน_กาญจนบุรี_เขต1_สำหรับคำนวณ.gpkg",
+      "bytes": 9043968,
+      "sha256": "3CF49329E1734C00972DCF365B884A98F755837B00AFAD9DA4F22BC6FA75C0D5"
+    },
+    "od": {
+      "filename": "OD_กาญจนบุรี_เขต1_ไม่เกิน10กม.gpkg",
+      "bytes": 102400,
+      "sha256": "643272A6D18EC5571EDCDD7FA9E5976A33D38AEFE3DE6E20161F6839FA736E34"
+    },
+    "status": {
+      "filename": "สถานะการจับคู่_โรงเรียนขนาดเล็ก_กาญจนบุรี_เขต1.gpkg",
+      "bytes": 155648,
+      "sha256": "66393C39C2D23DB5EA802113E168B33E91488EA7A5BC466987542E9D13C9E738"
+    },
+    "road_feature_count": 26020
+  },
+  "outputs": {
+    "image": {
+      "filename": "แผนที่ผลการจับคู่_กาญจนบุรี เขต 1.png",
+      "bytes": 2123083,
+      "sha256": "C708BC025493A869BD089C40BEAA4DE105954F09DCF5193E33500FB0AEA09BFD"
+    },
+    "pdf": {
+      "filename": "สรุปผลการจับคู่_กาญจนบุรี เขต 1.pdf",
+      "bytes": 3834716,
+      "sha256": "B8FD8C0B11CF1DF6C810E87130B26E2B5EE87CE0432EED8E8015E1E3FEB25EC2"
+    },
+    "size_image": {
+      "filename": "แผนที่ขนาดโรงเรียน_กาญจนบุรี เขต 1.png",
+      "bytes": 2223246,
+      "sha256": "2FA7E07DB5DFF6BA290E97C08DB01BDE0EFA0B733051914DB290729DE103F11F"
+    }
+  },
+  "presentation": {
+    "refreshed_at": "2026-09-14T16:08:46+07:00",
+    "renderer_version": "1.8.0",
+    "mode": "accepted-results-render-only",
+    "image_width": 2400,
+    "image_height": 4126,
+    "size_image_width": 2400,
+    "size_image_height": 4206,
+    "school_size_map": true,
+    "size_map_max_students": 60,
+    "size_map_labels_version": 1,
+    "size_summary_page_version": 1,
+    "tambon_lines": {
+      "source": "admin3",
+      "layer": "tha_admin3.shp",
+      "fingerprint": {
+        "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.shp",
+        "algorithm": "combined-exact-sidecar-sampled-v1",
+        "digest": "1DE5755847C1C9719CE8C46C09240727A8BF9E4AC35419C02C1F82ECA46E8D49",
+        "components": [
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.shp",
+            "size": 253123512,
+            "mtime_ns": 1769099601023714800,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "2E60FBD36CD75CEC9A8499A60B0A2CBE1BD910C323830515CD979CB29889780B"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.shx",
+            "size": 59500,
+            "mtime_ns": 1769099601130448300,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "D5DF92F451559D02C028F9BCA8075B9C0B05D37AA94A75B56B4B107202F0C010"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.dbf",
+            "size": 16105851,
+            "mtime_ns": 1769099601119611200,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "257FAFE181E5C61F0BF5522E0C7E9018B8E0B81484B22340F6257189203FF672"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.prj",
+            "size": 145,
+            "mtime_ns": 1769099601125447700,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "E83922E54341CF0B96FD4F7488D150088A41119E417B6AE469A865946F709453"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.cpg",
+            "size": 5,
+            "mtime_ns": 1769099601029793200,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "DDB71B5A47E380FDEFB1064FD700C81345BDC00ADE285892201E11E2A73FBD20"
+          }
+        ]
+      },
+      "tambon_count": 36
+    },
+    "consolidation_version": 1,
+    "analysis_unchanged": true
+  },
+  "school_size": {
+    "basis": "จำนวนนักเรียนรวมตามทะเบียน DMC682 ของโรงเรียนขนาดเล็ก (ไม่เกิน 120 คน)",
+    "bins": [
+      {
+        "label": "0-10",
+        "min": 0,
+        "max": 10,
+        "count": 2
+      },
+      {
+        "label": "11-20",
+        "min": 11,
+        "max": 20,
+        "count": 3
+      },
+      {
+        "label": "21-30",
+        "min": 21,
+        "max": 30,
+        "count": 1
+      },
+      {
+        "label": "31-40",
+        "min": 31,
+        "max": 40,
+        "count": 3
+      },
+      {
+        "label": "41-50",
+        "min": 41,
+        "max": 50,
+        "count": 9
+      },
+      {
+        "label": "51-60",
+        "min": 51,
+        "max": 60,
+        "count": 7
+      },
+      {
+        "label": "61-100",
+        "min": 61,
+        "max": 100,
+        "count": 29
+      },
+      {
+        "label": "101-120",
+        "min": 101,
+        "max": 120,
+        "count": 11
+      }
+    ],
+    "total": 65,
+    "students_min": 4,
+    "students_max": 116,
+    "students_median": 70.0,
+    "students_total": 4476,
+    "map_max_students": 60
+  },
+  "consolidation": {
+    "version": 1,
+    "basis": "ภาพจำลองผลคัดกรองตามแผน 1.2: สมมติว่าโรงเรียนขนาดเล็กทุกแห่งที่จับคู่ได้ภายใน 10 กิโลเมตรไปรวมกับโรงเรียนคุณภาพชุมชนปลายทางตามผล นับนักเรียนตามทะเบียน DMC682 ทั้งหมด (นักเรียนรวมเชิงสมมติ) มิใช่แผนควบรวม ข้อเสนอย้ายนักเรียน หรือการคาดการณ์จำนวนนักเรียนจริง",
+    "distance_field": "total_cost",
+    "aggregate": {
+      "schools_before": 133,
+      "schools_after": 110,
+      "small_registered": 65,
+      "small_matched": 23,
+      "small_remaining": 42,
+      "small_remaining_by_status": {
+        "over10km": 42,
+        "unreachable": 0,
+        "excluded": 0,
+        "coordExceptions": 0
+      },
+      "students_small_total": 4476,
+      "students_moved": 1752,
+      "magnets_total": 4,
+      "magnets_receiving": 4,
+      "magnets_students_before": 1945,
+      "magnets_students_after": 3697,
+      "distance_mean_km": 6.34,
+      "distance_max_km": 9.93
+    },
+    "magnets": [
+      {
+        "school_id": "1071020019",
+        "school_name": "วัดทุ่งลาดหญ้าลาดหญ้าวิทยา",
+        "students_before": 901,
+        "size_code_before": "5_(500-1499)",
+        "feeders": 7,
+        "students_received": 564,
+        "students_after": 1465,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 9.35,
+        "is_small_school": false
+      },
+      {
+        "school_id": "1071020099",
+        "school_name": "วัดศรีโลหะราษฎร์บํารุง",
+        "students_before": 509,
+        "size_code_before": "5_(500-1499)",
+        "feeders": 9,
+        "students_received": 681,
+        "students_after": 1190,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 9.09,
+        "is_small_school": false
+      },
+      {
+        "school_id": "1071020372",
+        "school_name": "อนุบาลด่านมะขามเตี้ย",
+        "students_before": 341,
+        "size_code_before": "4_(301-499)",
+        "feeders": 5,
+        "students_received": 377,
+        "students_after": 718,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 9.93,
+        "is_small_school": false
+      },
+      {
+        "school_id": "1071020350",
+        "school_name": "อนุบาลศรีสวัสดิ์",
+        "students_before": 194,
+        "size_code_before": "2_(121-200)",
+        "feeders": 2,
+        "students_received": 130,
+        "students_after": 324,
+        "size_code_after": "4_(301-499)",
+        "farthest_km": 9.56,
+        "is_small_school": false
+      }
+    ],
+    "inputs": {
+      "dmc_master_sha256": "3812AF51F8DB2B01DD67D6A82AF805D16BB013009876A5AAD88A434360482E00",
+      "od": {
+        "filename": "OD_กาญจนบุรี_เขต1_ไม่เกิน10กม.gpkg",
+        "bytes": 102400,
+        "sha256": "643272A6D18EC5571EDCDD7FA9E5976A33D38AEFE3DE6E20161F6839FA736E34"
+      }
+    }
+  }
+}

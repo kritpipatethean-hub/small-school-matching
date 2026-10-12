@@ -1,0 +1,1205 @@
+:root {
+  color-scheme: light;
+  --navy-950: #08233f;
+  --navy-900: #0b2f53;
+  --navy-800: #10466f;
+  --blue-700: #146b9d;
+  --blue-100: #dff2fb;
+  --blue-050: #f2f9fd;
+  --ink: #162432;
+  --muted: #566776;
+  --line: #ccd7df;
+  --surface: #ffffff;
+  --page: #f3f6f8;
+  --ready: #075f54;
+  --ready-bg: #d9f2e8;
+  --pending: #6c4d00;
+  --pending-bg: #fff0bf;
+  --review: #752c20;
+  --review-bg: #ffe1d7;
+  --empty: #45525d;
+  --empty-bg: #e7ecef;
+  --focus: #e65c00;
+  --shadow: 0 12px 32px rgb(8 35 63 / 9%);
+  font-family: Tahoma, "Noto Sans Thai", "Leelawadee UI", sans-serif;
+  font-size: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+button,
+input,
+select {
+  color: inherit;
+  font: inherit;
+}
+
+button,
+select,
+input[type="search"] {
+  min-height: 2.75rem;
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+a {
+  color: var(--navy-800);
+}
+
+a:hover {
+  color: var(--blue-700);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--navy-950);
+  line-height: 1.3;
+}
+
+h1 {
+  margin-bottom: 0.25rem;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+h2 {
+  margin-bottom: 0.55rem;
+  font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+}
+
+h3 {
+  font-size: 1.08rem;
+}
+
+.shell {
+  width: min(100% - 2rem, 90rem);
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 0.35rem;
+  background: #fff;
+  color: var(--navy-950);
+  font-weight: 700;
+  transform: translateY(-180%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-header {
+  border-bottom: 5px solid #edb62f;
+  background: linear-gradient(120deg, var(--navy-950), var(--navy-800));
+  color: #fff;
+}
+
+.header-inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  padding-block: 1.15rem;
+}
+
+.site-header h1,
+.site-header .eyebrow {
+  color: #fff;
+}
+
+/* โลโก้มหาวิทยาลัยธรรมศาสตร์และ สพฐ. บนแผ่นสีขาว ให้โลโก้ที่มีพื้นขาว (JPEG ต้นฉบับ) กลืนกับพื้น */
+.brand-logos {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 0.8rem;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgb(8 35 63 / 12%);
+}
+
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 3.6rem;
+}
+
+.header-subtitle {
+  margin-bottom: 0;
+  color: #d8eaf5;
+}
+
+.pilot-badge {
+  max-width: 13rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid #f4d37b;
+  border-radius: 999px;
+  background: #fff3ca;
+  color: #503900;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.eyebrow {
+  margin-bottom: 0.25rem;
+  color: var(--blue-700);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(18rem, 1fr) minmax(30rem, 1.45fr);
+  gap: 2rem;
+  align-items: end;
+  padding-block: 2.1rem 1.4rem;
+}
+
+.intro > div > p:last-child {
+  max-width: 50rem;
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.summary-strip {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(6rem, 1fr));
+  gap: 0.55rem;
+  margin: 0;
+}
+
+.summary-strip > div {
+  min-width: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--navy-800);
+  border-radius: 0.55rem;
+  background: var(--surface);
+}
+
+.summary-strip dt {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.3;
+}
+
+.summary-strip dd {
+  margin: 0.15rem 0 0;
+  color: var(--navy-950);
+  font-size: 1.55rem;
+  font-weight: 800;
+}
+
+.summary-strip .summary-ready { border-top-color: var(--ready); }
+.summary-strip .summary-pending { border-top-color: #a97400; }
+.summary-strip .summary-review { border-top-color: var(--review); }
+.summary-strip .summary-empty { border-top-color: var(--empty); }
+
+.card,
+.search-panel,
+.method-card {
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.search-panel {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.55fr) minmax(20rem, 1fr);
+  gap: 1.25rem;
+  align-items: end;
+  padding: 1.1rem 1.25rem;
+  border-top: 4px solid var(--blue-700);
+}
+
+.search-panel h2,
+.search-panel p {
+  margin-bottom: 0;
+}
+
+.search-panel p {
+  color: var(--muted);
+}
+
+.search-controls {
+  display: flex;
+  gap: 0.55rem;
+}
+
+input[type="search"],
+select {
+  width: 100%;
+  border: 1px solid #8ea1af;
+  border-radius: 0.45rem;
+  background: #fff;
+}
+
+input[type="search"] {
+  padding: 0.62rem 0.8rem;
+}
+
+select {
+  padding: 0.55rem 2.4rem 0.55rem 0.7rem;
+}
+
+.button,
+.text-button,
+.back-link {
+  border-radius: 0.4rem;
+  font-weight: 700;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--navy-800);
+  background: var(--navy-800);
+  color: #fff;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: var(--navy-950);
+  color: #fff;
+}
+
+.button-secondary {
+  flex: 0 0 auto;
+  background: #fff;
+  color: var(--navy-800);
+}
+
+.button-disabled {
+  border-color: #909ca5;
+  background: #e8ecef;
+  color: #45525d;
+}
+
+.search-results {
+  grid-column: 1 / -1;
+  max-height: min(29rem, 60vh);
+  overflow: auto;
+  border-top: 1px solid var(--line);
+  padding-top: 0.8rem;
+}
+
+.search-results h3 {
+  margin: 0.25rem 0 0.5rem;
+}
+
+.result-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 0.45rem;
+  margin: 0 0 0.85rem;
+  padding: 0;
+  list-style: none;
+}
+
+.result-button {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 0.45rem;
+  background: var(--blue-050);
+  text-align: left;
+}
+
+.result-button:hover {
+  border-color: var(--blue-700);
+  background: var(--blue-100);
+}
+
+.result-meta {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.workspace-grid {
+  display: grid;
+  grid-template-columns: minmax(24rem, 1.08fr) minmax(22rem, 0.92fr);
+  gap: 1rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.map-panel,
+.catalog-panel,
+.detail-panel {
+  padding: 1.2rem;
+}
+
+.panel-heading,
+.detail-heading,
+.detail-toolbar {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.panel-heading h2,
+.detail-heading h2 {
+  margin-bottom: 0;
+}
+
+.text-button {
+  min-height: 2.5rem;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--navy-800);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.text-button:hover {
+  background: var(--blue-050);
+}
+
+.help-text,
+.map-attribution {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.map-frame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 28rem;
+  margin-top: 0.7rem;
+  padding: 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 0.65rem;
+  background: #eff8fc;
+}
+
+#thailand-map {
+  display: block;
+  width: min(100%, 30rem);
+  height: auto;
+  max-height: 39rem;
+}
+
+.map-water {
+  fill: #eaf6fb;
+}
+
+.province-shape {
+  vector-effect: non-scaling-stroke;
+  stroke: #fff;
+  stroke-width: 1.25px;
+  transition: fill 120ms ease, stroke 120ms ease;
+}
+
+.province-shape.province-ready { fill: #52a897; }
+.province-shape.province-pending { fill: #b6cbd7; }
+.province-shape.province-review { fill: #ef9a78; }
+.province-shape.province-empty { fill: #9aa5ad; }
+
+.province-shape:hover,
+.province-shape:focus-visible {
+  stroke: var(--navy-950);
+  stroke-width: 3px;
+}
+
+.province-shape.is-selected {
+  stroke: var(--focus);
+  stroke-width: 4px;
+}
+
+.map-attribution {
+  width: 100%;
+  margin: 0.4rem 0 0;
+  text-align: center;
+}
+
+/* กล่องชี้จังหวัด: ตำแหน่งตั้งต้นมุมซ้ายบนของกรอบแผนที่ JavaScript ย้ายตามเมาส์ด้วย CSSOM (ไม่มี style attribute) */
+.map-tooltip {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.65rem;
+  z-index: 6;
+  max-width: 19rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  font-size: 0.86rem;
+  line-height: 1.45;
+  pointer-events: none;
+}
+
+.map-tooltip[hidden] {
+  display: none;
+}
+
+.map-tooltip-title {
+  margin: 0 0 0.35rem;
+  font-weight: 800;
+  color: var(--navy-950);
+}
+
+.map-tooltip-list {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.map-tooltip-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.map-tooltip .status-badge {
+  flex: 0 0 auto;
+  min-height: 1.5rem;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.72rem;
+}
+
+.map-tooltip-hint {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem 0.8rem;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.legend-symbol {
+  display: inline-grid;
+  width: 1.55rem;
+  height: 1.55rem;
+  margin-right: 0.25rem;
+  place-items: center;
+  border: 1px solid currentcolor;
+  border-radius: 0.3rem;
+  font-weight: 900;
+}
+
+.symbol-ready { background: var(--ready-bg); color: var(--ready); }
+.symbol-pending { background: var(--pending-bg); color: var(--pending); }
+.symbol-review { background: var(--review-bg); color: var(--review); }
+.symbol-empty { background: var(--empty-bg); color: var(--empty); }
+
+.catalog-panel > label {
+  display: block;
+  margin: 0.8rem 0 0.35rem;
+  font-weight: 700;
+}
+
+.count-chip,
+.area-code {
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background: var(--blue-100);
+  color: var(--navy-800);
+  font-size: 0.8rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.province-overview {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border-left: 4px solid var(--blue-700);
+  background: var(--blue-050);
+}
+
+.province-overview p:last-child {
+  margin-bottom: 0;
+}
+
+.area-list {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+}
+
+.area-button {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.65rem;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  background: #fff;
+  text-align: left;
+}
+
+.area-button:hover {
+  border-color: var(--blue-700);
+  background: var(--blue-050);
+}
+
+.area-name {
+  display: block;
+  color: var(--navy-950);
+  font-weight: 800;
+}
+
+.area-id {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid currentcolor;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.status-ready { background: var(--ready-bg); color: var(--ready); }
+.status-pending { background: var(--pending-bg); color: var(--pending); }
+.status-review { background: var(--review-bg); color: var(--review); }
+.status-empty { background: var(--empty-bg); color: var(--empty); }
+
+.detail-panel {
+  margin-top: 1rem;
+  border-top: 5px solid var(--navy-800);
+}
+
+.detail-panel[hidden] {
+  display: none;
+}
+
+.detail-toolbar {
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.back-link {
+  display: inline-flex;
+  min-height: 2.5rem;
+  align-items: center;
+  padding: 0.25rem 0.45rem;
+}
+
+.detail-heading {
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.metric {
+  padding: 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  background: #f9fbfc;
+}
+
+.metric dt {
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.metric dd {
+  margin: 0.2rem 0 0;
+  color: var(--navy-950);
+  font-size: 1.75rem;
+  font-weight: 850;
+}
+
+/* หน้ารายละเอียด: 2 คอลัมน์ (ผลการจับคู่ | สภาพโรงเรียนขนาดเล็ก) ภาพจำกัดความสูง ซ้อนเป็นแถวเดียวเมื่อจอแคบ (ตัดสินร่วมกับผู้ใช้ 8 ก.ย. 2569) */
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.analysis-box,
+.deliverable-box,
+.status-message {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.65rem;
+}
+
+.analysis-box {
+  border-left: 5px solid var(--blue-700);
+  background: var(--blue-050);
+}
+
+.analysis-box h4 {
+  margin: 0 0 0.4rem;
+  color: var(--navy-950);
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.analysis-box p:last-child,
+.deliverable-box p:last-child,
+.status-message p:last-child {
+  margin-bottom: 0;
+}
+
+.deliverable-box {
+  min-width: 0;
+  padding: clamp(0.35rem, 1vw, 0.8rem);
+  background: #fff;
+}
+
+.detail-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1rem;
+}
+
+.detail-column > .deliverable-heading {
+  padding: 0 0 0.2rem;
+}
+
+.detail-column > .map-help,
+.detail-column > .size-note {
+  margin: 0 0.25rem;
+}
+
+.detail-column > .size-table {
+  margin: 0;
+}
+
+.detail-column > .file-placeholder {
+  margin-bottom: 0;
+}
+
+.deliverable-heading,
+.deliverable-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.deliverable-heading h3 {
+  margin: 0;
+}
+
+.deliverable-heading {
+  padding: 0.35rem 0.25rem 0.8rem;
+}
+
+.map-open-link {
+  display: block;
+  max-width: 100%;
+  border-radius: 0.35rem;
+  cursor: zoom-in;
+}
+
+.map-open-link:hover {
+  outline: 2px solid var(--blue-700);
+  outline-offset: 2px;
+}
+
+.map-figure {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 12rem;
+  margin: 0;
+  padding: 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: var(--page);
+}
+
+.map-figure > .file-placeholder {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.map-help {
+  margin: 0.7rem 0.25rem 0.2rem;
+}
+
+.file-placeholder {
+  display: grid;
+  min-height: 11rem;
+  margin-bottom: 0.8rem;
+  padding: 1rem;
+  place-items: center;
+  border: 2px dashed #9aa8b2;
+  border-radius: 0.5rem;
+  background: #f1f4f6;
+  color: var(--muted);
+  text-align: center;
+}
+
+.result-map-image {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(70vh, 720px);
+  object-fit: contain;
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+  background: #fff;
+}
+
+.status-message {
+  margin-top: 1rem;
+  background: #f9fbfc;
+}
+
+/* สภาพโรงเรียนขนาดเล็ก: ตารางช่วงขนาด สีและขนาดจุดตาม SIZE_BINS/SIZE_MAP_MARKER_AREA ใน sms_pipeline.py
+   แผนที่วาด 6 ช่วง (ไม่เกิน 60 คน); ช่วง 61–120 รวมเป็นแถวสีเทา .row-off
+   ถ้าเปลี่ยน SIZE_MAP_MAX_STUDENTS ต้องแก้ .size-bin-* ด้านล่างและย่อหน้ากรอบการอ่านผลใน index.html ให้ตรงกัน */
+
+.size-table {
+  width: 100%;
+  margin: 0.9rem 0 0.4rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.size-table caption {
+  padding: 0 0.25rem 0.5rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+  text-align: left;
+}
+
+.size-table th,
+.size-table td {
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.size-table thead th {
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.size-table tfoot th {
+  border-bottom: 0;
+  color: var(--navy-950);
+}
+
+.size-table .num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.size-swatch {
+  display: inline-block;
+  width: 0.85rem;
+  height: 0.85rem;
+  margin-right: 0.55rem;
+  border: 1px solid #1f2933;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.size-bin-0 { width: 0.5rem; height: 0.5rem; margin-right: 0.9rem; }
+.size-bin-1 { width: 0.62rem; height: 0.62rem; margin-right: 0.78rem; }
+.size-bin-2 { width: 0.75rem; height: 0.75rem; margin-right: 0.65rem; }
+.size-bin-3 { width: 0.9rem; height: 0.9rem; margin-right: 0.5rem; }
+.size-bin-4 { width: 1.05rem; height: 1.05rem; margin-right: 0.35rem; }
+.size-bin-5 { width: 1.2rem; height: 1.2rem; margin-right: 0.2rem; }
+
+.size-bin-0 { background: #D62728; }
+.size-bin-1 { background: #F26B21; }
+.size-bin-2 { background: #F7941D; }
+.size-bin-3 { background: #FFC000; }
+.size-bin-4 { background: #FFE84D; }
+.size-bin-5 { background: #B5D334; }
+.size-bin-off { background: #C9CED6; }
+
+.size-table .row-off td {
+  color: var(--muted);
+}
+
+.size-note {
+  margin: 0.6rem 0.25rem 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* ภาพจำลองหากจับคู่ตามผลคัดกรอง: แถบตัวเลขรวม (ส่วน A) และตารางรายโรงเรียนคุณภาพชุมชน (ส่วน B)
+   เต็มความกว้างใต้ .detail-grid ข้อมูลจาก catalog.consolidation ที่ pipeline สร้างจาก QC (ตัดสินร่วมกับผู้ใช้ 8 ก.ย. 2569) */
+.consolidation-box {
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.consolidation-box > .deliverable-heading {
+  padding: 0.35rem 0.25rem 0.6rem;
+}
+
+.metrics-compact {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  margin: 0.4rem 0 0.8rem;
+}
+
+.metrics-compact dd {
+  font-size: 1.3rem;
+}
+
+.metrics-compact .metric-unit {
+  margin-top: 0.1rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 400;
+}
+
+.consolidation-caveat {
+  margin: 0 0.25rem 0.6rem;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.table-scroll:focus-visible {
+  outline: 3px solid var(--blue-700);
+  outline-offset: 2px;
+}
+
+.consolidation-table {
+  min-width: 46rem;
+  margin: 0.4rem 0 0.2rem;
+}
+
+.consolidation-table .size-shift {
+  color: var(--navy-800);
+  font-weight: 700;
+}
+
+.method-card {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.6fr) minmax(20rem, 1.4fr);
+  gap: 2rem;
+  margin-block: 1rem 2rem;
+  padding: 1.25rem;
+}
+
+.method-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.site-footer {
+  border-top: 4px solid #edb62f;
+  background: var(--navy-950);
+  color: #dcebf4;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1rem 2rem;
+  align-items: start;
+  padding-block: 1.25rem;
+}
+
+.footer-project strong {
+  color: #fff;
+}
+
+.footer-note {
+  justify-self: end;
+  text-align: right;
+}
+
+@media (max-width: 48rem) {
+  .footer-note {
+    justify-self: start;
+    text-align: left;
+  }
+}
+
+.footer-inner p {
+  margin-bottom: 0;
+}
+
+.noscript-message {
+  position: fixed;
+  z-index: 99;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  margin: 0;
+  padding: 1rem;
+  border: 2px solid var(--review);
+  background: var(--review-bg);
+  color: var(--review);
+  font-weight: 700;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (max-width: 70rem) {
+  .intro,
+  .workspace-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro {
+    gap: 1rem;
+  }
+
+  .summary-strip {
+    grid-template-columns: repeat(5, minmax(5.5rem, 1fr));
+    overflow-x: auto;
+    padding-bottom: 0.2rem;
+  }
+}
+
+@media (max-width: 62.5rem) {
+  .detail-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .result-map-image {
+    max-height: min(80vh, 720px);
+  }
+}
+
+@media (max-width: 48rem) {
+  .shell {
+    width: min(100% - 1rem, 90rem);
+  }
+
+  .header-inner {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .brand-logo {
+    height: 2.8rem;
+  }
+
+  .brand-logos {
+    gap: 0.5rem;
+    padding: 0.35rem 0.5rem;
+  }
+
+  .pilot-badge {
+    grid-column: 1 / -1;
+    max-width: none;
+    justify-self: start;
+  }
+
+  .search-panel,
+  .method-card {
+    grid-template-columns: 1fr;
+  }
+
+  .search-controls,
+  .footer-inner,
+  .detail-heading {
+    flex-direction: column;
+  }
+
+  .search-controls {
+    display: grid;
+  }
+
+  .legend {
+    grid-template-columns: 1fr;
+  }
+
+  .map-frame {
+    min-height: 20rem;
+  }
+
+  .area-button {
+    grid-template-columns: 1fr;
+  }
+
+  .status-badge {
+    justify-self: start;
+  }
+
+  .footer-inner {
+    display: flex;
+  }
+}
+
+@media (max-width: 30rem) {
+  .summary-strip {
+    grid-template-columns: repeat(5, 7.5rem);
+  }
+
+  .panel-heading,
+  .detail-toolbar {
+    flex-direction: column;
+  }
+
+  .count-chip,
+  .area-code {
+    white-space: normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .site-header,
+  .search-panel,
+  .workspace-grid,
+  .site-footer,
+  .detail-toolbar {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .detail-panel {
+    display: block !important;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .deliverable-actions,
+  .map-help {
+    display: none;
+  }
+
+  .deliverable-box {
+    padding: 0;
+    border: 0;
+  }
+
+  .detail-grid {
+    display: block;
+  }
+
+  .detail-column {
+    margin-bottom: 1.2rem;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .consolidation-box {
+    margin-top: 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .table-scroll {
+    overflow: visible;
+  }
+
+  .consolidation-table {
+    min-width: 0;
+    font-size: 0.85rem;
+  }
+
+  .map-figure {
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  .result-map-image {
+    max-height: 60vh;
+  }
+
+  .map-open-link:hover {
+    outline: 0;
+  }
+}

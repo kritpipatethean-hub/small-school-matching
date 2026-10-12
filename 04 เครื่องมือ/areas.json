@@ -1,0 +1,2947 @@
+{
+  "schema_version": 1,
+  "generated_from": "ชุดข้อมูล DMC682",
+  "generated_on": "2026-09-03",
+  "expected_status_counts": {
+    "ready": 6,
+    "pending": 176,
+    "blocked": 0,
+    "empty": 1
+  },
+  "source": {
+    "path": "../01 ข้อมูลกลาง/DMC682_สพป.csv",
+    "sha256": "3812AF51F8DB2B01DD67D6A82AF805D16BB013009876A5AAD88A434360482E00",
+    "row_count": 26433,
+    "area_count": 183,
+    "province_count": 77
+  },
+  "cross_checks": {
+    "small_source": {
+      "path": "../01 ข้อมูลกลาง/DMC682_สพป_เล็ก.csv",
+      "sha256": "95CBF9BA018EB4E3175EB1495F35B7F2AE9D28F7564978EDD8B952E958D43CBD",
+      "row_count": 15342,
+      "area_count": 182
+    },
+    "magnet_source": {
+      "path": "../01 ข้อมูลกลาง/Magnet_schools_with_coordinates.csv",
+      "sha256": "9DA9CA406F196A0A1BECD958845A4F71A80A9F7BBBB91BCE1C27BA99883E0152",
+      "row_count": 901,
+      "area_count": 183
+    },
+    "boundary_mapping_source": {
+      "path": "../01 ข้อมูลกลาง/cleaned_school_districts_สพป.csv",
+      "sha256": "A8894799C6802C9970B0BF35A4B3C68D8729853BF04D4A0E0EA434D618471A46",
+      "row_count": 898
+    },
+    "boundary_override_source": {
+      "path": "../01 ข้อมูลกลาง/ขอบเขต_สพป_แก้ไขเฉพาะพื้นที่.gpkg",
+      "sha256": "2C7587E65A12BCD732781DEDA6EF9AA6D79844F9EB4FDC6C266C3628E459A157",
+      "layer_name": "boundary_overrides",
+      "feature_count": 2,
+      "crs": "EPSG:4326",
+      "expected_areas": {
+        "21010000": {
+          "district_count": 5,
+          "district_codes": [
+            "TH2101",
+            "TH2102",
+            "TH2105",
+            "TH2106",
+            "TH2108"
+          ]
+        },
+        "21020000": {
+          "district_count": 3,
+          "district_codes": [
+            "TH2103",
+            "TH2104",
+            "TH2107"
+          ]
+        }
+      }
+    }
+  },
+  "status_values": [
+    "ready",
+    "pending",
+    "blocked",
+    "empty"
+  ],
+  "areas": [
+    {
+      "id": "spap-10010000",
+      "areacode": "10010000",
+      "province": "กรุงเทพมหานคร",
+      "name": "สพป.กรุงเทพมหานคร",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษากรุงเทพมหานคร",
+      "folder_name": "กรุงเทพมหานคร",
+      "status": "empty",
+      "school_counts": {
+        "registered": 0,
+        "potential_origins": 0,
+        "magnets": 24,
+        "excluded_is_magnet": 0
+      },
+      "status_note": "ไม่มีประชากรโรงเรียนขนาดเล็กในชุดข้อมูล DMC682"
+    },
+    {
+      "id": "spap-11010000",
+      "areacode": "11010000",
+      "province": "สมุทรปราการ",
+      "name": "สพป.สมุทรปราการ เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสมุทรปราการ เขต 1",
+      "folder_name": "สมุทรปราการ เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 20,
+        "potential_origins": 19,
+        "magnets": 3,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-11020000",
+      "areacode": "11020000",
+      "province": "สมุทรปราการ",
+      "name": "สพป.สมุทรปราการ เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสมุทรปราการ เขต 2",
+      "folder_name": "สมุทรปราการ เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 18,
+        "potential_origins": 18,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-12010000",
+      "areacode": "12010000",
+      "province": "นนทบุรี",
+      "name": "สพป.นนทบุรี เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานนทบุรี เขต 1",
+      "folder_name": "นนทบุรี เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 6,
+        "potential_origins": 6,
+        "magnets": 2,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-12020000",
+      "areacode": "12020000",
+      "province": "นนทบุรี",
+      "name": "สพป.นนทบุรี เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานนทบุรี เขต 2",
+      "folder_name": "นนทบุรี เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 13,
+        "potential_origins": 13,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-13010000",
+      "areacode": "13010000",
+      "province": "ปทุมธานี",
+      "name": "สพป.ปทุมธานี เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาปทุมธานี เขต 1",
+      "folder_name": "ปทุมธานี เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 28,
+        "potential_origins": 28,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-13020000",
+      "areacode": "13020000",
+      "province": "ปทุมธานี",
+      "name": "สพป.ปทุมธานี เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาปทุมธานี เขต 2",
+      "folder_name": "ปทุมธานี เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 13,
+        "potential_origins": 13,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-14010000",
+      "areacode": "14010000",
+      "province": "พระนครศรีอยุธยา",
+      "name": "สพป.พระนครศรีอยุธยา เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาพระนครศรีอยุธยา เขต 1",
+      "folder_name": "พระนครศรีอยุธยา เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 91,
+        "potential_origins": 90,
+        "magnets": 9,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-14020000",
+      "areacode": "14020000",
+      "province": "พระนครศรีอยุธยา",
+      "name": "สพป.พระนครศรีอยุธยา เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาพระนครศรีอยุธยา เขต 2",
+      "folder_name": "พระนครศรีอยุธยา เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 99,
+        "potential_origins": 99,
+        "magnets": 7,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-15010000",
+      "areacode": "15010000",
+      "province": "อ่างทอง",
+      "name": "สพป.อ่างทอง",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอ่างทอง",
+      "folder_name": "อ่างทอง",
+      "status": "ready",
+      "school_counts": {
+        "registered": 91,
+        "potential_origins": 90,
+        "magnets": 7,
+        "excluded_is_magnet": 1
+      },
+      "pilot": {
+        "adapter": "qneat3_pilot",
+        "expected": {
+          "registered": 91,
+          "origins": 90,
+          "magnets": 7,
+          "matched": 80,
+          "over10km": 10,
+          "unreachable": 0,
+          "excluded": 1,
+          "coordExceptions": 0
+        },
+        "files": {
+          "boundary": "ขอบเขต_สพป.อ่างทอง_UTM47N.gpkg",
+          "small": "โรงเรียนขนาดเล็ก_อ่างทอง_ต้นทาง90แห่ง.gpkg",
+          "magnets": "โรงเรียนแม่เหล็ก_อ่างทอง_7แห่ง.gpkg",
+          "roads": "ถนน_อ่างทอง_สำหรับคำนวณ.gpkg",
+          "od": "OD_อ่างทอง_ไม่เกิน10กม.gpkg",
+          "status": "สถานะการจับคู่_โรงเรียนขนาดเล็ก_อ่างทอง.gpkg",
+          "project": "แผนที่ผลการจับคู่_อ่างทอง.qgz"
+        },
+        "analysis": "ผลนำร่อง QNEAT3 ที่ตรวจรับแล้ว; แยกโรงเรียนซึ่งเป็นโรงเรียนคุณภาพชุมชนด้วย 1 แห่ง"
+      }
+    },
+    {
+      "id": "spap-16010000",
+      "areacode": "16010000",
+      "province": "ลพบุรี",
+      "name": "สพป.ลพบุรี เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาลพบุรี เขต 1",
+      "folder_name": "ลพบุรี เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 99,
+        "potential_origins": 99,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-16020000",
+      "areacode": "16020000",
+      "province": "ลพบุรี",
+      "name": "สพป.ลพบุรี เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาลพบุรี เขต 2",
+      "folder_name": "ลพบุรี เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 68,
+        "potential_origins": 68,
+        "magnets": 7,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-17010000",
+      "areacode": "17010000",
+      "province": "สิงห์บุรี",
+      "name": "สพป.สิงห์บุรี",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสิงห์บุรี",
+      "folder_name": "สิงห์บุรี",
+      "status": "pending",
+      "school_counts": {
+        "registered": 66,
+        "potential_origins": 65,
+        "magnets": 6,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-18010000",
+      "areacode": "18010000",
+      "province": "ชัยนาท",
+      "name": "สพป.ชัยนาท",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาชัยนาท",
+      "folder_name": "ชัยนาท",
+      "status": "pending",
+      "school_counts": {
+        "registered": 105,
+        "potential_origins": 104,
+        "magnets": 8,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-19010000",
+      "areacode": "19010000",
+      "province": "สระบุรี",
+      "name": "สพป.สระบุรี เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสระบุรี เขต 1",
+      "folder_name": "สระบุรี เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 80,
+        "potential_origins": 80,
+        "magnets": 8,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-19020000",
+      "areacode": "19020000",
+      "province": "สระบุรี",
+      "name": "สพป.สระบุรี เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสระบุรี เขต 2",
+      "folder_name": "สระบุรี เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 69,
+        "potential_origins": 69,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-20010000",
+      "areacode": "20010000",
+      "province": "ชลบุรี",
+      "name": "สพป.ชลบุรี เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาชลบุรี เขต 1",
+      "folder_name": "ชลบุรี เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 19,
+        "potential_origins": 19,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-20020000",
+      "areacode": "20020000",
+      "province": "ชลบุรี",
+      "name": "สพป.ชลบุรี เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาชลบุรี เขต 2",
+      "folder_name": "ชลบุรี เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 47,
+        "potential_origins": 47,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-20030000",
+      "areacode": "20030000",
+      "province": "ชลบุรี",
+      "name": "สพป.ชลบุรี เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาชลบุรี เขต 3",
+      "folder_name": "ชลบุรี เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 3,
+        "potential_origins": 3,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-21010000",
+      "areacode": "21010000",
+      "province": "ระยอง",
+      "name": "สพป.ระยอง เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาระยอง เขต 1",
+      "boundary_override": "../01 ข้อมูลกลาง/ขอบเขต_สพป_แก้ไขเฉพาะพื้นที่.gpkg",
+      "folder_name": "ระยอง เขต 1",
+      "status": "ready",
+      "school_counts": {
+        "registered": 23,
+        "potential_origins": 23,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      },
+      "expected": {
+        "registered": 23,
+        "origins": 23,
+        "magnets": 5,
+        "matched": 6,
+        "over10km": 17,
+        "unreachable": 0,
+        "excluded": 0,
+        "coordExceptions": 0
+      },
+      "accepted_result": {
+        "full_od_rows": 115,
+        "full_od_valid_rows": 115,
+        "expected_full_od_rows": 115,
+        "nearest_rows": 23,
+        "sensitivity_9_5_to_10_5_km": 0,
+        "tie_count": 0,
+        "matched_pair_digest": "2250A8D42DA4E60DD4046E682256384113D8BC82C3DC18ED462D36282E007688"
+      }
+    },
+    {
+      "id": "spap-21020000",
+      "areacode": "21020000",
+      "province": "ระยอง",
+      "name": "สพป.ระยอง เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาระยอง เขต 2",
+      "boundary_override": "../01 ข้อมูลกลาง/ขอบเขต_สพป_แก้ไขเฉพาะพื้นที่.gpkg",
+      "folder_name": "ระยอง เขต 2",
+      "status": "ready",
+      "school_counts": {
+        "registered": 44,
+        "potential_origins": 44,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      },
+      "expected": {
+        "registered": 44,
+        "origins": 44,
+        "magnets": 3,
+        "matched": 16,
+        "over10km": 28,
+        "unreachable": 0,
+        "excluded": 0,
+        "coordExceptions": 0
+      },
+      "accepted_result": {
+        "full_od_rows": 132,
+        "full_od_valid_rows": 132,
+        "expected_full_od_rows": 132,
+        "nearest_rows": 44,
+        "sensitivity_9_5_to_10_5_km": 1,
+        "tie_count": 0,
+        "matched_pair_digest": "4CED913854D0B8C21A9378AB576D3A756CDF11023678C95EB6A60B390BBEE642"
+      }
+    },
+    {
+      "id": "spap-22010000",
+      "areacode": "22010000",
+      "province": "จันทบุรี",
+      "name": "สพป.จันทบุรี เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาจันทบุรี เขต 1",
+      "folder_name": "จันทบุรี เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 37,
+        "potential_origins": 37,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-22020000",
+      "areacode": "22020000",
+      "province": "จันทบุรี",
+      "name": "สพป.จันทบุรี เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาจันทบุรี เขต 2",
+      "folder_name": "จันทบุรี เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 45,
+        "potential_origins": 45,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-23010000",
+      "areacode": "23010000",
+      "province": "ตราด",
+      "name": "สพป.ตราด",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาตราด",
+      "folder_name": "ตราด",
+      "status": "pending",
+      "school_counts": {
+        "registered": 41,
+        "potential_origins": 41,
+        "magnets": 7,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-24010000",
+      "areacode": "24010000",
+      "province": "ฉะเชิงเทรา",
+      "name": "สพป.ฉะเชิงเทรา เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาฉะเชิงเทรา เขต 1",
+      "folder_name": "ฉะเชิงเทรา เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 66,
+        "potential_origins": 66,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-24020000",
+      "areacode": "24020000",
+      "province": "ฉะเชิงเทรา",
+      "name": "สพป.ฉะเชิงเทรา เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาฉะเชิงเทรา เขต 2",
+      "folder_name": "ฉะเชิงเทรา เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 69,
+        "potential_origins": 68,
+        "magnets": 7,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-25010000",
+      "areacode": "25010000",
+      "province": "ปราจีนบุรี",
+      "name": "สพป.ปราจีนบุรี เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาปราจีนบุรี เขต 1",
+      "folder_name": "ปราจีนบุรี เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 65,
+        "potential_origins": 65,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-25020000",
+      "areacode": "25020000",
+      "province": "ปราจีนบุรี",
+      "name": "สพป.ปราจีนบุรี เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาปราจีนบุรี เขต 2",
+      "folder_name": "ปราจีนบุรี เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 65,
+        "potential_origins": 65,
+        "magnets": 2,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-26010000",
+      "areacode": "26010000",
+      "province": "นครนายก",
+      "name": "สพป.นครนายก",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครนายก",
+      "folder_name": "นครนายก",
+      "status": "pending",
+      "school_counts": {
+        "registered": 80,
+        "potential_origins": 80,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-27010000",
+      "areacode": "27010000",
+      "province": "สระแก้ว",
+      "name": "สพป.สระแก้ว เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสระแก้ว เขต 1",
+      "folder_name": "สระแก้ว เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 85,
+        "potential_origins": 85,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-27020000",
+      "areacode": "27020000",
+      "province": "สระแก้ว",
+      "name": "สพป.สระแก้ว เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสระแก้ว เขต 2",
+      "folder_name": "สระแก้ว เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 54,
+        "potential_origins": 54,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-30010000",
+      "areacode": "30010000",
+      "province": "นครราชสีมา",
+      "name": "สพป.นครราชสีมา เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครราชสีมา เขต 1",
+      "folder_name": "นครราชสีมา เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 66,
+        "potential_origins": 66,
+        "magnets": 2,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-30020000",
+      "areacode": "30020000",
+      "province": "นครราชสีมา",
+      "name": "สพป.นครราชสีมา เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครราชสีมา เขต 2",
+      "folder_name": "นครราชสีมา เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 114,
+        "potential_origins": 114,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-30030000",
+      "areacode": "30030000",
+      "province": "นครราชสีมา",
+      "name": "สพป.นครราชสีมา เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครราชสีมา เขต 3",
+      "folder_name": "นครราชสีมา เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 105,
+        "potential_origins": 105,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-30040000",
+      "areacode": "30040000",
+      "province": "นครราชสีมา",
+      "name": "สพป.นครราชสีมา เขต 4",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครราชสีมา เขต 4",
+      "folder_name": "นครราชสีมา เขต 4",
+      "status": "pending",
+      "school_counts": {
+        "registered": 93,
+        "potential_origins": 92,
+        "magnets": 3,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-30050000",
+      "areacode": "30050000",
+      "province": "นครราชสีมา",
+      "name": "สพป.นครราชสีมา เขต 5",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครราชสีมา เขต 5",
+      "folder_name": "นครราชสีมา เขต 5",
+      "status": "pending",
+      "school_counts": {
+        "registered": 139,
+        "potential_origins": 139,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-30060000",
+      "areacode": "30060000",
+      "province": "นครราชสีมา",
+      "name": "สพป.นครราชสีมา เขต 6",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครราชสีมา เขต 6",
+      "folder_name": "นครราชสีมา เขต 6",
+      "status": "pending",
+      "school_counts": {
+        "registered": 134,
+        "potential_origins": 133,
+        "magnets": 6,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-30070000",
+      "areacode": "30070000",
+      "province": "นครราชสีมา",
+      "name": "สพป.นครราชสีมา เขต 7",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครราชสีมา เขต 7",
+      "folder_name": "นครราชสีมา เขต 7",
+      "status": "pending",
+      "school_counts": {
+        "registered": 147,
+        "potential_origins": 147,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-31010000",
+      "areacode": "31010000",
+      "province": "บุรีรัมย์",
+      "name": "สพป.บุรีรัมย์ เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาบุรีรัมย์ เขต 1",
+      "folder_name": "บุรีรัมย์ เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 123,
+        "potential_origins": 123,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-31020000",
+      "areacode": "31020000",
+      "province": "บุรีรัมย์",
+      "name": "สพป.บุรีรัมย์ เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาบุรีรัมย์ เขต 2",
+      "folder_name": "บุรีรัมย์ เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 125,
+        "potential_origins": 125,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-31030000",
+      "areacode": "31030000",
+      "province": "บุรีรัมย์",
+      "name": "สพป.บุรีรัมย์ เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาบุรีรัมย์ เขต 3",
+      "folder_name": "บุรีรัมย์ เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 107,
+        "potential_origins": 107,
+        "magnets": 8,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-31040000",
+      "areacode": "31040000",
+      "province": "บุรีรัมย์",
+      "name": "สพป.บุรีรัมย์ เขต 4",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาบุรีรัมย์ เขต 4",
+      "folder_name": "บุรีรัมย์ เขต 4",
+      "status": "pending",
+      "school_counts": {
+        "registered": 122,
+        "potential_origins": 122,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-32010000",
+      "areacode": "32010000",
+      "province": "สุรินทร์",
+      "name": "สพป.สุรินทร์ เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสุรินทร์ เขต 1",
+      "folder_name": "สุรินทร์ เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 162,
+        "potential_origins": 162,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-32020000",
+      "areacode": "32020000",
+      "province": "สุรินทร์",
+      "name": "สพป.สุรินทร์ เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสุรินทร์ เขต 2",
+      "folder_name": "สุรินทร์ เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 141,
+        "potential_origins": 141,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-32030000",
+      "areacode": "32030000",
+      "province": "สุรินทร์",
+      "name": "สพป.สุรินทร์ เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสุรินทร์ เขต 3",
+      "folder_name": "สุรินทร์ เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 83,
+        "potential_origins": 82,
+        "magnets": 6,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-33010000",
+      "areacode": "33010000",
+      "province": "ศรีสะเกษ",
+      "name": "สพป.ศรีสะเกษ เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาศรีสะเกษ เขต 1",
+      "folder_name": "ศรีสะเกษ เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 176,
+        "potential_origins": 176,
+        "magnets": 7,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-33020000",
+      "areacode": "33020000",
+      "province": "ศรีสะเกษ",
+      "name": "สพป.ศรีสะเกษ เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาศรีสะเกษ เขต 2",
+      "folder_name": "ศรีสะเกษ เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 123,
+        "potential_origins": 123,
+        "magnets": 7,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-33030000",
+      "areacode": "33030000",
+      "province": "ศรีสะเกษ",
+      "name": "สพป.ศรีสะเกษ เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาศรีสะเกษ เขต 3",
+      "folder_name": "ศรีสะเกษ เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 113,
+        "potential_origins": 113,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-33040000",
+      "areacode": "33040000",
+      "province": "ศรีสะเกษ",
+      "name": "สพป.ศรีสะเกษ เขต 4",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาศรีสะเกษ เขต 4",
+      "folder_name": "ศรีสะเกษ เขต 4",
+      "status": "pending",
+      "school_counts": {
+        "registered": 114,
+        "potential_origins": 114,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-34010000",
+      "areacode": "34010000",
+      "province": "อุบลราชธานี",
+      "name": "สพป.อุบลราชธานี เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอุบลราชธานี เขต 1",
+      "folder_name": "อุบลราชธานี เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 175,
+        "potential_origins": 175,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-34020000",
+      "areacode": "34020000",
+      "province": "อุบลราชธานี",
+      "name": "สพป.อุบลราชธานี เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอุบลราชธานี เขต 2",
+      "folder_name": "อุบลราชธานี เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 148,
+        "potential_origins": 148,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-34030000",
+      "areacode": "34030000",
+      "province": "อุบลราชธานี",
+      "name": "สพป.อุบลราชธานี เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอุบลราชธานี เขต 3",
+      "folder_name": "อุบลราชธานี เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 123,
+        "potential_origins": 123,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-34040000",
+      "areacode": "34040000",
+      "province": "อุบลราชธานี",
+      "name": "สพป.อุบลราชธานี เขต 4",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอุบลราชธานี เขต 4",
+      "folder_name": "อุบลราชธานี เขต 4",
+      "status": "pending",
+      "school_counts": {
+        "registered": 93,
+        "potential_origins": 93,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-34050000",
+      "areacode": "34050000",
+      "province": "อุบลราชธานี",
+      "name": "สพป.อุบลราชธานี เขต 5",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอุบลราชธานี เขต 5",
+      "folder_name": "อุบลราชธานี เขต 5",
+      "status": "pending",
+      "school_counts": {
+        "registered": 127,
+        "potential_origins": 127,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-35010000",
+      "areacode": "35010000",
+      "province": "ยโสธร",
+      "name": "สพป.ยโสธร เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษายโสธร เขต 1",
+      "folder_name": "ยโสธร เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 137,
+        "potential_origins": 135,
+        "magnets": 4,
+        "excluded_is_magnet": 2
+      }
+    },
+    {
+      "id": "spap-35020000",
+      "areacode": "35020000",
+      "province": "ยโสธร",
+      "name": "สพป.ยโสธร เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษายโสธร เขต 2",
+      "folder_name": "ยโสธร เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 124,
+        "potential_origins": 124,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-36010000",
+      "areacode": "36010000",
+      "province": "ชัยภูมิ",
+      "name": "สพป.ชัยภูมิ เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาชัยภูมิ เขต 1",
+      "folder_name": "ชัยภูมิ เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 132,
+        "potential_origins": 132,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-36020000",
+      "areacode": "36020000",
+      "province": "ชัยภูมิ",
+      "name": "สพป.ชัยภูมิ เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาชัยภูมิ เขต 2",
+      "folder_name": "ชัยภูมิ เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 182,
+        "potential_origins": 182,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-36030000",
+      "areacode": "36030000",
+      "province": "ชัยภูมิ",
+      "name": "สพป.ชัยภูมิ เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาชัยภูมิ เขต 3",
+      "folder_name": "ชัยภูมิ เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 125,
+        "potential_origins": 125,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-37010000",
+      "areacode": "37010000",
+      "province": "อำนาจเจริญ",
+      "name": "สพป.อำนาจเจริญ",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอำนาจเจริญ",
+      "folder_name": "อำนาจเจริญ",
+      "status": "pending",
+      "school_counts": {
+        "registered": 192,
+        "potential_origins": 192,
+        "magnets": 7,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-38010000",
+      "areacode": "38010000",
+      "province": "บึงกาฬ",
+      "name": "สพป.บึงกาฬ",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาบึงกาฬ",
+      "folder_name": "บึงกาฬ",
+      "status": "pending",
+      "school_counts": {
+        "registered": 110,
+        "potential_origins": 110,
+        "magnets": 8,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-39010000",
+      "areacode": "39010000",
+      "province": "หนองบัวลำภู",
+      "name": "สพป.หนองบัวลำภู เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาหนองบัวลำภู เขต 1",
+      "folder_name": "หนองบัวลำภู เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 134,
+        "potential_origins": 134,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-39020000",
+      "areacode": "39020000",
+      "province": "หนองบัวลำภู",
+      "name": "สพป.หนองบัวลำภู เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาหนองบัวลำภู เขต 2",
+      "folder_name": "หนองบัวลำภู เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 58,
+        "potential_origins": 58,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-40010000",
+      "areacode": "40010000",
+      "province": "ขอนแก่น",
+      "name": "สพป.ขอนแก่น เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาขอนแก่น เขต 1",
+      "folder_name": "ขอนแก่น เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 92,
+        "potential_origins": 92,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-40020000",
+      "areacode": "40020000",
+      "province": "ขอนแก่น",
+      "name": "สพป.ขอนแก่น เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาขอนแก่น เขต 2",
+      "folder_name": "ขอนแก่น เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 163,
+        "potential_origins": 162,
+        "magnets": 6,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-40030000",
+      "areacode": "40030000",
+      "province": "ขอนแก่น",
+      "name": "สพป.ขอนแก่น เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาขอนแก่น เขต 3",
+      "folder_name": "ขอนแก่น เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 125,
+        "potential_origins": 124,
+        "magnets": 5,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-40040000",
+      "areacode": "40040000",
+      "province": "ขอนแก่น",
+      "name": "สพป.ขอนแก่น เขต 4",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาขอนแก่น เขต 4",
+      "folder_name": "ขอนแก่น เขต 4",
+      "status": "pending",
+      "school_counts": {
+        "registered": 129,
+        "potential_origins": 129,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-40050000",
+      "areacode": "40050000",
+      "province": "ขอนแก่น",
+      "name": "สพป.ขอนแก่น เขต 5",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาขอนแก่น เขต 5",
+      "folder_name": "ขอนแก่น เขต 5",
+      "status": "pending",
+      "school_counts": {
+        "registered": 181,
+        "potential_origins": 181,
+        "magnets": 7,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-41010000",
+      "areacode": "41010000",
+      "province": "อุดรธานี",
+      "name": "สพป.อุดรธานี เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอุดรธานี เขต 1",
+      "folder_name": "อุดรธานี เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 132,
+        "potential_origins": 132,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-41020000",
+      "areacode": "41020000",
+      "province": "อุดรธานี",
+      "name": "สพป.อุดรธานี เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอุดรธานี เขต 2",
+      "folder_name": "อุดรธานี เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 125,
+        "potential_origins": 125,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-41030000",
+      "areacode": "41030000",
+      "province": "อุดรธานี",
+      "name": "สพป.อุดรธานี เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอุดรธานี เขต 3",
+      "folder_name": "อุดรธานี เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 122,
+        "potential_origins": 122,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-41040000",
+      "areacode": "41040000",
+      "province": "อุดรธานี",
+      "name": "สพป.อุดรธานี เขต 4",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอุดรธานี เขต 4",
+      "folder_name": "อุดรธานี เขต 4",
+      "status": "pending",
+      "school_counts": {
+        "registered": 85,
+        "potential_origins": 85,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-42010000",
+      "areacode": "42010000",
+      "province": "เลย",
+      "name": "สพป.เลย เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเลย เขต 1",
+      "folder_name": "เลย เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 82,
+        "potential_origins": 82,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-42020000",
+      "areacode": "42020000",
+      "province": "เลย",
+      "name": "สพป.เลย เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเลย เขต 2",
+      "folder_name": "เลย เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 98,
+        "potential_origins": 98,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-42030000",
+      "areacode": "42030000",
+      "province": "เลย",
+      "name": "สพป.เลย เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเลย เขต 3",
+      "folder_name": "เลย เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 94,
+        "potential_origins": 94,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-43010000",
+      "areacode": "43010000",
+      "province": "หนองคาย",
+      "name": "สพป.หนองคาย เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาหนองคาย เขต 1",
+      "folder_name": "หนองคาย เขต 1",
+      "status": "ready",
+      "school_counts": {
+        "registered": 99,
+        "potential_origins": 99,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      },
+      "pilot": {
+        "adapter": "legacy_nong_khai_1",
+        "never_rerun": true,
+        "expected": {
+          "registered": 99,
+          "origins": 96,
+          "magnets": 6,
+          "matched": 46,
+          "over10km": 50,
+          "unreachable": 0,
+          "excluded": 0,
+          "coordExceptions": 3
+        },
+        "files": {
+          "small": "small_NK1_onroad_snap10m.gpkg",
+          "magnets": "magnet_NK1_onroad_snap10m.gpkg",
+          "roads": "roads_NK1_snap10m_fix.gpkg",
+          "od": "od_NK1_nearest_10km.gpkg",
+          "full_od": "od_NK1_full_matrix_snap10m.gpkg",
+          "time_od": "od_NK1_time_networkx.gpkg",
+          "excel": "SMS ผลการจับคู่หนองคาย สพป เขต.1.xlsx"
+        },
+        "analysis": "นำเข้าหมวดหมู่จากผล legacy/Excel ที่ตรวจรับแล้ว; มี NetworkX fallback และกรณีพิกัด–ขอบเขต 3 แห่ง"
+      }
+    },
+    {
+      "id": "spap-43020000",
+      "areacode": "43020000",
+      "province": "หนองคาย",
+      "name": "สพป.หนองคาย เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาหนองคาย เขต 2",
+      "folder_name": "หนองคาย เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 68,
+        "potential_origins": 68,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-44010000",
+      "areacode": "44010000",
+      "province": "มหาสารคาม",
+      "name": "สพป.มหาสารคาม เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษามหาสารคาม เขต 1",
+      "folder_name": "มหาสารคาม เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 138,
+        "potential_origins": 137,
+        "magnets": 4,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-44020000",
+      "areacode": "44020000",
+      "province": "มหาสารคาม",
+      "name": "สพป.มหาสารคาม เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษามหาสารคาม เขต 2",
+      "folder_name": "มหาสารคาม เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 164,
+        "potential_origins": 164,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-44030000",
+      "areacode": "44030000",
+      "province": "มหาสารคาม",
+      "name": "สพป.มหาสารคาม เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษามหาสารคาม เขต 3",
+      "folder_name": "มหาสารคาม เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 98,
+        "potential_origins": 98,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-45010000",
+      "areacode": "45010000",
+      "province": "ร้อยเอ็ด",
+      "name": "สพป.ร้อยเอ็ด เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาร้อยเอ็ด เขต 1",
+      "folder_name": "ร้อยเอ็ด เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 151,
+        "potential_origins": 151,
+        "magnets": 7,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-45020000",
+      "areacode": "45020000",
+      "province": "ร้อยเอ็ด",
+      "name": "สพป.ร้อยเอ็ด เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาร้อยเอ็ด เขต 2",
+      "folder_name": "ร้อยเอ็ด เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 245,
+        "potential_origins": 245,
+        "magnets": 8,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-45030000",
+      "areacode": "45030000",
+      "province": "ร้อยเอ็ด",
+      "name": "สพป.ร้อยเอ็ด เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาร้อยเอ็ด เขต 3",
+      "folder_name": "ร้อยเอ็ด เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 147,
+        "potential_origins": 147,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-46010000",
+      "areacode": "46010000",
+      "province": "กาฬสินธุ์",
+      "name": "สพป.กาฬสินธุ์ เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษากาฬสินธุ์ เขต 1",
+      "folder_name": "กาฬสินธุ์ เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 112,
+        "potential_origins": 112,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-46020000",
+      "areacode": "46020000",
+      "province": "กาฬสินธุ์",
+      "name": "สพป.กาฬสินธุ์ เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษากาฬสินธุ์ เขต 2",
+      "folder_name": "กาฬสินธุ์ เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 107,
+        "potential_origins": 106,
+        "magnets": 5,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-46030000",
+      "areacode": "46030000",
+      "province": "กาฬสินธุ์",
+      "name": "สพป.กาฬสินธุ์ เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษากาฬสินธุ์ เขต 3",
+      "folder_name": "กาฬสินธุ์ เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 133,
+        "potential_origins": 132,
+        "magnets": 7,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-47010000",
+      "areacode": "47010000",
+      "province": "สกลนคร",
+      "name": "สพป.สกลนคร เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสกลนคร เขต 1",
+      "folder_name": "สกลนคร เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 82,
+        "potential_origins": 82,
+        "magnets": 7,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-47020000",
+      "areacode": "47020000",
+      "province": "สกลนคร",
+      "name": "สพป.สกลนคร เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสกลนคร เขต 2",
+      "folder_name": "สกลนคร เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 159,
+        "potential_origins": 159,
+        "magnets": 7,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-47030000",
+      "areacode": "47030000",
+      "province": "สกลนคร",
+      "name": "สพป.สกลนคร เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสกลนคร เขต 3",
+      "folder_name": "สกลนคร เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 98,
+        "potential_origins": 98,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-48010000",
+      "areacode": "48010000",
+      "province": "นครพนม",
+      "name": "สพป.นครพนม เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครพนม เขต 1",
+      "folder_name": "นครพนม เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 177,
+        "potential_origins": 176,
+        "magnets": 6,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-48020000",
+      "areacode": "48020000",
+      "province": "นครพนม",
+      "name": "สพป.นครพนม เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครพนม เขต 2",
+      "folder_name": "นครพนม เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 110,
+        "potential_origins": 110,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-49010000",
+      "areacode": "49010000",
+      "province": "มุกดาหาร",
+      "name": "สพป.มุกดาหาร",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษามุกดาหาร",
+      "folder_name": "มุกดาหาร",
+      "status": "pending",
+      "school_counts": {
+        "registered": 168,
+        "potential_origins": 168,
+        "magnets": 7,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-50010000",
+      "areacode": "50010000",
+      "province": "เชียงใหม่",
+      "name": "สพป.เชียงใหม่ เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเชียงใหม่ เขต 1",
+      "folder_name": "เชียงใหม่ เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 27,
+        "potential_origins": 27,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-50020000",
+      "areacode": "50020000",
+      "province": "เชียงใหม่",
+      "name": "สพป.เชียงใหม่ เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเชียงใหม่ เขต 2",
+      "folder_name": "เชียงใหม่ เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 50,
+        "potential_origins": 50,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-50030000",
+      "areacode": "50030000",
+      "province": "เชียงใหม่",
+      "name": "สพป.เชียงใหม่ เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเชียงใหม่ เขต 3",
+      "folder_name": "เชียงใหม่ เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 36,
+        "potential_origins": 36,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-50040000",
+      "areacode": "50040000",
+      "province": "เชียงใหม่",
+      "name": "สพป.เชียงใหม่ เขต 4",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเชียงใหม่ เขต 4",
+      "folder_name": "เชียงใหม่ เขต 4",
+      "status": "pending",
+      "school_counts": {
+        "registered": 26,
+        "potential_origins": 26,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-50050000",
+      "areacode": "50050000",
+      "province": "เชียงใหม่",
+      "name": "สพป.เชียงใหม่ เขต 5",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเชียงใหม่ เขต 5",
+      "folder_name": "เชียงใหม่ เขต 5",
+      "status": "pending",
+      "school_counts": {
+        "registered": 55,
+        "potential_origins": 55,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-50060000",
+      "areacode": "50060000",
+      "province": "เชียงใหม่",
+      "name": "สพป.เชียงใหม่ เขต 6",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเชียงใหม่ เขต 6",
+      "folder_name": "เชียงใหม่ เขต 6",
+      "status": "pending",
+      "school_counts": {
+        "registered": 58,
+        "potential_origins": 58,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-51010000",
+      "areacode": "51010000",
+      "province": "ลำพูน",
+      "name": "สพป.ลำพูน เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาลำพูน เขต 1",
+      "folder_name": "ลำพูน เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 38,
+        "potential_origins": 38,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-51020000",
+      "areacode": "51020000",
+      "province": "ลำพูน",
+      "name": "สพป.ลำพูน เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาลำพูน เขต 2",
+      "folder_name": "ลำพูน เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 50,
+        "potential_origins": 48,
+        "magnets": 4,
+        "excluded_is_magnet": 2
+      }
+    },
+    {
+      "id": "spap-52010000",
+      "areacode": "52010000",
+      "province": "ลำปาง",
+      "name": "สพป.ลำปาง เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาลำปาง เขต 1",
+      "folder_name": "ลำปาง เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 59,
+        "potential_origins": 59,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-52020000",
+      "areacode": "52020000",
+      "province": "ลำปาง",
+      "name": "สพป.ลำปาง เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาลำปาง เขต 2",
+      "folder_name": "ลำปาง เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 70,
+        "potential_origins": 68,
+        "magnets": 6,
+        "excluded_is_magnet": 2
+      }
+    },
+    {
+      "id": "spap-52030000",
+      "areacode": "52030000",
+      "province": "ลำปาง",
+      "name": "สพป.ลำปาง เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาลำปาง เขต 3",
+      "folder_name": "ลำปาง เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 54,
+        "potential_origins": 54,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-53010000",
+      "areacode": "53010000",
+      "province": "อุตรดิตถ์",
+      "name": "สพป.อุตรดิตถ์ เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอุตรดิตถ์ เขต 1",
+      "folder_name": "อุตรดิตถ์ เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 99,
+        "potential_origins": 99,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-53020000",
+      "areacode": "53020000",
+      "province": "อุตรดิตถ์",
+      "name": "สพป.อุตรดิตถ์ เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอุตรดิตถ์ เขต 2",
+      "folder_name": "อุตรดิตถ์ เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 57,
+        "potential_origins": 57,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-54010000",
+      "areacode": "54010000",
+      "province": "แพร่",
+      "name": "สพป.แพร่ เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาแพร่ เขต 1",
+      "folder_name": "แพร่ เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 72,
+        "potential_origins": 72,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-54020000",
+      "areacode": "54020000",
+      "province": "แพร่",
+      "name": "สพป.แพร่ เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาแพร่ เขต 2",
+      "folder_name": "แพร่ เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 75,
+        "potential_origins": 75,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-55010000",
+      "areacode": "55010000",
+      "province": "น่าน",
+      "name": "สพป.น่าน เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาน่าน เขต 1",
+      "folder_name": "น่าน เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 110,
+        "potential_origins": 109,
+        "magnets": 8,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-55020000",
+      "areacode": "55020000",
+      "province": "น่าน",
+      "name": "สพป.น่าน เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาน่าน เขต 2",
+      "folder_name": "น่าน เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 90,
+        "potential_origins": 88,
+        "magnets": 7,
+        "excluded_is_magnet": 2
+      }
+    },
+    {
+      "id": "spap-56010000",
+      "areacode": "56010000",
+      "province": "พะเยา",
+      "name": "สพป.พะเยา เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาพะเยา เขต 1",
+      "folder_name": "พะเยา เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 53,
+        "potential_origins": 53,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-56020000",
+      "areacode": "56020000",
+      "province": "พะเยา",
+      "name": "สพป.พะเยา เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาพะเยา เขต 2",
+      "folder_name": "พะเยา เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 84,
+        "potential_origins": 84,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-57010000",
+      "areacode": "57010000",
+      "province": "เชียงราย",
+      "name": "สพป.เชียงราย เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเชียงราย เขต 1",
+      "folder_name": "เชียงราย เขต 1",
+      "status": "ready",
+      "school_counts": {
+        "registered": 51,
+        "potential_origins": 51,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      },
+      "expected": {
+        "registered": 51,
+        "origins": 51,
+        "magnets": 3,
+        "matched": 15,
+        "over10km": 36,
+        "unreachable": 0,
+        "excluded": 0,
+        "coordExceptions": 0
+      },
+      "accepted_result": {
+        "full_od_rows": 153,
+        "full_od_valid_rows": 153,
+        "expected_full_od_rows": 153,
+        "nearest_rows": 51,
+        "sensitivity_9_5_to_10_5_km": 1,
+        "tie_count": 0,
+        "matched_pair_digest": "C579E74A06BC6CB902C97B81E0721644114CF6E1437A483D2E813B6DA2CE2324"
+      }
+    },
+    {
+      "id": "spap-57020000",
+      "areacode": "57020000",
+      "province": "เชียงราย",
+      "name": "สพป.เชียงราย เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเชียงราย เขต 2",
+      "folder_name": "เชียงราย เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 68,
+        "potential_origins": 68,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-57030000",
+      "areacode": "57030000",
+      "province": "เชียงราย",
+      "name": "สพป.เชียงราย เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเชียงราย เขต 3",
+      "folder_name": "เชียงราย เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 52,
+        "potential_origins": 52,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-57040000",
+      "areacode": "57040000",
+      "province": "เชียงราย",
+      "name": "สพป.เชียงราย เขต 4",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเชียงราย เขต 4",
+      "folder_name": "เชียงราย เขต 4",
+      "status": "pending",
+      "school_counts": {
+        "registered": 75,
+        "potential_origins": 75,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-58010000",
+      "areacode": "58010000",
+      "province": "แม่ฮ่องสอน",
+      "name": "สพป.แม่ฮ่องสอน เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาแม่ฮ่องสอน เขต 1",
+      "folder_name": "แม่ฮ่องสอน เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 95,
+        "potential_origins": 95,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-58020000",
+      "areacode": "58020000",
+      "province": "แม่ฮ่องสอน",
+      "name": "สพป.แม่ฮ่องสอน เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาแม่ฮ่องสอน เขต 2",
+      "folder_name": "แม่ฮ่องสอน เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 139,
+        "potential_origins": 139,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-60010000",
+      "areacode": "60010000",
+      "province": "นครสวรรค์",
+      "name": "สพป.นครสวรรค์ เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครสวรรค์ เขต 1",
+      "folder_name": "นครสวรรค์ เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 108,
+        "potential_origins": 108,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-60020000",
+      "areacode": "60020000",
+      "province": "นครสวรรค์",
+      "name": "สพป.นครสวรรค์ เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครสวรรค์ เขต 2",
+      "folder_name": "นครสวรรค์ เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 94,
+        "potential_origins": 94,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-60030000",
+      "areacode": "60030000",
+      "province": "นครสวรรค์",
+      "name": "สพป.นครสวรรค์ เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครสวรรค์ เขต 3",
+      "folder_name": "นครสวรรค์ เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 139,
+        "potential_origins": 138,
+        "magnets": 5,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-61010000",
+      "areacode": "61010000",
+      "province": "อุทัยธานี",
+      "name": "สพป.อุทัยธานี เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอุทัยธานี เขต 1",
+      "folder_name": "อุทัยธานี เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 49,
+        "potential_origins": 49,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-61020000",
+      "areacode": "61020000",
+      "province": "อุทัยธานี",
+      "name": "สพป.อุทัยธานี เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอุทัยธานี เขต 2",
+      "folder_name": "อุทัยธานี เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 82,
+        "potential_origins": 82,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-62010000",
+      "areacode": "62010000",
+      "province": "กำแพงเพชร",
+      "name": "สพป.กำแพงเพชร เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษากำแพงเพชร เขต 1",
+      "folder_name": "กำแพงเพชร เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 131,
+        "potential_origins": 130,
+        "magnets": 5,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-62020000",
+      "areacode": "62020000",
+      "province": "กำแพงเพชร",
+      "name": "สพป.กำแพงเพชร เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษากำแพงเพชร เขต 2",
+      "folder_name": "กำแพงเพชร เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 127,
+        "potential_origins": 127,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-63010000",
+      "areacode": "63010000",
+      "province": "ตาก",
+      "name": "สพป.ตาก เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาตาก เขต 1",
+      "folder_name": "ตาก เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 64,
+        "potential_origins": 64,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-63020000",
+      "areacode": "63020000",
+      "province": "ตาก",
+      "name": "สพป.ตาก เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาตาก เขต 2",
+      "folder_name": "ตาก เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 7,
+        "potential_origins": 7,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-64010000",
+      "areacode": "64010000",
+      "province": "สุโขทัย",
+      "name": "สพป.สุโขทัย เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสุโขทัย เขต 1",
+      "folder_name": "สุโขทัย เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 78,
+        "potential_origins": 78,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-64020000",
+      "areacode": "64020000",
+      "province": "สุโขทัย",
+      "name": "สพป.สุโขทัย เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสุโขทัย เขต 2",
+      "folder_name": "สุโขทัย เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 109,
+        "potential_origins": 109,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-65010000",
+      "areacode": "65010000",
+      "province": "พิษณุโลก",
+      "name": "สพป.พิษณุโลก เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาพิษณุโลก เขต 1",
+      "folder_name": "พิษณุโลก เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 62,
+        "potential_origins": 62,
+        "magnets": 2,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-65020000",
+      "areacode": "65020000",
+      "province": "พิษณุโลก",
+      "name": "สพป.พิษณุโลก เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาพิษณุโลก เขต 2",
+      "folder_name": "พิษณุโลก เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 65,
+        "potential_origins": 65,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-65030000",
+      "areacode": "65030000",
+      "province": "พิษณุโลก",
+      "name": "สพป.พิษณุโลก เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาพิษณุโลก เขต 3",
+      "folder_name": "พิษณุโลก เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 99,
+        "potential_origins": 99,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-66010000",
+      "areacode": "66010000",
+      "province": "พิจิตร",
+      "name": "สพป.พิจิตร เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาพิจิตร เขต 1",
+      "folder_name": "พิจิตร เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 86,
+        "potential_origins": 86,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-66020000",
+      "areacode": "66020000",
+      "province": "พิจิตร",
+      "name": "สพป.พิจิตร เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาพิจิตร เขต 2",
+      "folder_name": "พิจิตร เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 67,
+        "potential_origins": 67,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-67010000",
+      "areacode": "67010000",
+      "province": "เพชรบูรณ์",
+      "name": "สพป.เพชรบูรณ์ เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเพชรบูรณ์ เขต 1",
+      "folder_name": "เพชรบูรณ์ เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 65,
+        "potential_origins": 65,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-67020000",
+      "areacode": "67020000",
+      "province": "เพชรบูรณ์",
+      "name": "สพป.เพชรบูรณ์ เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเพชรบูรณ์ เขต 2",
+      "folder_name": "เพชรบูรณ์ เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 61,
+        "potential_origins": 61,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-67030000",
+      "areacode": "67030000",
+      "province": "เพชรบูรณ์",
+      "name": "สพป.เพชรบูรณ์ เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเพชรบูรณ์ เขต 3",
+      "folder_name": "เพชรบูรณ์ เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 111,
+        "potential_origins": 111,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-70010000",
+      "areacode": "70010000",
+      "province": "ราชบุรี",
+      "name": "สพป.ราชบุรี เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาราชบุรี เขต 1",
+      "folder_name": "ราชบุรี เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 96,
+        "potential_origins": 96,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-70020000",
+      "areacode": "70020000",
+      "province": "ราชบุรี",
+      "name": "สพป.ราชบุรี เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาราชบุรี เขต 2",
+      "folder_name": "ราชบุรี เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 77,
+        "potential_origins": 77,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-71010000",
+      "areacode": "71010000",
+      "province": "กาญจนบุรี",
+      "name": "สพป.กาญจนบุรี เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษากาญจนบุรี เขต 1",
+      "folder_name": "กาญจนบุรี เขต 1",
+      "status": "ready",
+      "school_counts": {
+        "registered": 65,
+        "potential_origins": 65,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      },
+      "pilot": {
+        "adapter": "qneat3_pilot",
+        "expected": {
+          "registered": 65,
+          "origins": 65,
+          "magnets": 4,
+          "matched": 23,
+          "over10km": 42,
+          "unreachable": 0,
+          "excluded": 0,
+          "coordExceptions": 0
+        },
+        "files": {
+          "boundary": "ขอบเขต_สพป.กาญจนบุรี_เขต1_UTM47N.gpkg",
+          "small": "โรงเรียนขนาดเล็ก_กาญจนบุรี_เขต1_65แห่ง.gpkg",
+          "magnets": "โรงเรียนแม่เหล็ก_กาญจนบุรี_เขต1_4แห่ง.gpkg",
+          "roads": "ถนน_กาญจนบุรี_เขต1_สำหรับคำนวณ.gpkg",
+          "od": "OD_กาญจนบุรี_เขต1_ไม่เกิน10กม.gpkg",
+          "status": "สถานะการจับคู่_โรงเรียนขนาดเล็ก_กาญจนบุรี_เขต1.gpkg",
+          "project": "แผนที่ผลการจับคู่_กาญจนบุรี_เขต1.qgz"
+        },
+        "analysis": "ผลนำร่อง QNEAT3 ที่ตรวจรับแล้วและตรงกับงานทำมือ"
+      }
+    },
+    {
+      "id": "spap-71020000",
+      "areacode": "71020000",
+      "province": "กาญจนบุรี",
+      "name": "สพป.กาญจนบุรี เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษากาญจนบุรี เขต 2",
+      "folder_name": "กาญจนบุรี เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 50,
+        "potential_origins": 50,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-71030000",
+      "areacode": "71030000",
+      "province": "กาญจนบุรี",
+      "name": "สพป.กาญจนบุรี เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษากาญจนบุรี เขต 3",
+      "folder_name": "กาญจนบุรี เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 24,
+        "potential_origins": 24,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-71040000",
+      "areacode": "71040000",
+      "province": "กาญจนบุรี",
+      "name": "สพป.กาญจนบุรี เขต 4",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษากาญจนบุรี เขต 4",
+      "folder_name": "กาญจนบุรี เขต 4",
+      "status": "pending",
+      "school_counts": {
+        "registered": 49,
+        "potential_origins": 49,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-72010000",
+      "areacode": "72010000",
+      "province": "สุพรรณบุรี",
+      "name": "สพป.สุพรรณบุรี เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสุพรรณบุรี เขต 1",
+      "folder_name": "สุพรรณบุรี เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 97,
+        "potential_origins": 97,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-72020000",
+      "areacode": "72020000",
+      "province": "สุพรรณบุรี",
+      "name": "สพป.สุพรรณบุรี เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสุพรรณบุรี เขต 2",
+      "folder_name": "สุพรรณบุรี เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 82,
+        "potential_origins": 82,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-72030000",
+      "areacode": "72030000",
+      "province": "สุพรรณบุรี",
+      "name": "สพป.สุพรรณบุรี เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสุพรรณบุรี เขต 3",
+      "folder_name": "สุพรรณบุรี เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 91,
+        "potential_origins": 91,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-73010000",
+      "areacode": "73010000",
+      "province": "นครปฐม",
+      "name": "สพป.นครปฐม เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครปฐม เขต 1",
+      "folder_name": "นครปฐม เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 51,
+        "potential_origins": 51,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-73020000",
+      "areacode": "73020000",
+      "province": "นครปฐม",
+      "name": "สพป.นครปฐม เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครปฐม เขต 2",
+      "folder_name": "นครปฐม เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 40,
+        "potential_origins": 40,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-74010000",
+      "areacode": "74010000",
+      "province": "สมุทรสาคร",
+      "name": "สพป.สมุทรสาคร",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสมุทรสาคร",
+      "folder_name": "สมุทรสาคร",
+      "status": "pending",
+      "school_counts": {
+        "registered": 21,
+        "potential_origins": 21,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-75010000",
+      "areacode": "75010000",
+      "province": "สมุทรสงคราม",
+      "name": "สพป.สมุทรสงคราม",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสมุทรสงคราม",
+      "folder_name": "สมุทรสงคราม",
+      "status": "pending",
+      "school_counts": {
+        "registered": 43,
+        "potential_origins": 43,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-76010000",
+      "areacode": "76010000",
+      "province": "เพชรบุรี",
+      "name": "สพป.เพชรบุรี เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเพชรบุรี เขต 1",
+      "folder_name": "เพชรบุรี เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 64,
+        "potential_origins": 63,
+        "magnets": 4,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-76020000",
+      "areacode": "76020000",
+      "province": "เพชรบุรี",
+      "name": "สพป.เพชรบุรี เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาเพชรบุรี เขต 2",
+      "folder_name": "เพชรบุรี เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 77,
+        "potential_origins": 77,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-77010000",
+      "areacode": "77010000",
+      "province": "ประจวบคีรีขันธ์",
+      "name": "สพป.ประจวบคีรีขันธ์ เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาประจวบคีรีขันธ์ เขต 1",
+      "folder_name": "ประจวบคีรีขันธ์ เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 56,
+        "potential_origins": 56,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-77020000",
+      "areacode": "77020000",
+      "province": "ประจวบคีรีขันธ์",
+      "name": "สพป.ประจวบคีรีขันธ์ เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาประจวบคีรีขันธ์ เขต 2",
+      "folder_name": "ประจวบคีรีขันธ์ เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 41,
+        "potential_origins": 41,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-80010000",
+      "areacode": "80010000",
+      "province": "นครศรีธรรมราช",
+      "name": "สพป.นครศรีธรรมราช เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครศรีธรรมราช เขต 1",
+      "folder_name": "นครศรีธรรมราช เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 61,
+        "potential_origins": 61,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-80020000",
+      "areacode": "80020000",
+      "province": "นครศรีธรรมราช",
+      "name": "สพป.นครศรีธรรมราช เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครศรีธรรมราช เขต 2",
+      "folder_name": "นครศรีธรรมราช เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 89,
+        "potential_origins": 89,
+        "magnets": 8,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-80030000",
+      "areacode": "80030000",
+      "province": "นครศรีธรรมราช",
+      "name": "สพป.นครศรีธรรมราช เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครศรีธรรมราช เขต 3",
+      "folder_name": "นครศรีธรรมราช เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 138,
+        "potential_origins": 138,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-80040000",
+      "areacode": "80040000",
+      "province": "นครศรีธรรมราช",
+      "name": "สพป.นครศรีธรรมราช เขต 4",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานครศรีธรรมราช เขต 4",
+      "folder_name": "นครศรีธรรมราช เขต 4",
+      "status": "pending",
+      "school_counts": {
+        "registered": 63,
+        "potential_origins": 63,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-81010000",
+      "areacode": "81010000",
+      "province": "กระบี่",
+      "name": "สพป.กระบี่",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษากระบี่",
+      "folder_name": "กระบี่",
+      "status": "pending",
+      "school_counts": {
+        "registered": 98,
+        "potential_origins": 97,
+        "magnets": 8,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-82010000",
+      "areacode": "82010000",
+      "province": "พังงา",
+      "name": "สพป.พังงา",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาพังงา",
+      "folder_name": "พังงา",
+      "status": "pending",
+      "school_counts": {
+        "registered": 70,
+        "potential_origins": 70,
+        "magnets": 8,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-83010000",
+      "areacode": "83010000",
+      "province": "ภูเก็ต",
+      "name": "สพป.ภูเก็ต",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาภูเก็ต",
+      "folder_name": "ภูเก็ต",
+      "status": "pending",
+      "school_counts": {
+        "registered": 7,
+        "potential_origins": 7,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-84010000",
+      "areacode": "84010000",
+      "province": "สุราษฎร์ธานี",
+      "name": "สพป.สุราษฎร์ธานี เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสุราษฎร์ธานี เขต 1",
+      "folder_name": "สุราษฎร์ธานี เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 45,
+        "potential_origins": 45,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-84020000",
+      "areacode": "84020000",
+      "province": "สุราษฎร์ธานี",
+      "name": "สพป.สุราษฎร์ธานี เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสุราษฎร์ธานี เขต 2",
+      "folder_name": "สุราษฎร์ธานี เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 83,
+        "potential_origins": 83,
+        "magnets": 8,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-84030000",
+      "areacode": "84030000",
+      "province": "สุราษฎร์ธานี",
+      "name": "สพป.สุราษฎร์ธานี เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสุราษฎร์ธานี เขต 3",
+      "folder_name": "สุราษฎร์ธานี เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 73,
+        "potential_origins": 72,
+        "magnets": 6,
+        "excluded_is_magnet": 1
+      }
+    },
+    {
+      "id": "spap-85010000",
+      "areacode": "85010000",
+      "province": "ระนอง",
+      "name": "สพป.ระนอง",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาระนอง",
+      "folder_name": "ระนอง",
+      "status": "pending",
+      "school_counts": {
+        "registered": 19,
+        "potential_origins": 19,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-86010000",
+      "areacode": "86010000",
+      "province": "ชุมพร",
+      "name": "สพป.ชุมพร เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาชุมพร เขต 1",
+      "folder_name": "ชุมพร เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 43,
+        "potential_origins": 43,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-86020000",
+      "areacode": "86020000",
+      "province": "ชุมพร",
+      "name": "สพป.ชุมพร เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาชุมพร เขต 2",
+      "folder_name": "ชุมพร เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 62,
+        "potential_origins": 62,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-90010000",
+      "areacode": "90010000",
+      "province": "สงขลา",
+      "name": "สพป.สงขลา เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสงขลา เขต 1",
+      "folder_name": "สงขลา เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 84,
+        "potential_origins": 84,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-90020000",
+      "areacode": "90020000",
+      "province": "สงขลา",
+      "name": "สพป.สงขลา เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสงขลา เขต 2",
+      "folder_name": "สงขลา เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 58,
+        "potential_origins": 58,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-90030000",
+      "areacode": "90030000",
+      "province": "สงขลา",
+      "name": "สพป.สงขลา เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสงขลา เขต 3",
+      "folder_name": "สงขลา เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 85,
+        "potential_origins": 85,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-91010000",
+      "areacode": "91010000",
+      "province": "สตูล",
+      "name": "สพป.สตูล",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาสตูล",
+      "folder_name": "สตูล",
+      "status": "pending",
+      "school_counts": {
+        "registered": 82,
+        "potential_origins": 82,
+        "magnets": 7,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-92010000",
+      "areacode": "92010000",
+      "province": "ตรัง",
+      "name": "สพป.ตรัง เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาตรัง เขต 1",
+      "folder_name": "ตรัง เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 81,
+        "potential_origins": 81,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-92020000",
+      "areacode": "92020000",
+      "province": "ตรัง",
+      "name": "สพป.ตรัง เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาตรัง เขต 2",
+      "folder_name": "ตรัง เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 81,
+        "potential_origins": 81,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-93010000",
+      "areacode": "93010000",
+      "province": "พัทลุง",
+      "name": "สพป.พัทลุง เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาพัทลุง เขต 1",
+      "folder_name": "พัทลุง เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 71,
+        "potential_origins": 71,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-93020000",
+      "areacode": "93020000",
+      "province": "พัทลุง",
+      "name": "สพป.พัทลุง เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาพัทลุง เขต 2",
+      "folder_name": "พัทลุง เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 59,
+        "potential_origins": 59,
+        "magnets": 6,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-94010000",
+      "areacode": "94010000",
+      "province": "ปัตตานี",
+      "name": "สพป.ปัตตานี เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาปัตตานี เขต 1",
+      "folder_name": "ปัตตานี เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 51,
+        "potential_origins": 51,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-94020000",
+      "areacode": "94020000",
+      "province": "ปัตตานี",
+      "name": "สพป.ปัตตานี เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาปัตตานี เขต 2",
+      "folder_name": "ปัตตานี เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 43,
+        "potential_origins": 43,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-94030000",
+      "areacode": "94030000",
+      "province": "ปัตตานี",
+      "name": "สพป.ปัตตานี เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษาปัตตานี เขต 3",
+      "folder_name": "ปัตตานี เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 25,
+        "potential_origins": 25,
+        "magnets": 4,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-95010000",
+      "areacode": "95010000",
+      "province": "ยะลา",
+      "name": "สพป.ยะลา เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษายะลา เขต 1",
+      "folder_name": "ยะลา เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 37,
+        "potential_origins": 37,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-95020000",
+      "areacode": "95020000",
+      "province": "ยะลา",
+      "name": "สพป.ยะลา เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษายะลา เขต 2",
+      "folder_name": "ยะลา เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 20,
+        "potential_origins": 20,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-95030000",
+      "areacode": "95030000",
+      "province": "ยะลา",
+      "name": "สพป.ยะลา เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษายะลา เขต 3",
+      "folder_name": "ยะลา เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 11,
+        "potential_origins": 11,
+        "magnets": 2,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-96010000",
+      "areacode": "96010000",
+      "province": "นราธิวาส",
+      "name": "สพป.นราธิวาส เขต 1",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานราธิวาส เขต 1",
+      "folder_name": "นราธิวาส เขต 1",
+      "status": "pending",
+      "school_counts": {
+        "registered": 33,
+        "potential_origins": 33,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-96020000",
+      "areacode": "96020000",
+      "province": "นราธิวาส",
+      "name": "สพป.นราธิวาส เขต 2",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานราธิวาส เขต 2",
+      "folder_name": "นราธิวาส เขต 2",
+      "status": "pending",
+      "school_counts": {
+        "registered": 46,
+        "potential_origins": 46,
+        "magnets": 5,
+        "excluded_is_magnet": 0
+      }
+    },
+    {
+      "id": "spap-96030000",
+      "areacode": "96030000",
+      "province": "นราธิวาส",
+      "name": "สพป.นราธิวาส เขต 3",
+      "boundary_name": "สำนักงานเขตพื้นที่การศึกษาประถมศึกษานราธิวาส เขต 3",
+      "folder_name": "นราธิวาส เขต 3",
+      "status": "pending",
+      "school_counts": {
+        "registered": 13,
+        "potential_origins": 13,
+        "magnets": 3,
+        "excluded_is_magnet": 0
+      }
+    }
+  ]
+}

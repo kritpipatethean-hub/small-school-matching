@@ -1,0 +1,320 @@
+{
+  "schema_version": 1,
+  "status": "PASSED",
+  "publication_label": "ฉบับนำร่องเพื่อการตรวจสอบ",
+  "dataset": "ชุดข้อมูล DMC682",
+  "method": "แผน 1.2 — ระยะทางตามโครงข่ายถนนไม่เกิน 10 กิโลเมตร",
+  "area": {
+    "id": "spap-15010000",
+    "areacode": "15010000",
+    "name": "สพป.อ่างทอง",
+    "province": "อ่างทอง"
+  },
+  "generated_at": "2026-09-02T13:30:50+07:00",
+  "pipeline_version": "1.0.0",
+  "analysis": {
+    "adapter": "qneat3_pilot",
+    "summary": {
+      "registered": 91,
+      "origins": 90,
+      "magnets": 7,
+      "matched": 80,
+      "over10km": 10,
+      "unreachable": 0,
+      "excluded": 1,
+      "coordExceptions": 0
+    },
+    "analysis_note": "ผลนำร่อง QNEAT3 ที่ตรวจรับแล้ว; แยกโรงเรียนซึ่งเป็นโรงเรียนแม่เหล็กด้วย 1 แห่ง"
+  },
+  "source_fingerprints": {
+    "boundary": {
+      "filename": "ขอบเขต_สพป.อ่างทอง_UTM47N.gpkg",
+      "bytes": 237568,
+      "sha256": "62AB2BFCAAE66D6B7E710F8034867C0FC76863F347B9F38ECF7EF2478C0607B3"
+    },
+    "small": {
+      "filename": "โรงเรียนขนาดเล็ก_อ่างทอง_ต้นทาง90แห่ง.gpkg",
+      "bytes": 176128,
+      "sha256": "69122D6CF190CA7C49892437F2E55AF74E649DB2C37C4B8715A3EB29D1D2FED6"
+    },
+    "magnets": {
+      "filename": "โรงเรียนแม่เหล็ก_อ่างทอง_7แห่ง.gpkg",
+      "bytes": 102400,
+      "sha256": "EB58B1D4E57DBB59B9E1EA87AB38AE96B5DFA8387677FA3463F9A15D48A6990D"
+    },
+    "roads": {
+      "filename": "ถนน_อ่างทอง_สำหรับคำนวณ.gpkg",
+      "bytes": 14397440,
+      "sha256": "655CE77F41494D5790B1D3CCA7DDE02A86F98D7AB308F8B1CADE41D925BD82C3"
+    },
+    "od": {
+      "filename": "OD_อ่างทอง_ไม่เกิน10กม.gpkg",
+      "bytes": 122880,
+      "sha256": "AB683EF433C002BF2129C585D7945A750966FEDD8E28E4E7C5498FF714759BF7"
+    },
+    "status": {
+      "filename": "สถานะการจับคู่_โรงเรียนขนาดเล็ก_อ่างทอง.gpkg",
+      "bytes": 163840,
+      "sha256": "0ED3CA3B3C3C770605E8897C4C79CD256F589A504F0C6A16CED8193CFE4CA4AC"
+    },
+    "road_feature_count": 47637
+  },
+  "outputs": {
+    "image": {
+      "filename": "แผนที่ผลการจับคู่_อ่างทอง.png",
+      "bytes": 2797893,
+      "sha256": "AD6F88C1054D0412500873A3A528D5344BB04D31A283AC37753685FE4178A9CB"
+    },
+    "pdf": {
+      "filename": "สรุปผลการจับคู่_อ่างทอง.pdf",
+      "bytes": 4971764,
+      "sha256": "25AB5269FE9AE8101972A8581110C64E7A05B40F0FCC57C36F1BDCA87B057856"
+    },
+    "size_image": {
+      "filename": "แผนที่ขนาดโรงเรียน_อ่างทอง.png",
+      "bytes": 2828678,
+      "sha256": "A58C860FF813558A32069299809AA674D8C9DB49375A230F52E1DB0BF994BFDC"
+    }
+  },
+  "presentation": {
+    "refreshed_at": "2026-09-14T16:08:07+07:00",
+    "renderer_version": "1.8.0",
+    "mode": "accepted-results-render-only",
+    "image_width": 2400,
+    "image_height": 3151,
+    "size_image_width": 2400,
+    "size_image_height": 3231,
+    "school_size_map": true,
+    "size_map_max_students": 60,
+    "size_map_labels_version": 1,
+    "size_summary_page_version": 1,
+    "tambon_lines": {
+      "source": "admin3",
+      "layer": "tha_admin3.shp",
+      "fingerprint": {
+        "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.shp",
+        "algorithm": "combined-exact-sidecar-sampled-v1",
+        "digest": "1DE5755847C1C9719CE8C46C09240727A8BF9E4AC35419C02C1F82ECA46E8D49",
+        "components": [
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.shp",
+            "size": 253123512,
+            "mtime_ns": 1769099601023714800,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "2E60FBD36CD75CEC9A8499A60B0A2CBE1BD910C323830515CD979CB29889780B"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.shx",
+            "size": 59500,
+            "mtime_ns": 1769099601130448300,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "D5DF92F451559D02C028F9BCA8075B9C0B05D37AA94A75B56B4B107202F0C010"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.dbf",
+            "size": 16105851,
+            "mtime_ns": 1769099601119611200,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "257FAFE181E5C61F0BF5522E0C7E9018B8E0B81484B22340F6257189203FF672"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.prj",
+            "size": 145,
+            "mtime_ns": 1769099601125447700,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "E83922E54341CF0B96FD4F7488D150088A41119E417B6AE469A865946F709453"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.cpg",
+            "size": 5,
+            "mtime_ns": 1769099601029793200,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "DDB71B5A47E380FDEFB1064FD700C81345BDC00ADE285892201E11E2A73FBD20"
+          }
+        ]
+      },
+      "tambon_count": 73
+    },
+    "consolidation_version": 1,
+    "analysis_unchanged": true
+  },
+  "school_size": {
+    "basis": "จำนวนนักเรียนรวมตามทะเบียน DMC682 ของโรงเรียนขนาดเล็ก (ไม่เกิน 120 คน)",
+    "bins": [
+      {
+        "label": "0-10",
+        "min": 0,
+        "max": 10,
+        "count": 2
+      },
+      {
+        "label": "11-20",
+        "min": 11,
+        "max": 20,
+        "count": 3
+      },
+      {
+        "label": "21-30",
+        "min": 21,
+        "max": 30,
+        "count": 4
+      },
+      {
+        "label": "31-40",
+        "min": 31,
+        "max": 40,
+        "count": 11
+      },
+      {
+        "label": "41-50",
+        "min": 41,
+        "max": 50,
+        "count": 15
+      },
+      {
+        "label": "51-60",
+        "min": 51,
+        "max": 60,
+        "count": 15
+      },
+      {
+        "label": "61-100",
+        "min": 61,
+        "max": 100,
+        "count": 31
+      },
+      {
+        "label": "101-120",
+        "min": 101,
+        "max": 120,
+        "count": 10
+      }
+    ],
+    "total": 91,
+    "students_min": 1,
+    "students_max": 119,
+    "students_median": 58.0,
+    "students_total": 5575,
+    "map_max_students": 60
+  },
+  "consolidation": {
+    "version": 1,
+    "basis": "ภาพจำลองผลคัดกรองตามแผน 1.2: สมมติว่าโรงเรียนขนาดเล็กทุกแห่งที่จับคู่ได้ภายใน 10 กิโลเมตรไปรวมกับโรงเรียนคุณภาพชุมชนปลายทางตามผล นับนักเรียนตามทะเบียน DMC682 ทั้งหมด (นักเรียนรวมเชิงสมมติ) มิใช่แผนควบรวม ข้อเสนอย้ายนักเรียน หรือการคาดการณ์จำนวนนักเรียนจริง",
+    "distance_field": "total_cost",
+    "aggregate": {
+      "schools_before": 134,
+      "schools_after": 54,
+      "small_registered": 91,
+      "small_matched": 80,
+      "small_remaining": 11,
+      "small_remaining_by_status": {
+        "over10km": 10,
+        "unreachable": 0,
+        "excluded": 1,
+        "coordExceptions": 0
+      },
+      "students_small_total": 5575,
+      "students_moved": 4983,
+      "magnets_total": 7,
+      "magnets_receiving": 7,
+      "magnets_students_before": 1724,
+      "magnets_students_after": 6707,
+      "distance_mean_km": 6.06,
+      "distance_max_km": 9.98
+    },
+    "magnets": [
+      {
+        "school_id": "1015670056",
+        "school_name": "ชุมชนวัดศีลขันธาราม(วิทยาคม)",
+        "students_before": 674,
+        "size_code_before": "5_(500-1499)",
+        "feeders": 23,
+        "students_received": 1154,
+        "students_after": 1828,
+        "size_code_after": "6_(1500-2499)",
+        "farthest_km": 9.92,
+        "is_small_school": false
+      },
+      {
+        "school_id": "1015670091",
+        "school_name": "ชุมชนวัดวิเศษชัยชาญ",
+        "students_before": 170,
+        "size_code_before": "2_(121-200)",
+        "feeders": 15,
+        "students_received": 955,
+        "students_after": 1125,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 9.98,
+        "is_small_school": false
+      },
+      {
+        "school_id": "1015670146",
+        "school_name": "อนุบาลแสวงหา",
+        "students_before": 284,
+        "size_code_before": "3_(201-300)",
+        "feeders": 10,
+        "students_received": 742,
+        "students_after": 1026,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 8.97,
+        "is_small_school": false
+      },
+      {
+        "school_id": "1015670023",
+        "school_name": "วัดโคศุภราช",
+        "students_before": 87,
+        "size_code_before": "1.5_(81-100)",
+        "feeders": 11,
+        "students_received": 715,
+        "students_after": 802,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 9.72,
+        "is_small_school": true
+      },
+      {
+        "school_id": "1015670131",
+        "school_name": "วัดมงคลธรรมนิมิต",
+        "students_before": 123,
+        "size_code_before": "2_(121-200)",
+        "feeders": 10,
+        "students_received": 612,
+        "students_after": 735,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 9.45,
+        "is_small_school": false
+      },
+      {
+        "school_id": "1015670031",
+        "school_name": "วัดมะขาม(วิบูลย์อุปถัมภ์)",
+        "students_before": 214,
+        "size_code_before": "3_(201-300)",
+        "feeders": 6,
+        "students_received": 448,
+        "students_after": 662,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 8.77,
+        "is_small_school": false
+      },
+      {
+        "school_id": "1015670054",
+        "school_name": "ชุมชนวัดปราสาท(นรสิงห์ประชาสรรค์)",
+        "students_before": 172,
+        "size_code_before": "2_(121-200)",
+        "feeders": 5,
+        "students_received": 357,
+        "students_after": 529,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 8.66,
+        "is_small_school": false
+      }
+    ],
+    "inputs": {
+      "dmc_master_sha256": "3812AF51F8DB2B01DD67D6A82AF805D16BB013009876A5AAD88A434360482E00",
+      "od": {
+        "filename": "OD_อ่างทอง_ไม่เกิน10กม.gpkg",
+        "bytes": 122880,
+        "sha256": "AB683EF433C002BF2129C585D7945A750966FEDD8E28E4E7C5498FF714759BF7"
+      }
+    }
+  }
+}

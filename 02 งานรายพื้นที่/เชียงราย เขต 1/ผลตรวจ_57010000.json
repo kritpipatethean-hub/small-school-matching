@@ -1,0 +1,490 @@
+{
+  "schema_version": 1,
+  "status": "PASSED",
+  "publication_label": "ฉบับนำร่องเพื่อการตรวจสอบ",
+  "dataset": "ชุดข้อมูล DMC682",
+  "method": "แผน 1.2 — ระยะทางตามโครงข่ายถนนไม่เกิน 10 กิโลเมตร",
+  "area": {
+    "id": "spap-57010000",
+    "areacode": "57010000",
+    "name": "สพป.เชียงราย เขต 1",
+    "province": "เชียงราย"
+  },
+  "generated_at": "2026-09-08T20:06:45+07:00",
+  "pipeline_version": "1.7.0",
+  "analysis": {
+    "summary": {
+      "registered": 51,
+      "origins": 51,
+      "magnets": 3,
+      "matched": 15,
+      "over10km": 36,
+      "unreachable": 0,
+      "excluded": 0,
+      "coordExceptions": 0
+    },
+    "full_od_rows": 153,
+    "full_od_valid_rows": 153,
+    "expected_full_od_rows": 153,
+    "nearest_rows": 51,
+    "sensitivity_9_5_to_10_5_km": 1,
+    "tie_tolerance_metres": 0.001,
+    "tie_count": 0,
+    "matched_pair_digest": "C579E74A06BC6CB902C97B81E0721644114CF6E1437A483D2E813B6DA2CE2324",
+    "warnings": [],
+    "preparation": {
+      "boundary": {
+        "path": "C:\\Users\\EarthPad\\Desktop\\QGIS Updated บทที่ 8\\02 งานรายพื้นที่\\เชียงราย เขต 1\\01 ข้อมูล GIS\\ขอบเขต_เชียงราย เขต 1_UTM47N.partial.1b5097ac4e9f.gpkg",
+        "layer_name": "ขอบเขต_เชียงราย เขต 1_UTM47N",
+        "feature_count": 1,
+        "geometry_type": 6,
+        "crs": "EPSG:32647",
+        "fields": [
+          "adm2_name",
+          "adm2_name1",
+          "adm2_name2",
+          "adm2_name3",
+          "adm2_pcode",
+          "adm1_name",
+          "adm1_name1",
+          "adm1_name2",
+          "adm1_name3",
+          "adm1_pcode",
+          "adm0_name",
+          "adm0_name1",
+          "adm0_name2",
+          "adm0_name3",
+          "adm0_pcode",
+          "valid_on",
+          "valid_to",
+          "area_sqkm",
+          "version",
+          "lang",
+          "lang1",
+          "lang2",
+          "lang3",
+          "adm2_ref_n",
+          "center_lat",
+          "center_lon",
+          "join_key",
+          "cleaned_sc"
+        ]
+      },
+      "roads": {
+        "path": "C:\\Users\\EarthPad\\Desktop\\QGIS Updated บทที่ 8\\02 งานรายพื้นที่\\เชียงราย เขต 1\\01 ข้อมูล GIS\\ถนน_เชียงราย เขต 1_สำหรับคำนวณ.partial.1b5097ac4e9f.gpkg",
+        "layer_name": "ถนน_เชียงราย เขต 1_สำหรับคำนวณ",
+        "feature_count": 31696,
+        "geometry_type": 2,
+        "crs": "EPSG:32647",
+        "fields": [
+          "osm_id",
+          "code",
+          "fclass",
+          "name",
+          "ref",
+          "oneway",
+          "maxspeed",
+          "layer",
+          "bridge",
+          "tunnel"
+        ]
+      },
+      "oneway_counts": {
+        "F": 1585,
+        "B": 30109,
+        "T": 2
+      },
+      "boundary_source": {
+        "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..shp",
+        "kind": "external_shapefile",
+        "fingerprint": {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..shp",
+          "algorithm": "combined-exact-sidecar-sampled-v1",
+          "digest": "FF9EC10E4AEFB3F26606987A311FCC3CE4EEA967B262D56EA0DC8C085DEEF2A2",
+          "components": [
+            {
+              "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..shp",
+              "size": 55435308,
+              "mtime_ns": 1770925966934826100,
+              "algorithm": "sha256(size+first1MiB+last1MiB)",
+              "digest": "05F0BDC6EB621D292715C47A5340A6631F1F12AD750F2ADCD053A238B42C4B50"
+            },
+            {
+              "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..shx",
+              "size": 1564,
+              "mtime_ns": 1770925966934826100,
+              "algorithm": "sha256(size+first1MiB+last1MiB)",
+              "digest": "DF885D7261D6236488287E7CFF6AFBDE0EB3B5070B1C19B8F8042B5CA05146D6"
+            },
+            {
+              "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..dbf",
+              "size": 390354,
+              "mtime_ns": 1770925966934826100,
+              "algorithm": "sha256(size+first1MiB+last1MiB)",
+              "digest": "756A36D72557E5611A1575CA5EBE667F6D9F1268C8C9ABB4BA2CDB1D80305212"
+            },
+            {
+              "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..prj",
+              "size": 145,
+              "mtime_ns": 1770925966673867600,
+              "algorithm": "sha256(size+first1MiB+last1MiB)",
+              "digest": "E83922E54341CF0B96FD4F7488D150088A41119E417B6AE469A865946F709453"
+            },
+            {
+              "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..cpg",
+              "size": 5,
+              "mtime_ns": 1770925966671815900,
+              "algorithm": "sha256(size+first1MiB+last1MiB)",
+              "digest": "DDB71B5A47E380FDEFB1064FD700C81345BDC00ADE285892201E11E2A73FBD20"
+            }
+          ],
+          "kind": "external_shapefile"
+        }
+      }
+    }
+  },
+  "source_fingerprints": {
+    "dmc_master_sha256": "3812AF51F8DB2B01DD67D6A82AF805D16BB013009876A5AAD88A434360482E00",
+    "dmc_small_sha256": "95CBF9BA018EB4E3175EB1495F35B7F2AE9D28F7564978EDD8B952E958D43CBD",
+    "magnets_sha256": "9DA9CA406F196A0A1BECD958845A4F71A80A9F7BBBB91BCE1C27BA99883E0152",
+    "boundary_mapping_sha256": "A8894799C6802C9970B0BF35A4B3C68D8729853BF04D4A0E0EA434D618471A46",
+    "boundary_source_kind": "external_shapefile",
+    "education_boundaries": {
+      "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..shp",
+      "algorithm": "combined-exact-sidecar-sampled-v1",
+      "digest": "FF9EC10E4AEFB3F26606987A311FCC3CE4EEA967B262D56EA0DC8C085DEEF2A2",
+      "components": [
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..shp",
+          "size": 55435308,
+          "mtime_ns": 1770925966934826100,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "05F0BDC6EB621D292715C47A5340A6631F1F12AD750F2ADCD053A238B42C4B50"
+        },
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..shx",
+          "size": 1564,
+          "mtime_ns": 1770925966934826100,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "DF885D7261D6236488287E7CFF6AFBDE0EB3B5070B1C19B8F8042B5CA05146D6"
+        },
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..dbf",
+          "size": 390354,
+          "mtime_ns": 1770925966934826100,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "756A36D72557E5611A1575CA5EBE667F6D9F1268C8C9ABB4BA2CDB1D80305212"
+        },
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..prj",
+          "size": 145,
+          "mtime_ns": 1770925966673867600,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "E83922E54341CF0B96FD4F7488D150088A41119E417B6AE469A865946F709453"
+        },
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..cpg",
+          "size": 5,
+          "mtime_ns": 1770925966671815900,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "DDB71B5A47E380FDEFB1064FD700C81345BDC00ADE285892201E11E2A73FBD20"
+        }
+      ],
+      "kind": "external_shapefile"
+    },
+    "roads": {
+      "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\GIS_OSM_Roads_Freee_ver1702_UTM47N\\GIS_OSM_Roads_Free_UTM47N.shp",
+      "algorithm": "combined-exact-sidecar-sampled-v1",
+      "digest": "FF636EC6283EDA276B9CAFD15F926BC4A5E57D832D8F7CDB951FD112CDB08B46",
+      "components": [
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\GIS_OSM_Roads_Freee_ver1702_UTM47N\\GIS_OSM_Roads_Free_UTM47N.shp",
+          "size": 608353532,
+          "mtime_ns": 1770929919387392500,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "9FFDA8D938879F04D08403D382274EEFCD97D0E83EE3004F04A0414140FE1D51"
+        },
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\GIS_OSM_Roads_Freee_ver1702_UTM47N\\GIS_OSM_Roads_Free_UTM47N.shx",
+          "size": 23062524,
+          "mtime_ns": 1770929919415583400,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "B89EC0D0BB0237621C7B063D9218F2A9A5FFA3824226C1CB472BD401BEC065BB"
+        },
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\GIS_OSM_Roads_Freee_ver1702_UTM47N\\GIS_OSM_Roads_Free_UTM47N.dbf",
+          "size": 527553303,
+          "mtime_ns": 1770929919387392500,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "4DB2407472A5574906F78030B74825BE755EA38ACB827ACEA9AEF95EAA07D2FF"
+        },
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\GIS_OSM_Roads_Freee_ver1702_UTM47N\\GIS_OSM_Roads_Free_UTM47N.prj",
+          "size": 401,
+          "mtime_ns": 1770929770686283800,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "0D547AC42EE058F326925D5A27CE9DF887C25730BBB3E5AD5387E6CA1083BBA3"
+        },
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\GIS_OSM_Roads_Freee_ver1702_UTM47N\\GIS_OSM_Roads_Free_UTM47N.cpg",
+          "size": 5,
+          "mtime_ns": 1770929770683282900,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "DDB71B5A47E380FDEFB1064FD700C81345BDC00ADE285892201E11E2A73FBD20"
+        }
+      ]
+    }
+  },
+  "machine_checks": {
+    "qgis": {
+      "version": "3.40.14",
+      "plugin": "QNEAT3",
+      "algorithm": "qneat3:OdMatrixFromLayersAsLines"
+    },
+    "resources": {
+      "available_ram_bytes": 13675089920,
+      "free_disk_bytes": 84378767360,
+      "workspace_bytes": 177297497
+    }
+  },
+  "outputs": {
+    "boundary": {
+      "filename": "ขอบเขต_เชียงราย เขต 1_UTM47N.gpkg",
+      "bytes": 409600,
+      "sha256": "D8989293D666377CB622D0555297D879C3F59CAF6398987393FB476BAB27BB10"
+    },
+    "small": {
+      "filename": "โรงเรียนขนาดเล็ก_เชียงราย เขต 1.gpkg",
+      "bytes": 114688,
+      "sha256": "FF42454C46E5BD30537E45A368EDA0F957CD4C328AEC4F388C72F1D8B8C4F6A2"
+    },
+    "magnets": {
+      "filename": "โรงเรียนแม่เหล็ก_เชียงราย เขต 1.gpkg",
+      "bytes": 98304,
+      "sha256": "F02F3239AFD8103A7F227201E215D333A03DFB30206519D4F149310AE38B963F"
+    },
+    "roads": {
+      "filename": "ถนน_เชียงราย เขต 1_สำหรับคำนวณ.gpkg",
+      "bytes": 10166272,
+      "sha256": "40F77E8D6E6297AA0188D8CD060636BA48CB3851F670746F95C457E37DFE4F9D"
+    },
+    "od": {
+      "filename": "OD_เชียงราย เขต 1_ไม่เกิน10กม.gpkg",
+      "bytes": 98304,
+      "sha256": "6A64A2CC17BE3ACAE0A3F7A03159F4063DCB390A2D41F2E6A7D232CAAC0BBE6B"
+    },
+    "status": {
+      "filename": "สถานะการจับคู่_โรงเรียนขนาดเล็ก_เชียงราย เขต 1.gpkg",
+      "bytes": 110592,
+      "sha256": "DB8AF391211C5E79A745CEF9710A0AAE2AC7A7EEF851364B50814D24AD19FDA5"
+    },
+    "image": {
+      "filename": "แผนที่ผลการจับคู่_เชียงราย เขต 1.png",
+      "bytes": 1518455,
+      "sha256": "4E1E269BEBE8ED3F874A67668BB6C26FDFC5B45B105F4CF2393F64E0680F945F"
+    },
+    "pdf": {
+      "filename": "สรุปผลการจับคู่_เชียงราย เขต 1.pdf",
+      "bytes": 2811991,
+      "sha256": "B3B7A8B2C45E86AC215ABFCB52311349E71E6C3C6E37E64506CD453C97C33462"
+    },
+    "size_image": {
+      "filename": "แผนที่ขนาดโรงเรียน_เชียงราย เขต 1.png",
+      "bytes": 1651729,
+      "sha256": "676F8EB7BB057478CD20F95FC554DEAD370F53F68DB5D89EB24BEEB1C1596DF7"
+    }
+  },
+  "school_size": {
+    "basis": "จำนวนนักเรียนรวมตามทะเบียน DMC682 ของโรงเรียนขนาดเล็ก (ไม่เกิน 120 คน)",
+    "bins": [
+      {
+        "label": "0-10",
+        "min": 0,
+        "max": 10,
+        "count": 0
+      },
+      {
+        "label": "11-20",
+        "min": 11,
+        "max": 20,
+        "count": 0
+      },
+      {
+        "label": "21-30",
+        "min": 21,
+        "max": 30,
+        "count": 5
+      },
+      {
+        "label": "31-40",
+        "min": 31,
+        "max": 40,
+        "count": 3
+      },
+      {
+        "label": "41-50",
+        "min": 41,
+        "max": 50,
+        "count": 5
+      },
+      {
+        "label": "51-60",
+        "min": 51,
+        "max": 60,
+        "count": 6
+      },
+      {
+        "label": "61-100",
+        "min": 61,
+        "max": 100,
+        "count": 22
+      },
+      {
+        "label": "101-120",
+        "min": 101,
+        "max": 120,
+        "count": 10
+      }
+    ],
+    "total": 51,
+    "students_min": 22,
+    "students_max": 117,
+    "students_median": 72.0,
+    "students_total": 3698,
+    "map_max_students": 60
+  },
+  "presentation": {
+    "refreshed_at": "2026-09-14T16:08:38+07:00",
+    "renderer_version": "1.8.0",
+    "mode": "accepted-results-render-only",
+    "image_width": 2400,
+    "image_height": 2114,
+    "size_image_width": 2400,
+    "size_image_height": 2194,
+    "school_size_map": true,
+    "size_map_max_students": 60,
+    "size_map_labels_version": 1,
+    "size_summary_page_version": 1,
+    "tambon_lines": {
+      "source": "admin3",
+      "layer": "tha_admin3.shp",
+      "fingerprint": {
+        "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.shp",
+        "algorithm": "combined-exact-sidecar-sampled-v1",
+        "digest": "1DE5755847C1C9719CE8C46C09240727A8BF9E4AC35419C02C1F82ECA46E8D49",
+        "components": [
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.shp",
+            "size": 253123512,
+            "mtime_ns": 1769099601023714800,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "2E60FBD36CD75CEC9A8499A60B0A2CBE1BD910C323830515CD979CB29889780B"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.shx",
+            "size": 59500,
+            "mtime_ns": 1769099601130448300,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "D5DF92F451559D02C028F9BCA8075B9C0B05D37AA94A75B56B4B107202F0C010"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.dbf",
+            "size": 16105851,
+            "mtime_ns": 1769099601119611200,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "257FAFE181E5C61F0BF5522E0C7E9018B8E0B81484B22340F6257189203FF672"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.prj",
+            "size": 145,
+            "mtime_ns": 1769099601125447700,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "E83922E54341CF0B96FD4F7488D150088A41119E417B6AE469A865946F709453"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.cpg",
+            "size": 5,
+            "mtime_ns": 1769099601029793200,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "DDB71B5A47E380FDEFB1064FD700C81345BDC00ADE285892201E11E2A73FBD20"
+          }
+        ]
+      },
+      "tambon_count": 24
+    },
+    "consolidation_version": 1,
+    "analysis_unchanged": true
+  },
+  "consolidation": {
+    "version": 1,
+    "basis": "ภาพจำลองผลคัดกรองตามแผน 1.2: สมมติว่าโรงเรียนขนาดเล็กทุกแห่งที่จับคู่ได้ภายใน 10 กิโลเมตรไปรวมกับโรงเรียนคุณภาพชุมชนปลายทางตามผล นับนักเรียนตามทะเบียน DMC682 ทั้งหมด (นักเรียนรวมเชิงสมมติ) มิใช่แผนควบรวม ข้อเสนอย้ายนักเรียน หรือการคาดการณ์จำนวนนักเรียนจริง",
+    "distance_field": "total_cost",
+    "aggregate": {
+      "schools_before": 102,
+      "schools_after": 87,
+      "small_registered": 51,
+      "small_matched": 15,
+      "small_remaining": 36,
+      "small_remaining_by_status": {
+        "over10km": 36,
+        "unreachable": 0,
+        "excluded": 0,
+        "coordExceptions": 0
+      },
+      "students_small_total": 3698,
+      "students_moved": 990,
+      "magnets_total": 3,
+      "magnets_receiving": 3,
+      "magnets_students_before": 773,
+      "magnets_students_after": 1763,
+      "distance_mean_km": 4.57,
+      "distance_max_km": 9.01
+    },
+    "magnets": [
+      {
+        "school_id": "1057120654",
+        "school_name": "อนุบาลเวียงเชียงรุ้ง",
+        "students_before": 376,
+        "size_code_before": "4_(301-499)",
+        "feeders": 6,
+        "students_received": 444,
+        "students_after": 820,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 9.01,
+        "is_small_school": false
+      },
+      {
+        "school_id": "1057120074",
+        "school_name": "อนุบาลห้วยสัก",
+        "students_before": 162,
+        "size_code_before": "2_(121-200)",
+        "feeders": 7,
+        "students_received": 385,
+        "students_after": 547,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 7.03,
+        "is_small_school": false
+      },
+      {
+        "school_id": "1057120515",
+        "school_name": "อนุบาลเวียงชัย",
+        "students_before": 235,
+        "size_code_before": "3_(201-300)",
+        "feeders": 2,
+        "students_received": 161,
+        "students_after": 396,
+        "size_code_after": "4_(301-499)",
+        "farthest_km": 3.83,
+        "is_small_school": false
+      }
+    ],
+    "inputs": {
+      "dmc_master_sha256": "3812AF51F8DB2B01DD67D6A82AF805D16BB013009876A5AAD88A434360482E00",
+      "od": {
+        "filename": "OD_เชียงราย เขต 1_ไม่เกิน10กม.gpkg",
+        "bytes": 98304,
+        "sha256": "6A64A2CC17BE3ACAE0A3F7A03159F4063DCB390A2D41F2E6A7D232CAAC0BBE6B"
+      }
+    }
+  }
+}

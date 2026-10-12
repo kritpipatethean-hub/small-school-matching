@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "qgis": {
+    "version": "3.40.14",
+    "python_bat": "C:\\Program Files\\QGIS 3.40.14\\bin\\python-qgis-ltr.bat",
+    "process_bat": "C:\\Program Files\\QGIS 3.40.14\\bin\\qgis_process-qgis-ltr.bat",
+    "prefix_path": "C:\\Program Files\\QGIS 3.40.14\\apps\\qgis-ltr",
+    "required_plugin": "QNEAT3",
+    "required_algorithm": "qneat3:OdMatrixFromLayersAsLines"
+  },
+  "external_gis": {
+    "education_boundaries": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\เขตพื้นที่การศึกษา_สพป\\เขตพื้นที่การศึกษา สพป..shp",
+    "roads": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\GIS_OSM_Roads_Freee_ver1702_UTM47N\\GIS_OSM_Roads_Free_UTM47N.shp",
+    "admin1": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin1.shp",
+    "admin2": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin2.shp",
+    "admin3": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.shp",
+    "admin_lines": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_adminlines.shp"
+  },
+  "limits": {
+    "minimum_available_ram_gb": 8,
+    "minimum_free_disk_gb": 15,
+    "workspace_warning_gb": 5,
+    "qgis_process_timeout_seconds": 2700,
+    "area_timeout_seconds": 5400,
+    "status_timeout_seconds": 120
+  },
+  "analysis": {
+    "crs": "EPSG:32647",
+    "buffer_metres": 15000,
+    "maximum_distance_metres": 10000,
+    "sensitivity_min_metres": 9500,
+    "sensitivity_max_metres": 10500,
+    "tie_tolerance_metres": 0.001,
+    "accepted_road_classes": [
+      "motorway",
+      "motorway_link",
+      "trunk",
+      "trunk_link",
+      "primary",
+      "primary_link",
+      "secondary",
+      "secondary_link",
+      "tertiary",
+      "tertiary_link",
+      "unclassified",
+      "residential",
+      "living_street",
+      "service",
+      "road"
+    ]
+  }
+}

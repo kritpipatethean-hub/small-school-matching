@@ -1,0 +1,396 @@
+{
+  "schema_version": 1,
+  "status": "PASSED",
+  "publication_label": "ฉบับนำร่องเพื่อการตรวจสอบ",
+  "dataset": "ชุดข้อมูล DMC682",
+  "method": "แผน 1.2 — ระยะทางตามโครงข่ายถนนไม่เกิน 10 กิโลเมตร",
+  "area": {
+    "id": "spap-21020000",
+    "areacode": "21020000",
+    "name": "สพป.ระยอง เขต 2",
+    "province": "ระยอง"
+  },
+  "generated_at": "2026-09-03T07:47:58+07:00",
+  "pipeline_version": "1.1.0",
+  "analysis": {
+    "summary": {
+      "registered": 44,
+      "origins": 44,
+      "magnets": 3,
+      "matched": 16,
+      "over10km": 28,
+      "unreachable": 0,
+      "excluded": 0,
+      "coordExceptions": 0
+    },
+    "full_od_rows": 132,
+    "full_od_valid_rows": 132,
+    "expected_full_od_rows": 132,
+    "nearest_rows": 44,
+    "sensitivity_9_5_to_10_5_km": 1,
+    "tie_tolerance_metres": 0.001,
+    "tie_count": 0,
+    "matched_pair_digest": "4CED913854D0B8C21A9378AB576D3A756CDF11023678C95EB6A60B390BBEE642",
+    "warnings": [],
+    "preparation": {
+      "boundary": {
+        "path": "C:\\Users\\EarthPad\\Desktop\\QGIS Updated บทที่ 8\\02 งานรายพื้นที่\\ระยอง เขต 2\\ขอบเขต_ระยอง เขต 2_UTM47N.partial.52392742eb39.gpkg",
+        "layer_name": "ขอบเขต_ระยอง เขต 2_UTM47N",
+        "feature_count": 1,
+        "geometry_type": 6,
+        "crs": "EPSG:32647",
+        "fields": [
+          "areacode",
+          "cleaned_sc",
+          "province",
+          "district_count",
+          "district_codes",
+          "source_ref"
+        ]
+      },
+      "roads": {
+        "path": "C:\\Users\\EarthPad\\Desktop\\QGIS Updated บทที่ 8\\02 งานรายพื้นที่\\ระยอง เขต 2\\ถนน_ระยอง เขต 2_สำหรับคำนวณ.partial.52392742eb39.gpkg",
+        "layer_name": "ถนน_ระยอง เขต 2_สำหรับคำนวณ",
+        "feature_count": 10797,
+        "geometry_type": 2,
+        "crs": "EPSG:32647",
+        "fields": [
+          "osm_id",
+          "code",
+          "fclass",
+          "name",
+          "ref",
+          "oneway",
+          "maxspeed",
+          "layer",
+          "bridge",
+          "tunnel"
+        ]
+      },
+      "oneway_counts": {
+        "B": 10472,
+        "F": 323,
+        "T": 2
+      },
+      "boundary_source": {
+        "path": "C:\\Users\\EarthPad\\Desktop\\QGIS Updated บทที่ 8\\01 ข้อมูลกลาง\\ขอบเขต_สพป_แก้ไขเฉพาะพื้นที่.gpkg",
+        "kind": "workspace_override",
+        "fingerprint": {
+          "path": "C:\\Users\\EarthPad\\Desktop\\QGIS Updated บทที่ 8\\01 ข้อมูลกลาง\\ขอบเขต_สพป_แก้ไขเฉพาะพื้นที่.gpkg",
+          "size": 651264,
+          "algorithm": "sha256-full-v1",
+          "digest": "2C7587E65A12BCD732781DEDA6EF9AA6D79844F9EB4FDC6C266C3628E459A157",
+          "kind": "workspace_override"
+        }
+      }
+    }
+  },
+  "source_fingerprints": {
+    "dmc_master_sha256": "3812AF51F8DB2B01DD67D6A82AF805D16BB013009876A5AAD88A434360482E00",
+    "dmc_small_sha256": "95CBF9BA018EB4E3175EB1495F35B7F2AE9D28F7564978EDD8B952E958D43CBD",
+    "magnets_sha256": "9DA9CA406F196A0A1BECD958845A4F71A80A9F7BBBB91BCE1C27BA99883E0152",
+    "boundary_mapping_sha256": "A8894799C6802C9970B0BF35A4B3C68D8729853BF04D4A0E0EA434D618471A46",
+    "boundary_source_kind": "workspace_override",
+    "education_boundaries": {
+      "path": "C:\\Users\\EarthPad\\Desktop\\QGIS Updated บทที่ 8\\01 ข้อมูลกลาง\\ขอบเขต_สพป_แก้ไขเฉพาะพื้นที่.gpkg",
+      "size": 651264,
+      "algorithm": "sha256-full-v1",
+      "digest": "2C7587E65A12BCD732781DEDA6EF9AA6D79844F9EB4FDC6C266C3628E459A157",
+      "kind": "workspace_override"
+    },
+    "roads": {
+      "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\GIS_OSM_Roads_Freee_ver1702_UTM47N\\GIS_OSM_Roads_Free_UTM47N.shp",
+      "algorithm": "combined-exact-sidecar-sampled-v1",
+      "digest": "FF636EC6283EDA276B9CAFD15F926BC4A5E57D832D8F7CDB951FD112CDB08B46",
+      "components": [
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\GIS_OSM_Roads_Freee_ver1702_UTM47N\\GIS_OSM_Roads_Free_UTM47N.shp",
+          "size": 608353532,
+          "mtime_ns": 1770929919387392500,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "9FFDA8D938879F04D08403D382274EEFCD97D0E83EE3004F04A0414140FE1D51"
+        },
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\GIS_OSM_Roads_Freee_ver1702_UTM47N\\GIS_OSM_Roads_Free_UTM47N.shx",
+          "size": 23062524,
+          "mtime_ns": 1770929919415583400,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "B89EC0D0BB0237621C7B063D9218F2A9A5FFA3824226C1CB472BD401BEC065BB"
+        },
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\GIS_OSM_Roads_Freee_ver1702_UTM47N\\GIS_OSM_Roads_Free_UTM47N.dbf",
+          "size": 527553303,
+          "mtime_ns": 1770929919387392500,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "4DB2407472A5574906F78030B74825BE755EA38ACB827ACEA9AEF95EAA07D2FF"
+        },
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\GIS_OSM_Roads_Freee_ver1702_UTM47N\\GIS_OSM_Roads_Free_UTM47N.prj",
+          "size": 401,
+          "mtime_ns": 1770929770686283800,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "0D547AC42EE058F326925D5A27CE9DF887C25730BBB3E5AD5387E6CA1083BBA3"
+        },
+        {
+          "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\GIS_OSM_Roads_Freee_ver1702_UTM47N\\GIS_OSM_Roads_Free_UTM47N.cpg",
+          "size": 5,
+          "mtime_ns": 1770929770683282900,
+          "algorithm": "sha256(size+first1MiB+last1MiB)",
+          "digest": "DDB71B5A47E380FDEFB1064FD700C81345BDC00ADE285892201E11E2A73FBD20"
+        }
+      ]
+    }
+  },
+  "machine_checks": {
+    "qgis": {
+      "version": "3.40.14",
+      "plugin": "QNEAT3",
+      "algorithm": "qneat3:OdMatrixFromLayersAsLines"
+    },
+    "resources": {
+      "available_ram_bytes": 20112166912,
+      "free_disk_bytes": 102572941312,
+      "workspace_bytes": 117764640
+    }
+  },
+  "outputs": {
+    "boundary": {
+      "filename": "ขอบเขต_ระยอง เขต 2_UTM47N.gpkg",
+      "bytes": 339968,
+      "sha256": "0287ECA5E30A9FC471374BFB964EB89D8AE2EB237BC98BB4E8E164007C515B58"
+    },
+    "small": {
+      "filename": "โรงเรียนขนาดเล็ก_ระยอง เขต 2.gpkg",
+      "bytes": 110592,
+      "sha256": "93439D744D08F92EA709BAC7B3DB36425F8D1EF7E86891C22187A166F4EAD097"
+    },
+    "magnets": {
+      "filename": "โรงเรียนแม่เหล็ก_ระยอง เขต 2.gpkg",
+      "bytes": 98304,
+      "sha256": "BBDBE01A4F0F0F22E5039D74589999D71246188167768EA77B1B16B84B72BBDE"
+    },
+    "roads": {
+      "filename": "ถนน_ระยอง เขต 2_สำหรับคำนวณ.gpkg",
+      "bytes": 4038656,
+      "sha256": "7CA377FECE9148EAF892A87D8827F89FBD5BE87A9FAE75247B53B2CA350D460E"
+    },
+    "od": {
+      "filename": "OD_ระยอง เขต 2_ไม่เกิน10กม.gpkg",
+      "bytes": 98304,
+      "sha256": "AA7C7B9D65A0F6A02E7215BFD416F20A1DFC597D8DB38F7B2D4D9C8A78B2D8C1"
+    },
+    "status": {
+      "filename": "สถานะการจับคู่_โรงเรียนขนาดเล็ก_ระยอง เขต 2.gpkg",
+      "bytes": 110592,
+      "sha256": "CF816B33DB7A221150D04211D76FF50302F1126B2C4D1831A44A338E4CED12DF"
+    },
+    "image": {
+      "filename": "แผนที่ผลการจับคู่_ระยอง เขต 2.png",
+      "bytes": 1990351,
+      "sha256": "31CBE7DA73F04D2D405DE92E55336AF8493875827ADA3EE61D514337118C9655"
+    },
+    "pdf": {
+      "filename": "สรุปผลการจับคู่_ระยอง เขต 2.pdf",
+      "bytes": 3588582,
+      "sha256": "D0C333C629C29E270A6798EFA233D76ED1D3AF5B1810AFADBEBD7A05C8FDF857"
+    },
+    "size_image": {
+      "filename": "แผนที่ขนาดโรงเรียน_ระยอง เขต 2.png",
+      "bytes": 2067896,
+      "sha256": "A17AEBB17A71752AE800795727A7F69958504423A9BCB77289210296408D1C71"
+    }
+  },
+  "presentation": {
+    "refreshed_at": "2026-09-14T16:08:15+07:00",
+    "renderer_version": "1.8.0",
+    "mode": "accepted-results-render-only",
+    "image_width": 2400,
+    "image_height": 3704,
+    "size_image_width": 2400,
+    "size_image_height": 3784,
+    "school_size_map": true,
+    "size_map_max_students": 60,
+    "size_map_labels_version": 1,
+    "size_summary_page_version": 1,
+    "tambon_lines": {
+      "source": "admin3",
+      "layer": "tha_admin3.shp",
+      "fingerprint": {
+        "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.shp",
+        "algorithm": "combined-exact-sidecar-sampled-v1",
+        "digest": "1DE5755847C1C9719CE8C46C09240727A8BF9E4AC35419C02C1F82ECA46E8D49",
+        "components": [
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.shp",
+            "size": 253123512,
+            "mtime_ns": 1769099601023714800,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "2E60FBD36CD75CEC9A8499A60B0A2CBE1BD910C323830515CD979CB29889780B"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.shx",
+            "size": 59500,
+            "mtime_ns": 1769099601130448300,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "D5DF92F451559D02C028F9BCA8075B9C0B05D37AA94A75B56B4B107202F0C010"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.dbf",
+            "size": 16105851,
+            "mtime_ns": 1769099601119611200,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "257FAFE181E5C61F0BF5522E0C7E9018B8E0B81484B22340F6257189203FF672"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.prj",
+            "size": 145,
+            "mtime_ns": 1769099601125447700,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "E83922E54341CF0B96FD4F7488D150088A41119E417B6AE469A865946F709453"
+          },
+          {
+            "path": "C:\\Users\\EarthPad\\Desktop\\Tu Master\\Economics of Education Researcher\\QGIS - Project2\\Subnational Administrative Boundaries\\tha_admin3.cpg",
+            "size": 5,
+            "mtime_ns": 1769099601029793200,
+            "algorithm": "sha256(size+first1MiB+last1MiB)",
+            "digest": "DDB71B5A47E380FDEFB1064FD700C81345BDC00ADE285892201E11E2A73FBD20"
+          }
+        ]
+      },
+      "tambon_count": 23
+    },
+    "consolidation_version": 1,
+    "analysis_unchanged": true
+  },
+  "school_size": {
+    "basis": "จำนวนนักเรียนรวมตามทะเบียน DMC682 ของโรงเรียนขนาดเล็ก (ไม่เกิน 120 คน)",
+    "bins": [
+      {
+        "label": "0-10",
+        "min": 0,
+        "max": 10,
+        "count": 0
+      },
+      {
+        "label": "11-20",
+        "min": 11,
+        "max": 20,
+        "count": 0
+      },
+      {
+        "label": "21-30",
+        "min": 21,
+        "max": 30,
+        "count": 3
+      },
+      {
+        "label": "31-40",
+        "min": 31,
+        "max": 40,
+        "count": 3
+      },
+      {
+        "label": "41-50",
+        "min": 41,
+        "max": 50,
+        "count": 4
+      },
+      {
+        "label": "51-60",
+        "min": 51,
+        "max": 60,
+        "count": 5
+      },
+      {
+        "label": "61-100",
+        "min": 61,
+        "max": 100,
+        "count": 23
+      },
+      {
+        "label": "101-120",
+        "min": 101,
+        "max": 120,
+        "count": 6
+      }
+    ],
+    "total": 44,
+    "students_min": 26,
+    "students_max": 118,
+    "students_median": 72.0,
+    "students_total": 3190,
+    "map_max_students": 60
+  },
+  "consolidation": {
+    "version": 1,
+    "basis": "ภาพจำลองผลคัดกรองตามแผน 1.2: สมมติว่าโรงเรียนขนาดเล็กทุกแห่งที่จับคู่ได้ภายใน 10 กิโลเมตรไปรวมกับโรงเรียนคุณภาพชุมชนปลายทางตามผล นับนักเรียนตามทะเบียน DMC682 ทั้งหมด (นักเรียนรวมเชิงสมมติ) มิใช่แผนควบรวม ข้อเสนอย้ายนักเรียน หรือการคาดการณ์จำนวนนักเรียนจริง",
+    "distance_field": "total_cost",
+    "aggregate": {
+      "schools_before": 86,
+      "schools_after": 70,
+      "small_registered": 44,
+      "small_matched": 16,
+      "small_remaining": 28,
+      "small_remaining_by_status": {
+        "over10km": 28,
+        "unreachable": 0,
+        "excluded": 0,
+        "coordExceptions": 0
+      },
+      "students_small_total": 3190,
+      "students_moved": 1246,
+      "magnets_total": 3,
+      "magnets_receiving": 3,
+      "magnets_students_before": 1533,
+      "magnets_students_after": 2779,
+      "distance_mean_km": 6.2,
+      "distance_max_km": 9.28
+    },
+    "magnets": [
+      {
+        "school_id": "1021470187",
+        "school_name": "บ้านชุมแสง",
+        "students_before": 627,
+        "size_code_before": "5_(500-1499)",
+        "feeders": 5,
+        "students_received": 394,
+        "students_after": 1021,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 8.43,
+        "is_small_school": false
+      },
+      {
+        "school_id": "1021470048",
+        "school_name": "วัดหนองกันเกรา",
+        "students_before": 568,
+        "size_code_before": "5_(500-1499)",
+        "feeders": 4,
+        "students_received": 347,
+        "students_after": 915,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 8.84,
+        "is_small_school": false
+      },
+      {
+        "school_id": "1021470194",
+        "school_name": "บ้านสามแยกน้ำเป็น",
+        "students_before": 338,
+        "size_code_before": "4_(301-499)",
+        "feeders": 7,
+        "students_received": 505,
+        "students_after": 843,
+        "size_code_after": "5_(500-1499)",
+        "farthest_km": 9.28,
+        "is_small_school": false
+      }
+    ],
+    "inputs": {
+      "dmc_master_sha256": "3812AF51F8DB2B01DD67D6A82AF805D16BB013009876A5AAD88A434360482E00",
+      "od": {
+        "filename": "OD_ระยอง เขต 2_ไม่เกิน10กม.gpkg",
+        "bytes": 98304,
+        "sha256": "AA7C7B9D65A0F6A02E7215BFD416F20A1DFC597D8DB38F7B2D4D9C8A78B2D8C1"
+      }
+    }
+  }
+}
