@@ -36,7 +36,7 @@ from typing import Any, Iterable
 import area_layout as layout
 
 
-VERSION = "1.8.0"
+VERSION = "1.8.1"
 SCRIPT_DIR = Path(__file__).resolve().parent
 WORKSPACE = SCRIPT_DIR.parent
 DATA_DIR = WORKSPACE / "01 ข้อมูลกลาง"
@@ -285,6 +285,19 @@ def resolve_catalog_data_path(raw: Any, label: str) -> Path:
         raise SafetyError(f"{label} ต้องเป็น relative path: {raw}")
     resolved = ensure_within(SCRIPT_DIR / relative, DATA_DIR, label)
     return ensure_file(resolved, label)
+
+
+MACHINE_SPECIFIC_FINGERPRINT_KEYS = frozenset({"path", "mtime_ns"})
+
+
+def portable_fingerprint(value: Any) -> Any:
+    """ตัดส่วนที่ผูกกับเครื่อง (พาธเต็มและเวลาแก้ไขไฟล์) ออกก่อนเทียบ fingerprint ให้เทียบตามเนื้อไฟล์
+    (ขนาด + digest + วิธีคำนวณ + ชนิด) เพื่อให้ workspace ที่ clone ไปเครื่องอื่นตรวจรับผ่าน (1.8.1)"""
+    if isinstance(value, dict):
+        return {key: portable_fingerprint(item) for key, item in value.items() if key not in MACHINE_SPECIFIC_FINGERPRINT_KEYS}
+    if isinstance(value, list):
+        return [portable_fingerprint(item) for item in value]
+    return value
 
 
 def vector_source_fingerprint(path: Path) -> dict[str, Any]:
@@ -4115,7 +4128,7 @@ def verify_area_assets(area: dict[str, Any], require_size_map: bool = True) -> d
         )
         current_boundary = vector_source_fingerprint(boundary_path)
         recorded_boundary = qc.get("source_fingerprints", {}).get("education_boundaries")
-        if recorded_boundary != current_boundary:
+        if portable_fingerprint(recorded_boundary) != portable_fingerprint(current_boundary):
             raise QualityError(
                 f"QC {area['name']} ไม่ตรง boundary override รุ่นปัจจุบัน; ต้องคำนวณใหม่"
             )
@@ -4211,7 +4224,7 @@ def _presentation_input_snapshot(
         if adapter == "legacy_nong_khai_1":
             boundary_path = exact_external_paths(machine)["education_boundaries"]
             fingerprint = shapefile_fingerprint(boundary_path)
-            if sources.get("education_boundaries") != fingerprint:
+            if portable_fingerprint(sources.get("education_boundaries")) != portable_fingerprint(fingerprint):
                 raise QualityError("ขอบเขตต้นทางหนองคายเปลี่ยนจากรุ่นที่ตรวจรับ")
             snapshot[str(boundary_path)] = fingerprint
     else:
@@ -4237,7 +4250,7 @@ def _load_accepted_render_frames(
     summary = _qc_summary(qc)
     if isinstance(area.get("pilot"), dict):
         frames, actual_summary, input_meta = load_pilot_frames(machine, area)
-        if actual_summary != summary or input_meta != qc.get("source_fingerprints"):
+        if actual_summary != summary or portable_fingerprint(input_meta) != portable_fingerprint(qc.get("source_fingerprints")):
             raise QualityError(f"ผลนำร่องที่อ่านเพื่อวาด {area['name']} ไม่ตรง QC เดิม")
         return frames
     try:
