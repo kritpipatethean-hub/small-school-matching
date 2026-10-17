@@ -1,3 +1,28 @@
+/* ฟอนต์ Sarabun (Cadson Demak, SIL OFL 1.1 — fonts/OFL.txt) ตัดเหลืออักษรไทย ละติน และเครื่องหมายที่ใช้ ฝังในเว็บเพื่อใช้แบบออฟไลน์ (เวอร์ชัน 1.1) */
+@font-face {
+  font-family: "Sarabun";
+  src: url("fonts/Sarabun-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sarabun";
+  src: url("fonts/Sarabun-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sarabun";
+  src: url("fonts/Sarabun-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light;
   --navy-950: #08233f;
@@ -21,8 +46,9 @@
   --empty-bg: #e7ecef;
   --focus: #e65c00;
   --shadow: 0 12px 32px rgb(8 35 63 / 9%);
-  font-family: Tahoma, "Noto Sans Thai", "Leelawadee UI", sans-serif;
-  font-size: 100%;
+  font-family: "Sarabun", Tahoma, "Noto Sans Thai", "Leelawadee UI", sans-serif;
+  /* Sarabun ตัวเล็กกว่า Tahoma ที่ขนาดเดียวกัน จึงขยายฐานเป็น 18 px */
+  font-size: 112.5%;
 }
 
 * {
@@ -37,7 +63,7 @@ body {
   margin: 0;
   background: var(--page);
   color: var(--ink);
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 button,
@@ -184,13 +210,12 @@ h3 {
   font-size: 0.95rem;
 }
 
+/* ป้ายเล็กเหนือหัวข้อ: อักษรไทยไม่ยืดช่องไฟและไม่มีตัวพิมพ์ใหญ่ จึงไม่ใช้ letter-spacing/uppercase */
 .eyebrow {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
   color: var(--blue-700);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: 0.86rem;
+  font-weight: 600;
 }
 
 .intro {
@@ -201,10 +226,32 @@ h3 {
   padding-block: 2.1rem 1.4rem;
 }
 
-.intro > div > p:last-child {
+.intro-lead {
+  max-width: 50rem;
+  margin-bottom: 0.7rem;
+  color: var(--muted);
+}
+
+/* ที่มาข้อมูล (เวอร์ชัน 1.1): บอกชัดว่าเป็นข้อมูล DMC ของ สพฐ. ปีการศึกษาใด แทนป้าย "ชุดข้อมูล DMC682" */
+.intro-source {
+  max-width: 50rem;
+  margin-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid #edb62f;
+  color: var(--muted);
+}
+
+.intro-source strong {
+  margin-right: 0.35rem;
+  color: var(--navy-950);
+  font-weight: 600;
+}
+
+.intro-privacy {
   max-width: 50rem;
   margin-bottom: 0;
   color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .summary-strip {
@@ -318,6 +365,16 @@ select {
   flex: 0 0 auto;
   background: #fff;
   color: var(--navy-800);
+}
+
+/* .button ตั้ง display ไว้ จึงต้องบอกให้ปุ่มที่มี hidden (เช่น ล้างคำค้น ตอนช่องว่าง) ซ่อนจริง */
+.button[hidden] {
+  display: none;
+}
+
+/* คำไทยที่ไม่ควรถูกตัดขึ้นบรรทัดใหม่กลางวลี เช่น "โรงเรียนขนาดเล็ก" "ภาคเรียนที่ 2" */
+.nowrap {
+  white-space: nowrap;
 }
 
 .button-disabled {

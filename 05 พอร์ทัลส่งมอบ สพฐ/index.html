@@ -26,23 +26,26 @@
         <p class="header-subtitle">แผนใช้โรงเรียนคุณภาพชุมชนเป็นศูนย์กลางการควบรวมในระยะ 10 กิโลเมตร (ระยะทางตามโครงข่ายถนน)</p>
       </div>
       <!-- เลขเวอร์ชันและวันที่ปรับปรุงเขียนมือ 2 จุด (ที่นี่และท้ายหน้า) แก้พร้อมกันทุกครั้งที่ปรับหน้าเว็บ -->
-      <p class="version-badge"><strong>เวอร์ชัน 1.0</strong><span>วันที่ปรับปรุงล่าสุด 12 ตุลาคม 2569</span></p>
+      <p class="version-badge"><strong>เวอร์ชัน 1.1</strong><span>วันที่ปรับปรุงล่าสุด 17 ตุลาคม 2569</span></p>
     </div>
   </header>
 
   <main id="main-content" class="shell" tabindex="-1">
+    <!-- ส่วนบน (เวอร์ชัน 1.1, 17 ต.ค. 2569): โครงเดิม (ข้อความซ้าย การ์ดสถานะขวา ช่องค้นหาแถบเต็ม) แต่ข้อความอ่านง่ายขึ้น
+         และบอกที่มาข้อมูลชัดเจน; ตัวเลขในการ์ดมาจาก portal.js ผ่าน data-summary -->
     <section class="intro" aria-labelledby="intro-title">
       <div>
-        <p class="eyebrow">ชุดข้อมูล DMC682</p>
-        <h2 id="intro-title">เลือกจังหวัดและสำนักงานเขตพื้นที่การศึกษาประถมศึกษา</h2>
-        <p>ตรวจสถานะและดูตัวเลขสรุประดับพื้นที่ โดยไม่มีข้อมูลพิกัด รหัสโรงเรียน ตารางรายโรงเรียนขนาดเล็ก หรือไฟล์ GIS อยู่ในพอร์ทัลนี้ (ชื่อโรงเรียนขนาดเล็กปรากฏเฉพาะเป็นป้ายบนภาพแผนที่ขนาดโรงเรียน ส่วนชื่อโรงเรียนคุณภาพชุมชนอยู่บนแผนที่ผลการจับคู่และในภาพจำลองหลังจับคู่)</p>
+        <h2 id="intro-title">ดูผลการจับคู่<span class="nowrap">โรงเรียนขนาดเล็ก</span><span class="nowrap">รายเขตพื้นที่การศึกษา</span></h2>
+        <p class="intro-lead">เลือกจังหวัดหรือสำนักงานเขตพื้นที่การศึกษาประถมศึกษา (สพป.) เพื่อดูว่าโรงเรียนขนาดเล็กในเขตจับคู่กับโรงเรียนคุณภาพชุมชนในระยะ 10 กิโลเมตรได้กี่แห่ง พร้อมแผนที่และเอกสารสรุปผล (PDF) ของเขตนั้น</p>
+        <p class="intro-source"><strong>ข้อมูลที่ใช้</strong> ข้อมูลโรงเรียนและจำนวนนักเรียนจากระบบ DMC ของ สพฐ. <span class="nowrap">ปีการศึกษา 2568</span> <span class="nowrap">ภาคเรียนที่ 2</span></p>
+        <p class="intro-privacy">เว็บไซต์นี้ไม่เผยแพร่พิกัด รหัสโรงเรียน หรือไฟล์ GIS ชื่อโรงเรียนปรากฏเฉพาะบนภาพแผนที่ของแต่ละเขต</p>
       </div>
       <dl class="summary-strip" aria-label="สรุปสถานะ 183 พื้นที่">
-        <div><dt>พื้นที่ทั้งหมด</dt><dd id="summary-total">—</dd></div>
-        <div class="summary-ready"><dt>พร้อมดู</dt><dd id="summary-ready">—</dd></div>
-        <div class="summary-pending"><dt>กำลังจัดทำ</dt><dd id="summary-pending">—</dd></div>
-        <div class="summary-review"><dt>ต้องตรวจข้อมูล</dt><dd id="summary-blocked">—</dd></div>
-        <div class="summary-empty"><dt>ไม่มีประชากร</dt><dd id="summary-empty">—</dd></div>
+        <div><dt>พื้นที่ทั้งหมด</dt><dd data-summary="total">—</dd></div>
+        <div class="summary-ready"><dt>พร้อมดู</dt><dd data-summary="ready">—</dd></div>
+        <div class="summary-pending"><dt>กำลังจัดทำ</dt><dd data-summary="pending">—</dd></div>
+        <div class="summary-review"><dt>ต้องตรวจข้อมูล</dt><dd data-summary="blocked">—</dd></div>
+        <div class="summary-empty"><dt>ไม่มีโรงเรียนขนาดเล็ก</dt><dd data-summary="empty">—</dd></div>
       </dl>
     </section>
 
@@ -53,7 +56,7 @@
       </div>
       <div class="search-controls">
         <label class="sr-only" for="catalog-search">คำค้น</label>
-        <input id="catalog-search" type="search" inputmode="search" autocomplete="off" aria-describedby="search-hint search-status" placeholder="เช่น อ่างทอง, หนองคาย เขต 1 หรือ 71010000">
+        <input id="catalog-search" type="search" inputmode="search" autocomplete="off" aria-describedby="search-hint search-status" placeholder="เช่น อ่างทอง หรือ หนองคาย เขต 1">
         <button id="clear-search" class="button button-secondary" type="button" hidden>ล้างคำค้น</button>
       </div>
       <p id="search-status" class="sr-only" role="status" aria-live="polite"></p>
@@ -160,7 +163,7 @@
           <li><span class="legend-symbol symbol-ready" aria-hidden="true">✓</span> มีพื้นที่พร้อมดู</li>
           <li><span class="legend-symbol symbol-pending" aria-hidden="true">…</span> กำลังจัดทำ</li>
           <li><span class="legend-symbol symbol-review" aria-hidden="true">!</span> มีพื้นที่ต้องตรวจข้อมูล</li>
-          <li><span class="legend-symbol symbol-empty" aria-hidden="true">–</span> ไม่มีประชากรตามชุดข้อมูล</li>
+          <li><span class="legend-symbol symbol-empty" aria-hidden="true">–</span> ไม่มีโรงเรียนขนาดเล็ก</li>
         </ul>
       </section>
 
@@ -217,9 +220,9 @@
 
   <footer class="site-footer">
     <div class="shell footer-inner">
-      <p><strong>สถาบันวิจัยเพื่อความเสมอภาคทางการศึกษา (วสศ.)</strong><br>พอร์ทัลส่งมอบแบบออฟไลน์ — ชุดข้อมูล DMC682</p>
+      <p><strong>สถาบันวิจัยเพื่อความเสมอภาคทางการศึกษา (วสศ.)</strong><br>ข้อมูลจากระบบ DMC ของ สพฐ. <span class="footer-keep">ปีการศึกษา 2568</span> <span class="footer-keep">ภาคเรียนที่ 2</span></p>
       <p class="footer-project"><strong>โครงการจัดทำข้อมูลและวิเคราะห์สถานการณ์เพื่อเพิ่มความเสมอภาคทางการศึกษาสำหรับโรงเรียนขนาดเล็ก</strong><br>จัดทำโดย ศูนย์บริการวิชาการเศรษฐศาสตร์ (ERTC) <span class="footer-keep">มหาวิทยาลัยธรรมศาสตร์</span></p>
-      <p class="footer-note"><strong>เวอร์ชัน 1.0</strong> · วันที่ปรับปรุงล่าสุด 12 ตุลาคม 2569<br>ไม่มีการเชื่อมต่อเซิร์ฟเวอร์ ฐานข้อมูล หรืออินเทอร์เน็ต</p>
+      <p class="footer-note"><strong>เวอร์ชัน 1.1</strong> · วันที่ปรับปรุงล่าสุด 17 ตุลาคม 2569<br>ไม่มีการเชื่อมต่อเซิร์ฟเวอร์ ฐานข้อมูล หรืออินเทอร์เน็ต</p>
     </div>
   </footer>
 

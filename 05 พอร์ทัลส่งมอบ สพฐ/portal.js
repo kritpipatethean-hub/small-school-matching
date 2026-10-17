@@ -34,7 +34,7 @@
       className: "status-review"
     },
     empty: {
-      label: "ไม่มีประชากรตามชุดข้อมูล",
+      label: "ไม่มีโรงเรียนขนาดเล็ก",
       icon: "–",
       className: "status-empty"
     }
@@ -127,7 +127,7 @@
     if (counts.ready) { parts.push("พร้อมดู " + numberFormatter.format(counts.ready) + " พื้นที่"); }
     if (counts.pending) { parts.push("กำลังจัดทำ " + numberFormatter.format(counts.pending) + " พื้นที่"); }
     if (counts.blocked) { parts.push("ต้องตรวจข้อมูลต้นทาง " + numberFormatter.format(counts.blocked) + " พื้นที่"); }
-    if (counts.empty) { parts.push("ไม่มีประชากรตามชุดข้อมูล " + numberFormatter.format(counts.empty) + " พื้นที่"); }
+    if (counts.empty) { parts.push("ไม่มีโรงเรียนขนาดเล็ก " + numberFormatter.format(counts.empty) + " พื้นที่"); }
     return parts.join(", ");
   }
 
@@ -149,11 +149,6 @@
   }
 
   function cacheElements() {
-    elements.summaryTotal = document.getElementById("summary-total");
-    elements.summaryReady = document.getElementById("summary-ready");
-    elements.summaryPending = document.getElementById("summary-pending");
-    elements.summaryBlocked = document.getElementById("summary-blocked");
-    elements.summaryEmpty = document.getElementById("summary-empty");
     elements.search = document.getElementById("catalog-search");
     elements.clearSearch = document.getElementById("clear-search");
     elements.searchResults = document.getElementById("search-results");
@@ -176,13 +171,22 @@
     elements.detailContent = document.getElementById("detail-content");
   }
 
+  // ส่วนบน: ตัวเลขในการ์ดสถานะทุกจุดที่มี data-summary
   function populateSummary() {
     var counts = countStatuses(areas);
-    elements.summaryTotal.textContent = numberFormatter.format(areas.length);
-    elements.summaryReady.textContent = numberFormatter.format(counts.ready);
-    elements.summaryPending.textContent = numberFormatter.format(counts.pending);
-    elements.summaryBlocked.textContent = numberFormatter.format(counts.blocked);
-    elements.summaryEmpty.textContent = numberFormatter.format(counts.empty);
+    var values = {
+      total: areas.length,
+      ready: counts.ready,
+      pending: counts.pending,
+      blocked: counts.blocked,
+      empty: counts.empty
+    };
+    Array.prototype.forEach.call(document.querySelectorAll("[data-summary]"), function (node) {
+      var key = node.getAttribute("data-summary");
+      if (Object.prototype.hasOwnProperty.call(values, key)) {
+        node.textContent = numberFormatter.format(values[key]);
+      }
+    });
   }
 
   function populateProvinceSelect() {
@@ -687,8 +691,8 @@
       title = "พื้นที่นี้ต้องตรวจข้อมูลขอบเขตต้นทาง";
       message = "มีพื้นที่นี้ในข้อมูลโรงเรียน แต่ยังไม่มีขอบเขตแยกที่ตรงกัน จึงระงับการเผยแพร่ผลจนกว่าจะตรวจและยืนยันข้อมูลต้นทางแล้ว";
     } else if (area.status === "empty") {
-      title = "ไม่มีประชากรโรงเรียนขนาดเล็กตามชุดข้อมูล DMC682";
-      message = "พื้นที่นี้ยังคงอยู่ในบัญชี 183 สพป. เพื่อให้รายชื่อครบถ้วน แต่ไม่มีประชากรสำหรับการวิเคราะห์ในชุดข้อมูลปัจจุบัน";
+      title = "ไม่มีโรงเรียนขนาดเล็กในข้อมูล DMC ของเขตนี้";
+      message = "เขตนี้ยังอยู่ในรายชื่อ 183 สพป. เพื่อให้ครบถ้วน แต่ข้อมูล DMC ของ สพฐ. ปีการศึกษา 2568 ภาคเรียนที่ 2 ไม่มีโรงเรียนขนาดเล็กให้วิเคราะห์";
     } else {
       title = "ผลอยู่ระหว่างจัดทำ";
       message = "ยังไม่มีผลที่ผ่านการตรวจรับสำหรับเผยแพร่ในพอร์ทัล โปรดกลับมาตรวจในชุดส่งมอบรุ่นถัดไป";
