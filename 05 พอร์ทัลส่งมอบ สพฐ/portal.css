@@ -218,24 +218,36 @@ h3 {
   font-weight: 600;
 }
 
+/* ส่วนบน 2 คอลัมน์ชิดบน: ซ้ายคือหัวข้อและคำอธิบาย ขวาคือการ์ดสถานะ ที่มาข้อมูล และข้อความเรื่องพิกัด
+   สัดส่วน 1 : 1.5 (ขวาอย่างน้อย 38rem ให้ข้อความเรื่องพิกัดอยู่บรรทัดเดียว) กับช่องไฟที่แคบลงตามจอ ทำให้สองคอลัมน์สูงใกล้กันทุกความกว้าง ไม่เหลือที่ว่างเหนือการ์ด */
 .intro {
   display: grid;
-  grid-template-columns: minmax(18rem, 1fr) minmax(30rem, 1.45fr);
-  gap: 2rem;
-  align-items: end;
+  grid-template-columns: minmax(18rem, 1fr) minmax(38rem, 1.5fr);
+  gap: clamp(1.5rem, 2.5vw, 2rem);
+  align-items: start;
   padding-block: 2.1rem 1.4rem;
+}
+
+/* กล่องหัวข้อเผื่อที่วรรณยุกต์ไว้ด้านบน จึงเลื่อนการ์ดลงเล็กน้อยให้ขอบบนตรงกับแนวบนของตัวหนังสือหัวข้อ */
+.intro-facts {
+  margin-top: 0.45rem;
 }
 
 .intro-lead {
   max-width: 50rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0;
   color: var(--muted);
+}
+
+/* ไม่ให้คำสั้นคำเดียว (เช่น "นั้น") ตกไปอยู่บรรทัดสุดท้าย เบราว์เซอร์ที่ไม่รองรับจะตัดบรรทัดแบบเดิม */
+.intro p {
+  text-wrap: pretty;
 }
 
 /* ที่มาข้อมูล (เวอร์ชัน 1.1): บอกชัดว่าเป็นข้อมูล DMC ของ สพฐ. ปีการศึกษาใด แทนป้าย "ชุดข้อมูล DMC682" */
 .intro-source {
   max-width: 50rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   padding-left: 0.75rem;
   border-left: 3px solid #edb62f;
   color: var(--muted);
@@ -254,15 +266,18 @@ h3 {
   font-size: 0.9rem;
 }
 
+/* การ์ดกว้างเท่ากัน แต่ไม่แคบกว่าป้ายของตัวเองหรือ 6rem: ป้าย "ไม่มีโรงเรียนขนาดเล็ก" จึงอยู่บรรทัดเดียว (เมื่อจอแคบ การ์ดนั้นกว้างกว่าใบอื่นเล็กน้อย)
+   ถ้าแถวยังกว้างเกินคอลัมน์ (เช่น ฟอนต์สำรองที่กว้างกว่า) แถบจะเลื่อนข้างในตัว ไม่ดันหน้าให้กว้างเกินจอ */
 .summary-strip {
   display: grid;
-  grid-template-columns: repeat(5, minmax(6rem, 1fr));
+  grid-template-columns: repeat(5, minmax(max-content, 1fr));
   gap: 0.55rem;
-  margin: 0;
+  margin: 0 0 0.7rem;
+  overflow-x: auto;
 }
 
 .summary-strip > div {
-  min-width: 0;
+  min-width: 6rem;
   padding: 0.75rem;
   border: 1px solid var(--line);
   border-top: 4px solid var(--navy-800);
@@ -1088,18 +1103,21 @@ select {
 }
 
 @media (max-width: 70rem) {
-  .intro,
   .workspace-grid {
     grid-template-columns: 1fr;
   }
 
+  /* คอลัมน์เดียว: minmax(0, 1fr) ให้แถบการ์ดที่เลื่อนข้างได้ไม่ดันคอลัมน์ให้กว้างเกินจอ */
   .intro {
+    grid-template-columns: minmax(0, 1fr);
     gap: 1rem;
   }
 
+  .intro-facts {
+    margin-top: 0;
+  }
+
   .summary-strip {
-    grid-template-columns: repeat(5, minmax(5.5rem, 1fr));
-    overflow-x: auto;
     padding-bottom: 0.2rem;
   }
 }
@@ -1176,9 +1194,32 @@ select {
   }
 }
 
-@media (max-width: 30rem) {
+/* จอที่การ์ด 5 ใบแบบป้ายบรรทัดเดียววางในแถวไม่พอ: การ์ดกว้างเท่ากันและป้ายขึ้นบรรทัดใหม่ได้ ตัวเลขชิดล่างให้อยู่แนวเดียวกัน */
+@media (max-width: 44rem) {
   .summary-strip {
-    grid-template-columns: repeat(5, 7.5rem);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .summary-strip > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+  }
+
+  .summary-strip dt {
+    text-wrap: balance;
+  }
+}
+
+@media (max-width: 30rem) {
+  /* มือถือ: แถบการ์ดเลื่อนข้าง การ์ดกว้างอย่างน้อย 7.5rem และป้ายอยู่บรรทัดเดียว */
+  .summary-strip {
+    grid-template-columns: repeat(5, max-content);
+  }
+
+  .summary-strip > div {
+    min-width: 7.5rem;
   }
 
   .panel-heading,

@@ -31,22 +31,24 @@
   </header>
 
   <main id="main-content" class="shell" tabindex="-1">
-    <!-- ส่วนบน (เวอร์ชัน 1.1, 17 ต.ค. 2569): โครงเดิม (ข้อความซ้าย การ์ดสถานะขวา ช่องค้นหาแถบเต็ม) แต่ข้อความอ่านง่ายขึ้น
-         และบอกที่มาข้อมูลชัดเจน; ตัวเลขในการ์ดมาจาก portal.js ผ่าน data-summary -->
+    <!-- ส่วนบน (เวอร์ชัน 1.1, 17 ต.ค. 2569): ซ้ายคือหัวข้อและคำอธิบาย ขวาคือการ์ดสถานะ ที่มาข้อมูล และข้อความเรื่องพิกัด (ชิดบนทั้งคู่)
+         ช่องค้นหาแถบเต็มอยู่ถัดลงไปเหมือนเดิม; ตัวเลขในการ์ดมาจาก portal.js ผ่าน data-summary -->
     <section class="intro" aria-labelledby="intro-title">
       <div>
         <h2 id="intro-title">ดูผลการจับคู่<span class="nowrap">โรงเรียนขนาดเล็ก</span><span class="nowrap">รายเขตพื้นที่การศึกษา</span></h2>
-        <p class="intro-lead">เลือกจังหวัดหรือสำนักงานเขตพื้นที่การศึกษาประถมศึกษา (สพป.) เพื่อดูว่าโรงเรียนขนาดเล็กในเขตจับคู่กับโรงเรียนคุณภาพชุมชนในระยะ 10 กิโลเมตรได้กี่แห่ง พร้อมแผนที่และเอกสารสรุปผล (PDF) ของเขตนั้น</p>
+        <p class="intro-lead">เลือกจังหวัดหรือสำนักงานเขตพื้นที่<span class="nowrap">การศึกษา</span><span class="nowrap">ประถมศึกษา</span> (สพป.) เพื่อดูว่าโรงเรียน<span class="nowrap">ขนาดเล็ก</span>ในเขต<span class="nowrap">จับคู่</span>กับโรงเรียน<span class="nowrap">คุณภาพชุมชน</span>ในระยะ <span class="nowrap">10 กิโลเมตร</span>ได้<span class="nowrap">กี่แห่ง</span> พร้อมแผนที่และเอกสาร<span class="nowrap">สรุปผล</span> (PDF) ของเขตนั้น</p>
+      </div>
+      <div class="intro-facts">
+        <dl class="summary-strip" aria-label="สรุปสถานะ 183 พื้นที่">
+          <div><dt>พื้นที่ทั้งหมด</dt><dd data-summary="total">—</dd></div>
+          <div class="summary-ready"><dt>พร้อมดู</dt><dd data-summary="ready">—</dd></div>
+          <div class="summary-pending"><dt>กำลังจัดทำ</dt><dd data-summary="pending">—</dd></div>
+          <div class="summary-review"><dt>ต้องตรวจข้อมูล</dt><dd data-summary="blocked">—</dd></div>
+          <div class="summary-empty"><dt>ไม่มีโรงเรียนขนาดเล็ก</dt><dd data-summary="empty">—</dd></div>
+        </dl>
         <p class="intro-source"><strong>ข้อมูลที่ใช้</strong> ข้อมูลโรงเรียนและจำนวนนักเรียนจากระบบ DMC ของ สพฐ. <span class="nowrap">ปีการศึกษา 2568</span> <span class="nowrap">ภาคเรียนที่ 2</span></p>
         <p class="intro-privacy">เว็บไซต์นี้ไม่เผยแพร่พิกัด รหัสโรงเรียน หรือไฟล์ GIS ชื่อโรงเรียนปรากฏเฉพาะบนภาพแผนที่ของแต่ละเขต</p>
       </div>
-      <dl class="summary-strip" aria-label="สรุปสถานะ 183 พื้นที่">
-        <div><dt>พื้นที่ทั้งหมด</dt><dd data-summary="total">—</dd></div>
-        <div class="summary-ready"><dt>พร้อมดู</dt><dd data-summary="ready">—</dd></div>
-        <div class="summary-pending"><dt>กำลังจัดทำ</dt><dd data-summary="pending">—</dd></div>
-        <div class="summary-review"><dt>ต้องตรวจข้อมูล</dt><dd data-summary="blocked">—</dd></div>
-        <div class="summary-empty"><dt>ไม่มีโรงเรียนขนาดเล็ก</dt><dd data-summary="empty">—</dd></div>
-      </dl>
     </section>
 
     <section class="search-panel" aria-labelledby="search-title">
