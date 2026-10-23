@@ -36,7 +36,7 @@ from typing import Any, Iterable
 import area_layout as layout
 
 
-VERSION = "1.11.0"
+VERSION = "1.12.0"
 SCRIPT_DIR = Path(__file__).resolve().parent
 WORKSPACE = SCRIPT_DIR.parent
 DATA_DIR = WORKSPACE / "01 ข้อมูลกลาง"
@@ -98,9 +98,10 @@ CONSOLIDATION_VERSION = 1
 # ข้อความไทยจัดรูปด้วย Qt (HarfBuzz กับไฟล์ฟอนต์เดียวกัน) แล้ววาดเป็นเส้นขอบ — รุ่น 1 ภาพแผนที่ (1.10.0) รุ่น 2 เพิ่มหน้าข้อความ
 # ของ PDF (1.11.0); รุ่นบันทึกใน presentation.thai_text_shaping และ verify แบบเข้มบังคับให้ตรง
 THAI_SHAPING_VERSION = 2
-# ข้อความกำกับที่พิมพ์ท้ายภาพแผนที่และหัว PDF: รุ่น 2 เลิกพิมพ์ "ฉบับนำร่องเพื่อการตรวจสอบ" (ผู้ใช้ตัดสิน 13 ต.ค. 2569; 1.11.0)
-# รุ่นบันทึกใน presentation.output_labels_version และ verify แบบเข้มบังคับให้ตรง
-OUTPUT_LABELS_VERSION = 2
+# ข้อความกำกับที่พิมพ์ท้ายภาพแผนที่และใน PDF: รุ่น 2 เลิกพิมพ์ "ฉบับนำร่องเพื่อการตรวจสอบ" (ผู้ใช้ตัดสิน 13 ต.ค. 2569; 1.11.0)
+# รุ่น 3 ข้อความที่ผู้อ่านเห็นใน PDF และ catalog เลิกใช้คำว่า "คัดกรอง" ใช้ "ผลการจับคู่" และชื่อ "ภาพจำลองหากจับกลุ่มตามผลการจับคู่"
+# (ผู้ใช้ตัดสิน 23 ต.ค. 2569; 1.12.0) รุ่นบันทึกใน presentation.output_labels_version และ verify แบบเข้มบังคับให้ตรง
+OUTPUT_LABELS_VERSION = 3
 # ชื่อแผนที่ผู้อ่านเห็น (ผู้ใช้ตัดสิน 12 ต.ค. 2569 เลิกเรียก "แผน 1.2" ในรายงานและเว็บ; 1.9.0) ใช้ร่วมกันที่หัวแผนที่
 # ท้าย PDF ข้อความภาพจำลอง และป้ายวิธีใน QC/catalog — เอกสารภายใน (Tor ฯลฯ) ยังเรียกแผน 1.2 ได้
 PLAN_NAME = "แผนใช้โรงเรียนคุณภาพชุมชนเป็นศูนย์กลางการควบรวม"
@@ -2973,7 +2974,7 @@ def consolidation_profile(
     return {
         "version": CONSOLIDATION_VERSION,
         "basis": (
-            f"ภาพจำลองผลคัดกรองตาม{PLAN_NAME}: สมมติว่าโรงเรียนขนาดเล็กทุกแห่งที่จับคู่ได้ภายใน 10 กิโลเมตรไปรวมกับ"
+            f"ภาพจำลองจากผลการจับคู่ตาม{PLAN_NAME}: สมมติว่าโรงเรียนขนาดเล็กทุกแห่งที่จับคู่ได้ภายใน 10 กิโลเมตรไปรวมกับ"
             "โรงเรียนคุณภาพชุมชนปลายทางตามผล นับนักเรียนตามทะเบียน DMC682 ทั้งหมด (นักเรียนรวมเชิงสมมติ) "
             "มิใช่แผนควบรวม ข้อเสนอย้ายนักเรียน หรือการคาดการณ์จำนวนนักเรียนจริง"
         ),
@@ -3003,11 +3004,11 @@ def public_consolidation_note(profile: dict[str, Any]) -> str:
         f" (ในจำนวนนี้ {excluded} แห่งเป็นโรงเรียนขนาดเล็กตามทะเบียนที่มีบทบาทโรงเรียนคุณภาพชุมชนด้วย)" if excluded else ""
     )
     return (
-        f"ภาพจำลองนี้คำนวณจากผลคัดกรองตาม{PLAN_NAME} โดยสมมติว่าโรงเรียนขนาดเล็กทุกแห่งที่จับคู่ได้ภายใน 10 กิโลเมตร "
+        f"ภาพจำลองนี้คำนวณจากผลการจับคู่ตาม{PLAN_NAME} โดยสมมติว่าโรงเรียนขนาดเล็กทุกแห่งที่จับคู่ได้ภายใน 10 กิโลเมตร "
         f"จำนวน {agg['small_matched']:,} แห่ง ไปรวมกับโรงเรียนคุณภาพชุมชนปลายทางตามผล และนับนักเรียนตามทะเบียน DMC682 ทั้งหมด "
         f"โรงเรียน สพป. ในเขตจะลดจาก {agg['schools_before']:,} เหลือ {agg['schools_after']:,} แห่ง "
         f"โรงเรียนคุณภาพชุมชน {agg['magnets_receiving']} จาก {agg['magnets_total']} แห่งรับนักเรียนเพิ่มรวม {agg['students_moved']:,} คน "
-        f"ส่วนโรงเรียนขนาดเล็กอีก {agg['small_remaining']:,} แห่งยังคงอยู่ตามผลคัดกรอง{excluded_clause} "
+        f"ส่วนโรงเรียนขนาดเล็กอีก {agg['small_remaining']:,} แห่งยังคงอยู่ตามผลการจับคู่{excluded_clause} "
         "ตัวเลขทั้งหมดเป็นภาพจำลองเพื่อประกอบการพิจารณา มิใช่แผนควบรวม ข้อเสนอย้ายนักเรียน หรือการคาดการณ์จำนวนนักเรียนจริง"
     )
 
@@ -3472,7 +3473,7 @@ def public_analysis(area: dict[str, Any], summary: dict[str, Any]) -> str:
         text += f" โดยมีกรณีที่ต้องตรวจข้อมูลหรือการเชื่อมต่อโครงข่าย {review} แห่ง"
     if int(summary.get("excluded", 0)):
         text += f" พร้อมแยกกรณีเป็นโรงเรียนคุณภาพชุมชนด้วย {summary['excluded']} แห่ง"
-    return text + " ผลนี้เป็นเครื่องมือคัดกรองเบื้องต้น มิใช่ข้อเสนอควบรวมหรือย้ายนักเรียน"
+    return text + " ผลนี้เป็นผลการจับคู่เบื้องต้น มิใช่ข้อเสนอควบรวมหรือย้ายนักเรียน"
 
 
 def _reportlab_fonts() -> tuple[str, str]:
@@ -3815,7 +3816,7 @@ def render_summary_pdf(
     output_path.parent.mkdir(parents=True, exist_ok=True)
     pdf = _thai_pdf_canvas(output_path, A4)  # อักษรไทยจัดรูปด้วย Qt (THAI_SHAPING_VERSION 2)
     pdf.setTitle(f"สรุปผลการจับคู่ {area['name']}")
-    pdf.setAuthor("โครงการวิเคราะห์การจับคู่โรงเรียนขนาดเล็ก")
+    pdf.setAuthor("โครงการจัดทำข้อมูลและวิเคราะห์สถานการณ์เพื่อเพิ่มความเสมอภาคทางการศึกษาสำหรับโรงเรียนขนาดเล็ก")
     # Give the map its own page; squeezing it between metrics and prose made
     # school labels unreadable. Page two uses the same summary as the portal.
     with Image.open(image_path) as source_image:
@@ -3884,9 +3885,8 @@ def render_summary_pdf(
     note_y -= analysis_h + 22
     limitation = Paragraph(
         "<b>วิธีอ่านและข้อจำกัด:</b> เส้นเชื่อมบนแผนที่แสดงความสัมพันธ์ตามคู่ที่ผ่านเกณฑ์ "
-        "มิใช่แนวเส้นทางเดินรถจริง ผลนี้ใช้คัดกรองเบื้องต้นและต้องพิจารณาความพร้อมของพื้นที่ "
-        "ความจุโรงเรียน การเดินทางจริง ภูมิประเทศ และความเห็นของชุมชนร่วมด้วย "
-        "ผลการจับคู่เป็นเครื่องมือคัดกรอง มิใช่ข้อเสนอควบรวมหรือย้ายนักเรียน",
+        "มิใช่แนวเส้นทางเดินรถจริง การนำผลนี้ไปใช้ต้องพิจารณาความพร้อมของพื้นที่ "
+        "ความจุโรงเรียน การเดินทางจริง ภูมิประเทศ และความเห็นของชุมชนร่วมด้วย",
         body_style,
     )
     _, limitation_h = limitation.wrap(max_w, 70)
@@ -3917,7 +3917,7 @@ def render_summary_pdf(
         y = note_y - limitation_h - 20
         pdf.setFillColor(colors.HexColor("#17365D"))
         pdf.setFont(bold, 11.5)
-        pdf.drawString(margin, y - 11, "ภาพจำลองหากจับคู่ตามผลคัดกรอง (ภาพจำลองประกอบการพิจารณา ไม่ใช่แผนควบรวม)")
+        pdf.drawString(margin, y - 11, "ภาพจำลองหากจับกลุ่มตามผลการจับคู่ (ภาพจำลองประกอบการพิจารณา ไม่ใช่แผนควบรวม)")
         y -= 22
         small_style = ParagraphStyle("ThaiSmall", parent=body_style, fontSize=9.5, leading=14)
         block_a = Paragraph(
@@ -3985,7 +3985,7 @@ def render_summary_pdf(
             pdf.setPageSize(A4)
             pdf.setFillColor(colors.HexColor("#17365D"))
             pdf.setFont(bold, 12)
-            pdf.drawString(margin, page_height - 48, f"ภาพจำลองหากจับคู่ตามผลคัดกรอง (ต่อ) — {area['name']}")
+            pdf.drawString(margin, page_height - 48, f"ภาพจำลองหากจับกลุ่มตามผลการจับคู่ (ต่อ) — {area['name']}")
             y = page_height - 70
             available = y - 45 - footnote_h - 6
             _, table_h = table.wrap(max_w, available)
@@ -4633,7 +4633,7 @@ def verify_area_assets(area: dict[str, Any], require_size_map: bool = True) -> d
                     f"+ หน้าคำอธิบายขนาดใน PDF รุ่น {SIZE_SUMMARY_PAGE_VERSION} "
                     f"+ แนวเขตตำบล + ภาพจำลองหลังจับคู่ รุ่น {CONSOLIDATION_VERSION} "
                     f"+ จัดรูปอักษรไทยในภาพแผนที่และ PDF รุ่น {THAI_SHAPING_VERSION} "
-                    f"+ ข้อความกำกับท้ายแผนที่และหัว PDF รุ่น {OUTPUT_LABELS_VERSION}); "
+                    f"+ ข้อความกำกับในแผนที่และ PDF รุ่น {OUTPUT_LABELS_VERSION}); "
                     "ต้องรัน refresh-assets"
                 )
             verify_consolidation(area, qc)

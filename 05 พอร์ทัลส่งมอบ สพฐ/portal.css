@@ -188,9 +188,21 @@ h3 {
   height: 3.6rem;
 }
 
+/* ชื่อแผนของผลในเว็บนี้: ตัวหนา สีทองโทนเดียวกับเส้นใต้หัวเว็บ (ตัดกับพื้นกรมท่าอย่างน้อย 6:1) อ่านแล้วรู้ทันทีว่าใช้แผนใด
+   ขนาด 1.1rem เมื่อจอกว้างตั้งแต่ราว 1,470 px แล้วเล็กลงตามจอจนเหลือ 1rem ที่ราว 1,330 px ลงไป ชื่อแผนจึงยังอยู่บรรทัดเดียวตั้งแต่จอราว 1,340 px เหมือนเดิม (รวมโน้ตบุ๊ก 1,366 px)
+   วงเล็บเรื่องวิธีวัดระยะเป็นตัวปกติสีฟ้าอ่อนแบบเดิม ให้เด่นรองลงมา */
 .header-subtitle {
   margin-bottom: 0;
+  color: #f6c94f;
+  font-size: clamp(1rem, 1.35vw, 1.1rem);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.header-subtitle-note {
   color: #d8eaf5;
+  font-size: 0.9em;
+  font-weight: 400;
 }
 
 .version-badge {
@@ -347,6 +359,14 @@ select {
 
 input[type="search"] {
   padding: 0.62rem 0.8rem;
+}
+
+/* หน้าเว็บมีปุ่ม "ล้างคำค้น" ของตัวเองแล้ว จึงซ่อนปุ่ม × ของเบราว์เซอร์ซึ่งกันที่ไว้แม้ช่องยังว่าง
+   ข้อความตัวอย่างที่ portal.js พิมพ์สลับในช่องจึงไม่ถูกตัดท้ายบนจอ 360 px */
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
 }
 
 select {
@@ -975,7 +995,7 @@ select {
   font-size: 0.92rem;
 }
 
-/* ภาพจำลองหากจับคู่ตามผลคัดกรอง: แถบตัวเลขรวม (ส่วน A) และตารางรายโรงเรียนคุณภาพชุมชน (ส่วน B)
+/* ภาพจำลองหากจับกลุ่มตามผลการจับคู่: แถบตัวเลขรวม (ส่วน A) และตารางรายโรงเรียนคุณภาพชุมชน (ส่วน B)
    เต็มความกว้างใต้ .detail-grid ข้อมูลจาก catalog.consolidation ที่ pipeline สร้างจาก QC (ตัดสินร่วมกับผู้ใช้ 8 ก.ย. 2569) */
 .consolidation-box {
   margin-top: 1rem;
@@ -1130,6 +1150,16 @@ select {
   .result-map-image {
     max-height: min(80vh, 720px);
   }
+
+  /* แท็บเล็ตและมือถือ: โลโก้เล็กลง คอลัมน์ชื่อโครงการและชื่อแผนจึงกว้างพอ ไม่ตัดกลางวลี */
+  .brand-logo {
+    height: 2.8rem;
+  }
+
+  .brand-logos {
+    gap: 0.5rem;
+    padding: 0.35rem 0.5rem;
+  }
 }
 
 @media (max-width: 48rem) {
@@ -1143,14 +1173,8 @@ select {
     gap: 0.75rem;
   }
 
-  .brand-logo {
-    height: 2.8rem;
-  }
-
   .brand-logos {
     justify-self: start;
-    gap: 0.5rem;
-    padding: 0.35rem 0.5rem;
   }
 
   .version-badge {

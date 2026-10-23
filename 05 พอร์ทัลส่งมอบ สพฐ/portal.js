@@ -582,7 +582,10 @@
     var data = detail.consolidation;
     var section = createElement("section", "deliverable-box consolidation-box");
     var heading = createElement("div", "deliverable-heading");
-    heading.appendChild(createElement("h3", "", "ภาพจำลองหากจับคู่ตามผลคัดกรอง"));
+    // ชื่อเดียวกับที่อ้างในกรอบการอ่านผล (index.html); "ตามผลการจับคู่" ไม่ตัดกลางวลีบนจอแคบ
+    var title = createElement("h3", "", "ภาพจำลองหากจับกลุ่ม");
+    title.appendChild(createElement("span", "nowrap", "ตามผลการจับคู่"));
+    heading.appendChild(title);
     heading.appendChild(createElement("span", "count-chip", "ภาพจำลองประกอบการพิจารณา ไม่ใช่แผนควบรวม"));
     section.appendChild(heading);
 
@@ -794,6 +797,8 @@
     var query = normalize(elements.search.value);
     elements.clearSearch.hidden = !query;
     elements.searchResults.replaceChildren();
+    // มีคำค้นแล้วข้อความตัวอย่างหยุด ล้างคำค้นแล้ว (รวมการล้างจากโค้ด) ขยับต่อ
+    syncSearchHint();
 
     if (!query) {
       elements.searchResults.hidden = true;
@@ -838,6 +843,101 @@
     }
   }
 
+  // ข้อความจางในช่องค้นหา (placeholder) พิมพ์สลับระหว่างค้นหาจังหวัดกับค้นหาเขตพื้นที่การศึกษา
+  // ทุกตัวอย่างค้นแล้วเจอพื้นที่ที่พร้อมดู; ไม่แตะคำที่ผู้ใช้พิมพ์
+  var SEARCH_EXAMPLES = [
+    "ค้นหาจังหวัด เช่น อ่างทอง",
+    "ค้นหาเขตพื้นที่การศึกษา เช่น หนองคาย เขต 1",
+    "ค้นหาจังหวัด เช่น ระยอง",
+    "ค้นหาเขตพื้นที่การศึกษา เช่น เชียงราย เขต 1"
+  ];
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var narrowScreen = window.matchMedia("(max-width: 30rem)");
+  var graphemeSegmenter = (window.Intl && Intl.Segmenter) ? new Intl.Segmenter("th", { granularity: "grapheme" }) : null;
+  var hintSteady = "";
+  var hintShown = [];
+  var hintIndex = 0;
+  var hintTimer = 0;
+  var hintInView = true;
+  var hintStarted = false;
+
+  // แยกเป็นตัวอักษรที่เห็นบนจอ (พยัญชนะพร้อมสระบน/ล่าง สระอำ และวรรณยุกต์) พิมพ์หรือลบแล้วจึงไม่มีสระลอย
+  function splitGraphemes(text) {
+    if (graphemeSegmenter) {
+      return Array.from(graphemeSegmenter.segment(text), function (part) { return part.segment; });
+    }
+    return text.match(/[\s\S][\u0E31\u0E33-\u0E3A\u0E47-\u0E4E]*/g) || [];
+  }
+
+  // ขยับทีละตัว: ลบจนเหลือส่วนต้นที่ตรงกับข้อความถัดไป (เช่น "ค้นหา") พิมพ์ต่อจนครบ ค้างให้อ่าน แล้วเปลี่ยนข้อความ
+  function stepSearchHint() {
+    var phrase = SEARCH_EXAMPLES[hintIndex];
+    // จอแคบใช้คำสั้น "เขตพื้นที่" ข้อความจะได้ไม่ล้นช่อง
+    var target = splitGraphemes(narrowScreen.matches ? phrase.replace("เขตพื้นที่การศึกษา", "เขตพื้นที่") : phrase);
+    var same = 0;
+    var delay = 90;
+    hintStarted = true;
+    while (same < hintShown.length && hintShown[same] === target[same]) {
+      same += 1;
+    }
+    if (same === hintShown.length && same === target.length) {
+      // ครบข้อความ: ค้างให้อ่านนานตามความยาว (ราว 2.5–3 วินาที) แล้วไปข้อความถัดไป
+      hintIndex = (hintIndex + 1) % SEARCH_EXAMPLES.length;
+      delay = 2000 + target.length * 30;
+    } else if (same < hintShown.length) {
+      // ลบเร็วกว่าพิมพ์ ลบถึงส่วนที่เหมือนกันแล้วเว้นจังหวะก่อนพิมพ์
+      hintShown.pop();
+      delay = hintShown.length === same ? 400 : 40;
+      if (!hintShown.length) {
+        // ไม่มีส่วนที่เหมือนกัน (ข้อความนิ่งจาก index.html): ตัวสุดท้ายกลายเป็นตัวแรกของข้อความใหม่ทันที ช่องจึงไม่ว่างเปล่า
+        hintShown.push(target[0]);
+        delay = 90;
+      }
+    } else {
+      hintShown.push(target[same]);
+    }
+    elements.search.placeholder = hintShown.join("");
+    hintTimer = window.setTimeout(stepSearchHint, delay);
+  }
+
+  // ขยับเฉพาะตอนช่องว่าง เคอร์เซอร์ไม่อยู่ในช่อง ช่องอยู่บนจอ และแท็บเปิดอยู่
+  // เคอร์เซอร์อยู่ในช่อง หรือผู้ใช้ตั้งค่าลดการเคลื่อนไหว (prefers-reduced-motion) ให้แสดงข้อความนิ่งจาก index.html แทน
+  function syncSearchHint() {
+    var input = elements.search;
+    var steady = document.activeElement === input || reduceMotion.matches;
+    var run = !steady && !input.value && hintInView && !document.hidden;
+    if (steady) {
+      input.placeholder = hintSteady;
+      hintShown = splitGraphemes(hintSteady);
+    }
+    if (run && !hintTimer) {
+      // ครั้งแรกค้างตัวอย่างจาก index.html ไว้ให้อ่าน 3 วินาที ครั้งต่อไป (เช่น หลังออกจากช่อง) ขยับหลัง 1.2 วินาที
+      hintTimer = window.setTimeout(stepSearchHint, hintStarted ? 1200 : 3000);
+    } else if (!run && hintTimer) {
+      window.clearTimeout(hintTimer);
+      hintTimer = 0;
+    }
+  }
+
+  function setupSearchHint() {
+    hintSteady = elements.search.placeholder;
+    hintShown = splitGraphemes(hintSteady);
+    elements.search.addEventListener("focus", syncSearchHint);
+    elements.search.addEventListener("blur", syncSearchHint);
+    document.addEventListener("visibilitychange", syncSearchHint);
+    if (reduceMotion.addEventListener) {
+      reduceMotion.addEventListener("change", syncSearchHint);
+    }
+    // เลื่อนจอจนช่องค้นหาพ้นจอแล้วหยุด กลับมาแล้วขยับต่อ
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        hintInView = entries[entries.length - 1].isIntersecting;
+        syncSearchHint();
+      }).observe(elements.search);
+    }
+    syncSearchHint();
+  }
+
   function bindEvents() {
     elements.search.addEventListener("input", renderSearchResults);
     elements.search.addEventListener("keydown", function (event) {
@@ -878,6 +978,7 @@
     populateProvinceSelect();
     buildMap();
     bindEvents();
+    setupSearchHint();
     renderRoute();
   }
 
